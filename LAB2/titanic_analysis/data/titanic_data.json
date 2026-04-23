@@ -1,0 +1,7154 @@
+{
+  "statistics": {
+    "total_passengers": 891,
+    "survival_rate": 0.3838383838383838,
+    "average_age": 29.69911764705882,
+    "missing_values": {
+      "PassengerId": 0,
+      "Survived": 0,
+      "Pclass": 0,
+      "Name": 0,
+      "Sex": 0,
+      "Age": 177,
+      "SibSp": 0,
+      "Parch": 0,
+      "Ticket": 0,
+      "Fare": 0,
+      "Cabin": 687,
+      "Embarked": 2,
+      "FamilySize": 0,
+      "IsAlone": 0,
+      "AgeGroup": 0
+    }
+  },
+  "passengers": [
+    {
+      "name": "Braund, Mr. Owen Harris",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Cumings, Mrs. John Bradley (Florence Briggs Thayer)",
+      "age": 38.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Heikkinen, Miss. Laina",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Futrelle, Mrs. Jacques Heath (Lily May Peel)",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Allen, Mr. William Henry",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moran, Mr. James",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McCarthy, Mr. Timothy J",
+      "age": 54.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Palsson, Master. Gosta Leonard",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Nasser, Mrs. Nicholas (Adele Achem)",
+      "age": 14.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Sandstrom, Miss. Marguerite Rut",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Bonnell, Miss. Elizabeth",
+      "age": 58.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Saundercock, Mr. William Henry",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andersson, Mr. Anders Johan",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Vestrom, Miss. Hulda Amanda Adolfina",
+      "age": 14.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hewlett, Mrs. (Mary D Kingcome) ",
+      "age": 55.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rice, Master. Eugene",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Williams, Mr. Charles Eugene",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Masselmani, Mrs. Fatima",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fynney, Mr. Joseph J",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Beesley, Mr. Lawrence",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McGowan, Miss. Anna \"Annie\"",
+      "age": 15.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sloper, Mr. William Thompson",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Palsson, Miss. Torborg Danira",
+      "age": 8.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)",
+      "age": 38.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Emir, Mr. Farred Chehab",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fortune, Mr. Charles Alexander",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "O'Dwyer, Miss. Ellen \"Nellie\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Todoroff, Mr. Lalio",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Uruchurtu, Don. Manuel E",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Spencer, Mrs. William Augustus (Marie Eugenie)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Glynn, Miss. Mary Agatha",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Wheadon, Mr. Edward H",
+      "age": 66.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Meyer, Mr. Edgar Joseph",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Holverson, Mr. Alexander Oskar",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Mamee, Mr. Hanna",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cann, Mr. Ernest Charles",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vander Planke, Miss. Augusta Maria",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Nicola-Yarred, Miss. Jamila",
+      "age": 14.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Ahlin, Mrs. Johan (Johanna Persdotter Larsson)",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kraeff, Mr. Theodor",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Laroche, Miss. Simonne Marie Anne Andree",
+      "age": 3.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Devaney, Miss. Margaret Delia",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rogers, Mr. William John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lennon, Mr. Denis",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "O'Driscoll, Miss. Bridget",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Samaan, Mr. Youssef",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Arnold-Franchi, Mrs. Josef (Josefine Franchi)",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Panula, Master. Juha Niilo",
+      "age": 7.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Nosworthy, Mr. Richard Cater",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harper, Mrs. Henry Sleeper (Myna Haxtun)",
+      "age": 49.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Ostby, Mr. Engelhart Cornelius",
+      "age": 65.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Woolner, Mr. Hugh",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rugg, Miss. Emily",
+      "age": 21.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Novel, Mr. Mansouer",
+      "age": 28.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "West, Miss. Constance Mirium",
+      "age": 5.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Goodwin, Master. William Frederick",
+      "age": 11.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Sirayanian, Mr. Orsen",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Icard, Miss. Amelie",
+      "age": 38.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harris, Mr. Henry Birkhardt",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Skoog, Master. Harald",
+      "age": 4.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Stewart, Mr. Albert A",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moubarek, Master. Gerios",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Nye, Mrs. (Elizabeth Ramell)",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Crease, Mr. Ernest James",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andersson, Miss. Erna Alexandra",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Kink, Mr. Vincenz",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Jenkin, Mr. Stephen Curnow",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goodwin, Miss. Lillian Amy",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Hood, Mr. Ambrose Jr",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chronopoulos, Mr. Apostolos",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Bing, Mr. Lee",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moen, Mr. Sigurd Hansen",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Staneff, Mr. Ivan",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moutal, Mr. Rahamin Haim",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Caldwell, Master. Alden Gates",
+      "age": 0.83,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Dowdell, Miss. Elizabeth",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Waelens, Mr. Achille",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sheerlinck, Mr. Jan Baptist",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McDermott, Miss. Brigdet Delia",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Carrau, Mr. Francisco M",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ilett, Miss. Bertha",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Backstrom, Mrs. Karl Alfred (Maria Mathilda Gustafsson)",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Ford, Mr. William Neal",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Slocovski, Mr. Selman Francis",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fortune, Miss. Mabel Helen",
+      "age": 23.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Celotti, Mr. Francesco",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Christmann, Mr. Emil",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andreasson, Mr. Paul Edvin",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chaffee, Mr. Herbert Fuller",
+      "age": 46.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Dean, Mr. Bertram Frank",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Coxon, Mr. Daniel",
+      "age": 59.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Shorney, Mr. Charles Joseph",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goldschmidt, Mr. George B",
+      "age": 71.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Greenfield, Mr. William Bertram",
+      "age": 23.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Doling, Mrs. John T (Ada Julia Bone)",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kantor, Mr. Sinai",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Petranec, Miss. Matilda",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Petroff, Mr. Pastcho (\"Pentcho\")",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "White, Mr. Richard Frasar",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Johansson, Mr. Gustaf Joel",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gustafsson, Mr. Anders Vilhelm",
+      "age": 37.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Mionoff, Mr. Stoytcho",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Salkjelsvik, Miss. Anna Kristine",
+      "age": 21.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moss, Mr. Albert Johan",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rekic, Mr. Tido",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moran, Miss. Bertha",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Porter, Mr. Walter Chamberlain",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Zabour, Miss. Hileni",
+      "age": 14.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Barton, Mr. David John",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jussila, Miss. Katriina",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Attalah, Miss. Malake",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pekoniemi, Mr. Edvard",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Connors, Mr. Patrick",
+      "age": 70.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Turpin, Mr. William John Robert",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Baxter, Mr. Quigg Edmond",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Andersson, Miss. Ellis Anna Maria",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Hickman, Mr. Stanley George",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Moore, Mr. Leonard Charles",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nasser, Mr. Nicholas",
+      "age": 32.5,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Webber, Miss. Susan",
+      "age": 32.5,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "White, Mr. Percival Wayland",
+      "age": 54.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Nicola-Yarred, Master. Elias",
+      "age": 12.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "McMahon, Mr. Martin",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Madsen, Mr. Fridtjof Arne",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Peter, Miss. Anna",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Ekstrom, Mr. Johan",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Drazenoic, Mr. Jozef",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Coelho, Mr. Domingos Fernandeo",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Robins, Mrs. Alexander A (Grace Charity Laury)",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Weisz, Mrs. Leopold (Mathilde Francoise Pede)",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Sobey, Mr. Samuel James Hayden",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Richard, Mr. Emile",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Newsom, Miss. Helen Monypeny",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Futrelle, Mr. Jacques Heath",
+      "age": 37.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Osen, Mr. Olaf Elon",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Giglio, Mr. Victor",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Boulos, Mrs. Joseph (Sultana)",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Nysten, Miss. Anna Sofia",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hakkarainen, Mrs. Pekka Pietari (Elin Matilda Dolck)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Burke, Mr. Jeremiah",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andrew, Mr. Edgardo Samuel",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nicholls, Mr. Joseph Charles",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Andersson, Mr. August Edvard (\"Wennerstrom\")",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ford, Miss. Robina Maggie \"Ruby\"",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Navratil, Mr. Michel (\"Louis M Hoffman\")",
+      "age": 36.5,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Byles, Rev. Thomas Roussel Davids",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bateman, Rev. Robert James",
+      "age": 51.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pears, Mrs. Thomas (Edith Wearne)",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Meo, Mr. Alfonzo",
+      "age": 55.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "van Billiard, Mr. Austin Blyler",
+      "age": 40.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Olsen, Mr. Ole Martin",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Williams, Mr. Charles Duane",
+      "age": 51.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Gilnagh, Miss. Katherine \"Katie\"",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Corn, Mr. Harry",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Smiljanic, Mr. Mile",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Master. Thomas Henry",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Cribb, Mr. John Hatfield",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Watt, Mrs. James (Elizabeth \"Bessie\" Inglis Milne)",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bengtsson, Mr. John Viktor",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Calic, Mr. Jovo",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Panula, Master. Eino Viljami",
+      "age": 1.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Goldsmith, Master. Frank John William \"Frankie\"",
+      "age": 9.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Chibnall, Mrs. (Edith Martha Bowerman)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Skoog, Mrs. William (Anna Bernhardina Karlsson)",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Baumann, Mr. John D",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ling, Mr. Lee",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Van der hoef, Mr. Wyckoff",
+      "age": 61.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rice, Master. Arthur",
+      "age": 4.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Johnson, Miss. Eleanor Ileen",
+      "age": 1.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Sivola, Mr. Antti Wilhelm",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Smith, Mr. James Clinch",
+      "age": 56.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Klasen, Mr. Klas Albin",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Lefebre, Master. Henry Forbes",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Isham, Miss. Ann Elizabeth",
+      "age": 50.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hale, Mr. Reginald",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Leonard, Mr. Lionel",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Miss. Constance Gladys",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Pernot, Mr. Rene",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Asplund, Master. Clarence Gustaf Hugo",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Becker, Master. Richard F",
+      "age": 1.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Kink-Heilmann, Miss. Luise Gretchen",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Rood, Mr. Hugh Roscoe",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Brien, Mrs. Thomas (Johanna \"Hannah\" Godfrey)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Romaine, Mr. Charles Hallace (\"Mr C Rolmane\")",
+      "age": 45.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bourke, Mr. John",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Turcin, Mr. Stjepan",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pinsky, Mrs. (Rosa)",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Carbines, Mr. William",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andersen-Jensen, Miss. Carla Christine Nielsine",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Navratil, Master. Michel M",
+      "age": 3.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Brown, Mrs. James Joseph (Margaret Tobin)",
+      "age": 44.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lurette, Miss. Elise",
+      "age": 58.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mernagh, Mr. Robert",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Olsen, Mr. Karl Siegwart Andreas",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Madigan, Miss. Margaret \"Maggie\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Yrois, Miss. Henriette (\"Mrs Harbeck\")",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vande Walle, Mr. Nestor Cyriel",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Mr. Frederick",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Johanson, Mr. Jakob Alfred",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Youseff, Mr. Gerious",
+      "age": 45.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cohen, Mr. Gurshon \"Gus\"",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Strom, Miss. Telma Matilda",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Backstrom, Mr. Karl Alfred",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Albimona, Mr. Nassef Cassem",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Carr, Miss. Helen \"Ellen\"",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Blank, Mr. Henry",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ali, Mr. Ahmed",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cameron, Miss. Clear Annie",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Perkin, Mr. John Henry",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Givard, Mr. Hans Kristensen",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kiernan, Mr. Philip",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Newell, Miss. Madeleine",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Honkanen, Miss. Eliina",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jacobsohn, Mr. Sidney Samuel",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Bazzani, Miss. Albina",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harris, Mr. Walter",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sunderland, Mr. Victor Francis",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bracken, Mr. James H",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Green, Mr. George Henry",
+      "age": 51.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nenkoff, Mr. Christo",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hoyt, Mr. Frederick Maxfield",
+      "age": 38.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Berglund, Mr. Karl Ivar Sven",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mellors, Mr. William John",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lovell, Mr. John Hall (\"Henry\")",
+      "age": 20.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fahlstrom, Mr. Arne Jonas",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lefebre, Miss. Mathilde",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Harris, Mrs. Henry Birkhardt (Irene Wallach)",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Larsson, Mr. Bengt Edvin",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sjostedt, Mr. Ernst Adolf",
+      "age": 59.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Asplund, Miss. Lillian Gertrud",
+      "age": 5.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Leyson, Mr. Robert William Norman",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harknett, Miss. Alice Phoebe",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hold, Mr. Stephen",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Collyer, Miss. Marjorie \"Lottie\"",
+      "age": 8.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Pengelly, Mr. Frederick William",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hunt, Mr. George Henry",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Zabour, Miss. Thamine",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Murphy, Miss. Katherine \"Kate\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Coleridge, Mr. Reginald Charles",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Maenpaa, Mr. Matti Alexanteri",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Attalah, Mr. Sleiman",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Minahan, Dr. William Edward",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Lindahl, Miss. Agda Thorilda Viktoria",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hamalainen, Mrs. William (Anna)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Beckwith, Mr. Richard Leonard",
+      "age": 37.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Carter, Rev. Ernest Courtenay",
+      "age": 54.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Reed, Mr. James George",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Strom, Mrs. Wilhelm (Elna Matilda Persson)",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Stead, Mr. William Thomas",
+      "age": 62.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lobb, Mr. William Arthur",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Rosblom, Mrs. Viktor (Helena Wilhelmina)",
+      "age": 41.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Touma, Mrs. Darwis (Hanne Youssef Razi)",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Thorne, Mrs. Gertrude Maybelle",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cherry, Miss. Gladys",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ward, Miss. Anna",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Parrish, Mrs. (Lutie Davis)",
+      "age": 50.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Smith, Mr. Thomas",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Asplund, Master. Edvin Rojj Felix",
+      "age": 3.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Taussig, Mr. Emil",
+      "age": 52.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Harrison, Mr. William",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Henry, Miss. Delia",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Reeves, Mr. David",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Panula, Mr. Ernesti Arvid",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Persson, Mr. Ernst Ulrik",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Graham, Mrs. William Thompson (Edith Junkins)",
+      "age": 58.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Bissette, Miss. Amelia",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cairns, Mr. Alexander",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Tornquist, Mr. William Henry",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mellinger, Mrs. (Elizabeth Anne Maidment)",
+      "age": 41.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Natsch, Mr. Charles H",
+      "age": 37.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Healy, Miss. Hanora \"Nora\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andrews, Miss. Kornelia Theodosia",
+      "age": 63.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Lindblom, Miss. Augusta Charlotta",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Parkes, Mr. Francis \"Frank\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rice, Master. Eric",
+      "age": 7.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Abbott, Mrs. Stanton (Rosa Hunt)",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Duane, Mr. Frank",
+      "age": 65.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Olsson, Mr. Nils Johan Goransson",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "de Pelsmaeker, Mr. Alfons",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dorking, Mr. Edward Arthur",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Smith, Mr. Richard William",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stankovic, Mr. Ivan",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "de Mulder, Mr. Theodore",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Naidenoff, Mr. Penko",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hosono, Mr. Masabumi",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Connolly, Miss. Kate",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Barber, Miss. Ellen \"Nellie\"",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bishop, Mrs. Dickinson H (Helen Walton)",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Levy, Mr. Rene Jacques",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Haas, Miss. Aloisia",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mineff, Mr. Ivan",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lewy, Mr. Ervin G",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hanna, Mr. Mansour",
+      "age": 23.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Allison, Miss. Helen Loraine",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Saalfeld, Mr. Adolphe",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Baxter, Mrs. James (Helene DeLaudeniere Chaput)",
+      "age": 50.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kelly, Miss. Anna Katherine \"Annie Kate\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McCoy, Mr. Bernard",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Johnson, Mr. William Cahoone Jr",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Keane, Miss. Nora A",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Williams, Mr. Howard Hugh \"Harry\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Allison, Master. Hudson Trevor",
+      "age": 0.92,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Fleming, Miss. Margaret",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Penasco y Castellana, Mrs. Victor de Satode (Maria Josefa Perez de Soto y Vallejo)",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Abelson, Mr. Samuel",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Francatelli, Miss. Laura Mabel",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hays, Miss. Margaret Bechstein",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ryerson, Miss. Emily Borie",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Lahtinen, Mrs. William (Anna Sylfven)",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Hendekovic, Mr. Ignjac",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hart, Mr. Benjamin",
+      "age": 43.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Nilsson, Miss. Helmina Josefina",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kantor, Mrs. Sinai (Miriam Sternin)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Moraweck, Dr. Ernest",
+      "age": 54.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Wick, Miss. Mary Natalie",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Spedden, Mrs. Frederic Oakley (Margaretta Corning Stone)",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Dennis, Mr. Samuel",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Danoff, Mr. Yoto",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Slayter, Miss. Hilda Mary",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Caldwell, Mrs. Albert Francis (Sylvia Mae Harbaugh)",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Sage, Mr. George John Jr",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Young, Miss. Marie Grice",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nysveen, Mr. Johan Hansen",
+      "age": 61.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ball, Mrs. (Ada E Hall)",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goldsmith, Mrs. Frank John (Emily Alice Brown)",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Hippach, Miss. Jean Gertrude",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "McCoy, Miss. Agnes",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Partner, Mr. Austen",
+      "age": 45.5,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Graham, Mr. George Edward",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Vander Planke, Mr. Leo Edmondus",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Frauenthal, Mrs. Henry William (Clara Heinsheimer)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Denkoff, Mr. Mitto",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pears, Mr. Thomas Clinton",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Burns, Miss. Elizabeth Margaret",
+      "age": 41.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dahl, Mr. Karl Edwart",
+      "age": 45.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Blackwell, Mr. Stephen Weart",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Navratil, Master. Edmond Roger",
+      "age": 2.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Fortune, Miss. Alice Elizabeth",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Collander, Mr. Erik Gustaf",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sedgwick, Mr. Charles Frederick Waddington",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fox, Mr. Stanley Hubert",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Brown, Miss. Amelia \"Mildred\"",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Smith, Miss. Marion Elsie",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Davison, Mrs. Thomas Henry (Mary E Finck)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Coutts, Master. William Loch \"William\"",
+      "age": 3.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Dimic, Mr. Jovan",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Odahl, Mr. Nils Martin",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Williams-Lambert, Mr. Fletcher Fellows",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Elias, Mr. Tannous",
+      "age": 15.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Arnold-Franchi, Mr. Josef",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Yousif, Mr. Wazli",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vanden Steen, Mr. Leo Peter",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bowerman, Miss. Elsie Edith",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Funk, Miss. Annie Clemmer",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McGovern, Miss. Mary",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mockler, Miss. Helen Mary \"Ellie\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Skoog, Mr. Wilhelm",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "del Carlo, Mr. Sebastiano",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Barbara, Mrs. (Catherine David)",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Asim, Mr. Adola",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Brien, Mr. Thomas",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Adahl, Mr. Mauritz Nils Martin",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Warren, Mrs. Frank Manley (Anna Sophia Atkinson)",
+      "age": 60.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Moussa, Mrs. (Mantoura Boulos)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jermyn, Miss. Annie",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Aubart, Mme. Leontine Pauline",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harder, Mr. George Achilles",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Wiklund, Mr. Jakob Alfred",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Beavan, Mr. William Thomas",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ringhini, Mr. Sante",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Palsson, Miss. Stina Viola",
+      "age": 3.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Meyer, Mrs. Edgar Joseph (Leila Saks)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Landergren, Miss. Aurora Adelia",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Widener, Mr. Harry Elkins",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Betros, Mr. Tannous",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gustafsson, Mr. Karl Gideon",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bidois, Miss. Rosalie",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nakid, Miss. Maria (\"Mary\")",
+      "age": 1.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Tikkanen, Mr. Juho",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Holverson, Mrs. Alexander Oskar (Mary Aline Towner)",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Plotcharsky, Mr. Vasil",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Davies, Mr. Charles Henry",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goodwin, Master. Sidney Leonard",
+      "age": 1.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Buss, Miss. Kate",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sadlier, Mr. Matthew",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lehmann, Miss. Bertha",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Carter, Mr. William Ernest",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Jansson, Mr. Carl Olof",
+      "age": 21.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gustafsson, Mr. Johan Birger",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Newell, Miss. Marjorie",
+      "age": 23.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Sandstrom, Mrs. Hjalmar (Agnes Charlotta Bengtsson)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Johansson, Mr. Erik",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Olsson, Miss. Elina",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McKane, Mr. Peter David",
+      "age": 46.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pain, Dr. Alfred",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Trout, Mrs. William H (Jessie L)",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Niskanen, Mr. Juha",
+      "age": 39.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Adams, Mr. John",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jussila, Miss. Mari Aina",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Hakkarainen, Mr. Pekka Pietari",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Oreskovic, Miss. Marija",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gale, Mr. Shadrach",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Widegren, Mr. Carl/Charles Peter",
+      "age": 51.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Richards, Master. William Rowe",
+      "age": 3.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Birkeland, Mr. Hans Martin Monsen",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lefebre, Miss. Ida",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Sdycoff, Mr. Todor",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hart, Mr. Henry",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Minahan, Miss. Daisy E",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Cunningham, Mr. Alfred Fleming",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sundman, Mr. Johan Julian",
+      "age": 44.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Meek, Mrs. Thomas (Annie Louise Rowley)",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Drew, Mrs. James Vivian (Lulu Thorne Christian)",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Silven, Miss. Lyyli Karoliina",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Matthews, Mr. William John",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Van Impe, Miss. Catharina",
+      "age": 10.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Gheorgheff, Mr. Stanio",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Charters, Mr. David",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Zimmerman, Mr. Leo",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Danbom, Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren)",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Rosblom, Mr. Viktor Richard",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Wiseman, Mr. Phillippe",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Clarke, Mrs. Charles V (Ada Maria Winfield)",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Phillips, Miss. Kate Florence (\"Mrs Kate Louise Phillips Marshall\")",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Flynn, Mr. James",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pickard, Mr. Berk (Berk Trembisky)",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bjornstrom-Steffansson, Mr. Mauritz Hakan",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Thorneycroft, Mrs. Percival (Florence Kate White)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Louch, Mrs. Charles Alexander (Alice Adelaide Slow)",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kallio, Mr. Nikolai Erland",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Silvey, Mr. William Baird",
+      "age": 50.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Carter, Miss. Lucile Polk",
+      "age": 14.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Ford, Miss. Doolina Margaret \"Daisy\"",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Richards, Mrs. Sidney (Emily Hocking)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Fortune, Mr. Mark",
+      "age": 64.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Kvillner, Mr. Johan Henrik Johannesson",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hart, Mrs. Benjamin (Esther Ada Bloomfield)",
+      "age": 45.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Hampe, Mr. Leon",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Petterson, Mr. Johan Emil",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Reynaldo, Ms. Encarnacion",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johannesen-Bratthammer, Mr. Bernt",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dodge, Master. Washington",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Mellinger, Miss. Madeleine Violet",
+      "age": 13.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Seward, Mr. Frederic Kimber",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Baclini, Miss. Marie Catherine",
+      "age": 5.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Peuchen, Major. Arthur Godfrey",
+      "age": 52.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "West, Mr. Edwy Arthur",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Hagland, Mr. Ingvald Olai Olsen",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Foreman, Mr. Benjamin Laventall",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goldenberg, Mr. Samuel L",
+      "age": 49.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Peduzzi, Mr. Joseph",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jalsevac, Mr. Ivan",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Millet, Mr. Francis Davis",
+      "age": 65.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kenyon, Mrs. Frederick R (Marion)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Toomey, Miss. Ellen",
+      "age": 50.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Connor, Mr. Maurice",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Anderson, Mr. Harry",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Morley, Mr. William",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gee, Mr. Arthur H",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Milling, Mr. Jacob Christian",
+      "age": 48.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Maisner, Mr. Simon",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goncalves, Mr. Manuel Estanslas",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Campbell, Mr. William",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Smart, Mr. John Montgomery",
+      "age": 56.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Scanlan, Mr. James",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Baclini, Miss. Helene Barbara",
+      "age": 0.75,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Keefe, Mr. Arthur",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cacic, Mr. Luka",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "West, Mrs. Edwy Arthur (Ada Mary Worth)",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Jerwan, Mrs. Amin S (Marie Marthe Thuillard)",
+      "age": 23.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Strandberg, Miss. Ida Sofia",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Clifford, Mr. George Quincy",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Renouf, Mr. Peter Henry",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Braund, Mr. Lewis Richard",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Karlsson, Mr. Nils August",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hirvonen, Miss. Hildur E",
+      "age": 2.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Goodwin, Master. Harold Victor",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Frost, Mr. Anthony Wood \"Archie\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rouse, Mr. Richard Henry",
+      "age": 50.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Turkula, Mrs. (Hedwig)",
+      "age": 63.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bishop, Mr. Dickinson H",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Lefebre, Miss. Jeannie",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Hoyt, Mrs. Frederick Maxfield (Jane Anne Forby)",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kent, Mr. Edward Austin",
+      "age": 58.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Somerton, Mr. Francis William",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Coutts, Master. Eden Leslie \"Neville\"",
+      "age": 9.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Hagland, Mr. Konrad Mathias Reiersen",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Windelov, Mr. Einar",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Molson, Mr. Harry Markland",
+      "age": 55.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Artagaveytia, Mr. Ramon",
+      "age": 71.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stanley, Mr. Edward Roland",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Yousseff, Mr. Gerious",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Eustis, Miss. Elizabeth Mussey",
+      "age": 54.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Shellard, Mr. Frederick William",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Allison, Mrs. Hudson J C (Bessie Waldo Daniels)",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Svensson, Mr. Olof",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Calic, Mr. Petar",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Canavan, Miss. Mary",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Sullivan, Miss. Bridget Mary",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Laitinen, Miss. Kristina Sofia",
+      "age": 37.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Maioni, Miss. Roberta",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Penasco y Castellana, Mr. Victor de Satode",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Quick, Mrs. Frederick Charles (Jane Richards)",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Bradley, Mr. George (\"George Arthur Brayton\")",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Olsen, Mr. Henry Margido",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lang, Mr. Fang",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Daly, Mr. Eugene Patrick",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Webber, Mr. James",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McGough, Mr. James Robert",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rothschild, Mrs. Martin (Elizabeth L. Barrett)",
+      "age": 54.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Coleff, Mr. Satio",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Walker, Mr. William Anderson",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lemore, Mrs. (Amelia Milley)",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ryan, Mr. Patrick",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Angle, Mrs. William A (Florence \"Mary\" Agnes Hughes)",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Pavlovic, Mr. Stefo",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Perreault, Miss. Anne",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vovk, Mr. Janko",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lahoud, Mr. Sarkis",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hippach, Mrs. Louis Albert (Ida Sophia Fischer)",
+      "age": 44.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kassem, Mr. Fared",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Farrell, Mr. James",
+      "age": 40.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ridsdale, Miss. Lucy",
+      "age": 50.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Farthing, Mr. John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Salonen, Mr. Johan Werner",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hocking, Mr. Richard George",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Quick, Miss. Phyllis May",
+      "age": 2.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Toufik, Mr. Nakli",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Elias, Mr. Joseph Jr",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Peter, Mrs. Catherine (Catherine Rizk)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Cacic, Miss. Marija",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hart, Miss. Eva Miriam",
+      "age": 7.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Butt, Major. Archibald Willingham",
+      "age": 45.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "LeRoy, Miss. Bertha",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Risien, Mr. Samuel Beard",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Frolicher, Miss. Hedwig Margaritha",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Crosby, Miss. Harriet R",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Andersson, Miss. Ingeborg Constanzia",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Andersson, Miss. Sigrid Elisabeth",
+      "age": 11.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Beane, Mr. Edward",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Douglas, Mr. Walter Donald",
+      "age": 50.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Nicholson, Mr. Arthur Ernest",
+      "age": 64.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Beane, Mrs. Edward (Ethel Clarke)",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Padro y Manent, Mr. Julian",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goldsmith, Mr. Frank John",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Davies, Master. John Morgan Jr",
+      "age": 8.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Thayer, Mr. John Borland Jr",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Sharp, Mr. Percival James R",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Brien, Mr. Timothy",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Leeni, Mr. Fahim (\"Philip Zenni\")",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ohman, Miss. Velin",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Wright, Mr. George",
+      "age": 62.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Duff Gordon, Lady. (Lucille Christiana Sutherland) (\"Mrs Morgan\")",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Robbins, Mr. Victor",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Taussig, Mrs. Emil (Tillie Mandelbaum)",
+      "age": 39.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "de Messemaeker, Mrs. Guillaume Joseph (Emma)",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Morrow, Mr. Thomas Rowan",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sivic, Mr. Husein",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Norman, Mr. Robert Douglas",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Simmons, Mr. John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Meanwell, Miss. (Marion Ogden)",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Davies, Mr. Alfred J",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Stoytcheff, Mr. Ilia",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Palsson, Mrs. Nils (Alma Cornelia Berglund)",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Doharr, Mr. Tannous",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jonsson, Mr. Carl",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harris, Mr. George",
+      "age": 62.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Appleton, Mrs. Edward Dale (Charlotte Lamson)",
+      "age": 53.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Flynn, Mr. John Irwin (\"Irving\")",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kelly, Miss. Mary",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rush, Mr. Alfred George John",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Patchett, Mr. George",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Garside, Miss. Ethel",
+      "age": 34.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Silvey, Mrs. William Baird (Alice Munger)",
+      "age": 39.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Caram, Mrs. Joseph (Maria Elias)",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Jussila, Mr. Eiriik",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Christy, Miss. Julie Rachel",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Thayer, Mrs. John Borland (Marian Longstreth Morris)",
+      "age": 39.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Downton, Mr. William James",
+      "age": 54.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ross, Mr. John Hugo",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Paulner, Mr. Uscher",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Taussig, Miss. Ruth",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Jarvis, Mr. John Denzil",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Frolicher-Stehli, Mr. Maxmillian",
+      "age": 60.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Gilinski, Mr. Eliezer",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Murdlin, Mr. Joseph",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rintamaki, Mr. Matti",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stephenson, Mrs. Walter Bertram (Martha Eustis)",
+      "age": 52.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Elsbury, Mr. William James",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bourke, Miss. Mary",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Chapman, Mr. John Henry",
+      "age": 37.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Van Impe, Mr. Jean Baptiste",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Leitch, Miss. Jessie Wills",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johnson, Mr. Alfred",
+      "age": 49.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Boulos, Mr. Hanna",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Duff Gordon, Sir. Cosmo Edmund (\"Mr Morgan\")",
+      "age": 49.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Jacobsohn, Mrs. Sidney Samuel (Amy Frances Christy)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Slabenoff, Mr. Petco",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harrington, Mr. Charles H",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Torber, Mr. Ernst William",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Homer, Mr. Harry (\"Mr E Haven\")",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lindell, Mr. Edvard Bengtsson",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Karaic, Mr. Milan",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Daniel, Mr. Robert Williams",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Laroche, Mrs. Joseph (Juliette Marie Louise Lafargue)",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Shutes, Miss. Elizabeth W",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andersson, Mrs. Anders Johan (Alfrida Konstantia Brogren)",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Jardin, Mr. Jose Neto",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Murphy, Miss. Margaret Jane",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Horgan, Mr. John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Brocklebank, Mr. William Alfred",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Herman, Miss. Alice",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Danbom, Mr. Ernst Gilbert",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Lobb, Mrs. William Arthur (Cordelia K Stanlick)",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Becker, Miss. Marion Louise",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Gavey, Mr. Lawrence",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Yasbeck, Mr. Antoni",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kimball, Mr. Edwin Nelson Jr",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Nakid, Mr. Sahid",
+      "age": 20.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Hansen, Mr. Henry Damsgaard",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bowen, Mr. David John \"Dai\"",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sutton, Mr. Frederick",
+      "age": 61.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kirkland, Rev. Charles Leonard",
+      "age": 57.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Longley, Miss. Gretchen Fiske",
+      "age": 21.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bostandyeff, Mr. Guentcho",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Connell, Mr. Patrick D",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Barkworth, Mr. Algernon Henry Wilson",
+      "age": 80.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lundahl, Mr. Johan Svensson",
+      "age": 51.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stahelin-Maeglin, Dr. Max",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Parr, Mr. William Henry Marsh",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Skoog, Miss. Mabel",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Davis, Miss. Mary",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Leinonen, Mr. Antti Gustaf",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Collyer, Mr. Harvey",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Panula, Mrs. Juha (Maria Emilia Ojala)",
+      "age": 41.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Thorneycroft, Mr. Percival",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Jensen, Mr. Hans Peder",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sagesser, Mlle. Emma",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Skoog, Miss. Margit Elizabeth",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Foo, Mr. Choong",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Baclini, Miss. Eugenie",
+      "age": 0.75,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Harper, Mr. Henry Sleeper",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Cor, Mr. Liudevit",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Simonius-Blumer, Col. Oberst Alfons",
+      "age": 56.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Willey, Mr. Edward",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stanley, Miss. Amy Zillah Elsie",
+      "age": 23.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mitkoff, Mr. Mito",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Doling, Miss. Elsie",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Kalvik, Mr. Johannes Halvorsen",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "O'Leary, Miss. Hanora \"Norah\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hegarty, Miss. Hanora \"Nora\"",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hickman, Mr. Leonard Mark",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Radeff, Mr. Alexander",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bourke, Mrs. John (Catherine)",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Eitemiller, Mr. George Floyd",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Newell, Mr. Arthur Webster",
+      "age": 58.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Frauenthal, Dr. Henry William",
+      "age": 50.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Badt, Mr. Mohamed",
+      "age": 40.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Colley, Mr. Edward Pomeroy",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Coleff, Mr. Peju",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lindqvist, Mr. Eino William",
+      "age": 20.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Hickman, Mr. Lewis",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Butler, Mr. Reginald Fenton",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rommetvedt, Mr. Knud Paust",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cook, Mr. Jacob",
+      "age": 43.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Taylor, Mrs. Elmer Zebley (Juliet Cummins Wright)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Brown, Mrs. Thomas William Solomon (Elizabeth Catherine Ford)",
+      "age": 40.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Davidson, Mr. Thornton",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Mitchell, Mr. Henry Michael",
+      "age": 70.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Wilhelms, Mr. Charles",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Watson, Mr. Ennis Hastings",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Edvardsson, Mr. Gustaf Hjalmar",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sawyer, Mr. Frederick Charles",
+      "age": 24.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Turja, Miss. Anna Sofia",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goodwin, Mrs. Frederick (Augusta Tyler)",
+      "age": 43.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Cardeza, Mr. Thomas Drake Martinez",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Peters, Miss. Katie",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hassab, Mr. Hammad",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Olsvigen, Mr. Thor Anderson",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Goodwin, Mr. Charles Edward",
+      "age": 14.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 8,
+      "is_alone": 0
+    },
+    {
+      "name": "Brown, Mr. Thomas William Solomon",
+      "age": 60.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Laroche, Mr. Joseph Philippe Lemercier",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Panula, Mr. Jaako Arnold",
+      "age": 14.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Dakic, Mr. Branko",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fischer, Mr. Eberhard Thelander",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Madill, Miss. Georgette Alexandra",
+      "age": 15.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Dick, Mr. Albert Adrian",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Karun, Miss. Manca",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Lam, Mr. Ali",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Saad, Mr. Khalil",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Weir, Col. John",
+      "age": 60.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chapman, Mr. Charles Henry",
+      "age": 52.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kelly, Mr. James",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mullens, Miss. Katherine \"Katie\"",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Thayer, Mr. John Borland",
+      "age": 49.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Humblen, Mr. Adolf Mathias Nicolai Olsen",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Astor, Mrs. John Jacob (Madeleine Talmadge Force)",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Silverthorne, Mr. Spencer Victor",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Barbara, Miss. Saiide",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Gallagher, Mr. Martin",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hansen, Mr. Henrik Juul",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Morley, Mr. Henry Samuel (\"Mr Henry Marshall\")",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kelly, Mrs. Florence \"Fannie\"",
+      "age": 45.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Calderhead, Mr. Edward Pennington",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cleaver, Miss. Alice",
+      "age": 22.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moubarek, Master. Halim Gonios (\"William George\")",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Mayne, Mlle. Berthe Antonine (\"Mrs de Villiers\")",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Klaber, Mr. Herman",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Taylor, Mr. Elmer Zebley",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Larsson, Mr. August Viktor",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Greenberg, Mr. Samuel",
+      "age": 52.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Soholt, Mr. Peter Andreas Lauritz Andersen",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Endres, Miss. Caroline Louise",
+      "age": 38.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Troutt, Miss. Edwina Celia \"Winnie\"",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "McEvoy, Mr. Michael",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johnson, Mr. Malkolm Joackim",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harper, Miss. Annie Jessie \"Nina\"",
+      "age": 6.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Jensen, Mr. Svend Lauritz",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Gillespie, Mr. William Henry",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hodges, Mr. Henry Price",
+      "age": 50.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chambers, Mr. Norman Campbell",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Oreskovic, Mr. Luka",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Renouf, Mrs. Peter Henry (Lillian Jefferys)",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Mannion, Miss. Margareth",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bryhl, Mr. Kurt Arnold Gottfrid",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Ilmakangas, Miss. Pieta Sofia",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Allen, Miss. Elisabeth Walton",
+      "age": 29.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hassan, Mr. Houssein G N",
+      "age": 11.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Knight, Mr. Robert J",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Berriman, Mr. William John",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Troupiansky, Mr. Moses Aaron",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Williams, Mr. Leslie",
+      "age": 28.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ford, Mrs. Edward (Margaret Ann Watson)",
+      "age": 48.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Lesurer, Mr. Gustave J",
+      "age": 35.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ivanoff, Mr. Kanio",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nankoff, Mr. Minko",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hawksford, Mr. Walter James",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Cavendish, Mr. Tyrell William",
+      "age": 36.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Ryerson, Miss. Susan Parker \"Suzette\"",
+      "age": 21.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "McNamee, Mr. Neal",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Stranden, Mr. Juho",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Crosby, Capt. Edward Gifford",
+      "age": 70.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Abbott, Mr. Rossmore Edward",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Sinkkonen, Miss. Anna",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Marvin, Mr. Daniel Warner",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Connaghton, Mr. Michael",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Wells, Miss. Joan",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Moor, Master. Meier",
+      "age": 6.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Vande Velde, Mr. Johannes Joseph",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jonkoff, Mr. Lalio",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Herman, Mrs. Samuel (Jane Laver)",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Hamalainen, Master. Viljo",
+      "age": 0.67,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Carlsson, Mr. August Sigfrid",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bailey, Mr. Percy Andrew",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Theobald, Mr. Thomas Leonard",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rothes, the Countess. of (Lucy Noel Martha Dyer-Edwards)",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Garfirth, Mr. John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Nirva, Mr. Iisakki Antino Aijo",
+      "age": 41.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Barah, Mr. Hanna Assi",
+      "age": 20.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Carter, Mrs. William Ernest (Lucile Polk)",
+      "age": 36.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Eklund, Mr. Hans Linus",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hogeboom, Mrs. John C (Anna Andrews)",
+      "age": 51.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Brewe, Dr. Arthur Jackson",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mangan, Miss. Mary",
+      "age": 30.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moran, Mr. Daniel J",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Gronnestad, Mr. Daniel Danielsen",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lievens, Mr. Rene Aime",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Jensen, Mr. Niels Peder",
+      "age": 48.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mack, Mrs. (Mary)",
+      "age": 57.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Elias, Mr. Dibo",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hocking, Mrs. Elizabeth (Eliza Needs)",
+      "age": 54.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 5,
+      "is_alone": 0
+    },
+    {
+      "name": "Myhrman, Mr. Pehr Fabian Oliver Malkolm",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Tobin, Mr. Roger",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Emanuel, Miss. Virginia Ethel",
+      "age": 5.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Kilgannon, Mr. Thomas J",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Robert, Mrs. Edward Scott (Elisabeth Walton McMillan)",
+      "age": 43.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Ayoub, Miss. Banoura",
+      "age": 13.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dick, Mrs. Albert Adrian (Vera Gillespie)",
+      "age": 17.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Long, Mr. Milton Clyde",
+      "age": 29.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johnston, Mr. Andrew G",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Ali, Mr. William",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harmer, Mr. Abraham (David Lishin)",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sjoblom, Miss. Anna Sofia",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rice, Master. George Hugh",
+      "age": 8.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Dean, Master. Bertram Vere",
+      "age": 1.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Guggenheim, Mr. Benjamin",
+      "age": 46.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Keane, Mr. Andrew \"Andy\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gaskell, Mr. Alfred",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Miss. Stella Anna",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Hoyt, Mr. William Fisher",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dantcheff, Mr. Ristiu",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Otter, Mr. Richard",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Leader, Dr. Alice (Farnham)",
+      "age": 49.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Osman, Mrs. Mara",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Ibrahim Shawah, Mr. Yousseff",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Van Impe, Mrs. Jean Baptiste (Rosalie Paula Govaert)",
+      "age": 30.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Ponesell, Mr. Martin",
+      "age": 34.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Collyer, Mrs. Harvey (Charlotte Annie Tate)",
+      "age": 31.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Carter, Master. William Thornton II",
+      "age": 11.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Thomas, Master. Assad Alexander",
+      "age": 0.42,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Hedman, Mr. Oskar Arvid",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johansson, Mr. Karl Johan",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andrews, Mr. Thomas Jr",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Pettersson, Miss. Ellen Natalia",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Meyer, Mr. August",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chambers, Mrs. Norman Campbell (Bertha Griggs)",
+      "age": 33.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Alexander, Mr. William",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lester, Mr. James",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Slemen, Mr. Richard James",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Andersson, Miss. Ebba Iris Alfrida",
+      "age": 6.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Tomlin, Mr. Ernest Portage",
+      "age": 30.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Fry, Mr. Richard",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Heininen, Miss. Wendla Maria",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mallet, Mr. Albert",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Holm, Mr. John Fredrik Alexander",
+      "age": 43.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Skoog, Master. Karl Thorsten",
+      "age": 10.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Hays, Mrs. Charles Melville (Clara Jennings Gregg)",
+      "age": 52.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Lulic, Mr. Nikola",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Reuchlin, Jonkheer. John George",
+      "age": 38.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Moor, Mrs. (Beila)",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Panula, Master. Urho Abraham",
+      "age": 2.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Flynn, Mr. John",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lam, Mr. Len",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mallet, Master. Andre",
+      "age": 1.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "McCormack, Mr. Thomas Joseph",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Stone, Mrs. George Nelson (Martha Evelyn)",
+      "age": 62.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Yasbeck, Mrs. Antoni (Selini Alexander)",
+      "age": 15.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Richards, Master. George Sibley",
+      "age": 0.83,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Saad, Mr. Amin",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Augustsson, Mr. Albert",
+      "age": 23.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Allum, Mr. Owen George",
+      "age": 18.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Compton, Miss. Sara Rebecca",
+      "age": 39.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Pasic, Mr. Jakob",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sirota, Mr. Maurice",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Chip, Mr. Chang",
+      "age": 32.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Marechal, Mr. Pierre",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Alhomaki, Mr. Ilmari Rudolf",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Mudd, Mr. Thomas Charles",
+      "age": 16.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Serepeca, Miss. Augusta",
+      "age": 30.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Lemberopolous, Mr. Peter L",
+      "age": 34.5,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Culumovic, Mr. Jeso",
+      "age": 17.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Abbing, Mr. Anthony",
+      "age": 42.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Mr. Douglas Bullen",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Markoff, Mr. Marin",
+      "age": 35.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Harper, Rev. John",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Goldenberg, Mrs. Samuel L (Edwiga Grabowska)",
+      "age": NaN,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Andersson, Master. Sigvard Harald Elias",
+      "age": 4.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 7,
+      "is_alone": 0
+    },
+    {
+      "name": "Svensson, Mr. Johan",
+      "age": 74.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Boulos, Miss. Nourelain",
+      "age": 9.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Lines, Miss. Mary Conover",
+      "age": 16.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Carter, Mrs. Ernest Courtenay (Lilian Hughes)",
+      "age": 44.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Aks, Mrs. Sam (Leah Rosen)",
+      "age": 18.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Wick, Mrs. George Dennick (Mary Hitchcock)",
+      "age": 45.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Daly, Mr. Peter Denis ",
+      "age": 51.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Baclini, Mrs. Solomon (Latifa Qurban)",
+      "age": 24.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Razi, Mr. Raihed",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Hansen, Mr. Claus Peter",
+      "age": 41.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Giles, Mr. Frederick Edward",
+      "age": 21.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Swift, Mrs. Frederick Joel (Margaret Welles Barron)",
+      "age": 48.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sage, Miss. Dorothy Edith \"Dolly\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 11,
+      "is_alone": 0
+    },
+    {
+      "name": "Gill, Mr. John William",
+      "age": 24.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Bystrom, Mrs. (Karolina)",
+      "age": 42.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Duran y More, Miss. Asuncion",
+      "age": 27.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Roebling, Mr. Washington Augustus II",
+      "age": 31.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "van Melkebeke, Mr. Philemon",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johnson, Master. Harold Theodor",
+      "age": 4.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Balkic, Mr. Cerin",
+      "age": 26.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Beckwith, Mrs. Richard Leonard (Sallie Monypeny)",
+      "age": 47.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 3,
+      "is_alone": 0
+    },
+    {
+      "name": "Carlsson, Mr. Frans Olof",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Vander Cruyssen, Mr. Victor",
+      "age": 47.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Abelson, Mrs. Samuel (Hannah Wizosky)",
+      "age": 28.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Najib, Miss. Adele Kiamie \"Jane\"",
+      "age": 15.0,
+      "survived": 1,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Gustafsson, Mr. Alfred Ossian",
+      "age": 20.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Petroff, Mr. Nedelio",
+      "age": 19.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Laleff, Mr. Kristo",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)",
+      "age": 56.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Shelley, Mrs. William (Imanita Parrish Hall)",
+      "age": 25.0,
+      "survived": 1,
+      "pclass": 2,
+      "family_size": 2,
+      "is_alone": 0
+    },
+    {
+      "name": "Markun, Mr. Johann",
+      "age": 33.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dahlberg, Miss. Gerda Ulrika",
+      "age": 22.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Banfield, Mr. Frederick James",
+      "age": 28.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Sutehall, Mr. Henry Jr",
+      "age": 25.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Rice, Mrs. William (Margaret Norton)",
+      "age": 39.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 6,
+      "is_alone": 0
+    },
+    {
+      "name": "Montvila, Rev. Juozas",
+      "age": 27.0,
+      "survived": 0,
+      "pclass": 2,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Graham, Miss. Margaret Edith",
+      "age": 19.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Johnston, Miss. Catherine Helen \"Carrie\"",
+      "age": NaN,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 4,
+      "is_alone": 0
+    },
+    {
+      "name": "Behr, Mr. Karl Howell",
+      "age": 26.0,
+      "survived": 1,
+      "pclass": 1,
+      "family_size": 1,
+      "is_alone": 1
+    },
+    {
+      "name": "Dooley, Mr. Patrick",
+      "age": 32.0,
+      "survived": 0,
+      "pclass": 3,
+      "family_size": 1,
+      "is_alone": 1
+    }
+  ]
+}
