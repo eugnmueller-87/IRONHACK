@@ -21,7 +21,7 @@ by improving the instructions you give it — three tasks, three rounds of impro
 | Task | What it does | Example input | Expected output |
 |------|-------------|---------------|-----------------|
 | **A — Sentiment** | Label a customer message | *"I love this product!"* | `Positive` |
-| **B — Product Description** | Write a product blurb | *Wireless mouse, $29.99* | 3-sentence description |
+| **B — Product Description** | Write a product blurb | *Joerges Gorilla Espresso Impianto, 1 kg, €29.99* | 3-sentence description |
 | **C — Data Extraction** | Pull facts from text | *"Order #12345 arrived damaged"* | `{"order_id": "12345", ...}` |
 
 ---
