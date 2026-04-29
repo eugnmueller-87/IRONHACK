@@ -1,0 +1,6 @@
+__pycache__/
+.gradio/
+.env
+test_audio/
+outputs/
+*.pyc
