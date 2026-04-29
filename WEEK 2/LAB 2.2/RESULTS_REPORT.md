@@ -32,6 +32,102 @@ Each version was run 15 times to measure how consistent the output was.
 
 ---
 
+## The Journey — Where Results Went and Why
+
+Each █ block = 1 passing run out of 15. Each ░ block = 1 failing run.
+
+---
+
+### Sentiment Analysis — 66.7% → 93.3% → 100%
+
+```
+v1  ██████████░░░░░  10/15 = 66.7%
+v2  ██████████████░  14/15 = 93.3%
+v3  ███████████████  15/15 = 100%
+```
+
+**Why v1 scored 66.7%**
+The prompt had no format rule. The model knew the answer was "Positive" every time —
+but chose its own phrasing. 5 runs invented sentences like "The sentiment is positive."
+or "Positive sentiment." instead of the single word expected.
+
+**Why v2 jumped to 93.3% (+26.6 pts)**
+Adding "respond with only that single word" eliminated the sentence-style responses.
+The one remaining failure was a trailing period (`Positive.`) — the model followed the
+rule but added punctuation the rule forgot to ban.
+
+**Why v3 reached 100% (+6.7 pts)**
+Three labelled examples showed the model the *exact token* to output. No ambiguity,
+no room for punctuation guessing. The model copies what it sees.
+
+---
+
+### Product Description — 53.3% → 80.0% → 93.3%
+
+```
+v1  ████████░░░░░░░   8/15 = 53.3%
+v2  ████████████░░░  12/15 = 80.0%
+v3  ██████████████░  14/15 = 93.3%
+```
+
+**Why v1 scored 53.3%**
+With no structure rules, the model improvised every time. Outputs ranged from 45 to
+134 words. Some used bullet points, some omitted the price, one added a tagline that
+was never requested. 7 runs fell outside the ±20% length window.
+
+**Why v2 jumped to 80.0% (+26.7 pts)**
+"Exactly 3 sentences — sentence 1 does X, sentence 2 does Y, sentence 3 does Z"
+compressed the range to 52–89 words. The 3 failing runs all added a 4th sentence
+when the model got enthusiastic about the call to action.
+
+**Why v3 reached 93.3% (+13.3 pts)**
+Two worked examples showed the exact *length and rhythm* to copy, not just the rule.
+The word count tightened to 54–65 words. The one remaining miss was a slightly longer
+run (68 words) that just exceeded the ±20% ceiling.
+
+---
+
+### Data Extraction — 13.3% → 86.7% → 100%
+
+```
+v1  ██░░░░░░░░░░░░░   2/15 = 13.3%
+v2  █████████████░░  13/15 = 86.7%
+v3  ███████████████  15/15 = 100%
+```
+
+**Why v1 scored 13.3%**
+"Extract information" with no field names and no format instruction means the model
+decides everything itself. 9 runs returned plain prose paragraphs. 3 returned bullet
+lists. The 2 that did return JSON used inconsistent field names (`order` instead of
+`order_id`, `date` instead of `order_date`) and missed required fields entirely.
+
+**Why v2 jumped to 86.7% (+73.4 pts)**
+Naming the exact fields (`order_id`, `order_date`, `delivery_speed`,
+`packaging_condition`) and specifying allowed values (`"fast"/"slow"/"not_mentioned"`)
+removed all guesswork. The model knew exactly what to extract and what to call it.
+The 2 failing runs wrapped their JSON in markdown code fences — technically correct
+but not parseable without stripping the fences first.
+
+**Why v3 reached 100% (+13.3 pts)**
+The Chain-of-Thought steps forced the model to commit to each field value one at a
+time before assembling the final JSON. The worked example showed exactly what the
+reasoning + output should look like. Zero failures across all 15 runs.
+
+---
+
+### The Three Biggest Lessons from the Gaps
+
+| Gap | Size | What caused it |
+|-----|-----:|----------------|
+| Extraction v1 → v2 | +73.4 pts | Model had the right answer — just no idea how to format it |
+| Sentiment v1 → v2 | +26.6 pts | Model knew the label — format rule fixed the presentation |
+| Product v1 → v2 | +26.7 pts | Length rules collapsed a 90-word range into a 37-word range |
+| All tasks v2 → v3 | +6–13 pts | Examples removed the last edge cases rules couldn't catch |
+
+> The pattern: **the AI always knew the right answer. The prompts just didn't tell it how to present it.**
+
+---
+
 ## Task A — Sentiment Analysis
 
 **Metric:** Exact-match rate — % of 15 runs that return the identical answer.
