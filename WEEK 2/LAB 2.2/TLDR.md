@@ -16,6 +16,14 @@ by improving the instructions you give it — three tasks, three rounds of impro
 
 ---
 
+## The product used in this lab
+
+![Joerges Gorilla Espresso Impianto](screenshots/Screenshot 2026-04-29 102614.png)
+
+**Joerges Gorilla Espresso Impianto** — Chocolate Whole Beans with Fruity Finish, 1 kg, €29.99
+
+---
+
 ## The 3 tasks
 
 | Task | What it does | Example input | Expected output |
