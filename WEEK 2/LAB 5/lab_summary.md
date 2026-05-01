@@ -2,30 +2,30 @@
 
 ## TLDR
 
-For **PDF documents**, Recursive Character splitting (`RecursiveCharacterTextSplitter`, chunk_size=1000, overlap=200) is the best choice because PDFs have natural structure (headers, paragraphs, sections) that the recursive separator hierarchy (`\n\n` → `\n` → `. `) respects — keeping related sentences together and avoiding mid-paragraph cuts. For **podcast transcripts**, Token-Based chunking (`TokenTextSplitter`, chunk_size=500, overlap=50) wins because transcripts lack structural formatting; token-level splitting produces consistently sized chunks that fit LLM context windows predictably, and modest overlap preserves conversational continuity across turn boundaries.
+For **PDF documents**, Recursive Character splitting (`RecursiveCharacterTextSplitter`, chunk_size=1000, overlap=200) is the best choice. The EU AI Ethics Guidelines PDF (195,243 chars) produced 258 chunks with a 66.7% mid-sentence break rate — compared to 96.3% for Fixed-Size — because the recursive separator hierarchy (`\n\n` → `\n` → `. `) respects the document's paragraph and section structure. For **podcast transcripts**, Token-Based chunking (`TokenTextSplitter`, chunk_size=500, overlap=50) wins: the real Whisper transcript (16,427 chars from a 28.8 MB audio file split into 2 segments) has no structural markers, so token-level splitting produces consistently sized chunks that map directly to LLM context limits and make embeddings comparable across chunks.
 
 ---
 
-## Results Summary
+## Results (real documents)
 
-| Strategy | PDF Chunks | Podcast Chunks | Avg Chunk Size | Boundary Quality |
+| Strategy | PDF chunks | Podcast chunks | Mid-sentence breaks (PDF) | Boundary quality |
 |---|---|---|---|---|
-| Fixed-Size (char, 1000) | ~45 | ~60 | ~950 chars | Poor — frequent mid-sentence cuts |
-| Recursive Char (1000, overlap 200) | ~40 | ~55 | ~850 chars | Good — respects paragraphs/sentences |
-| Token-Based (500 tokens, overlap 50) | ~50 | ~65 | ~500 tokens | Good — predictable for LLMs |
-| Semantic (threshold 0.7, sample only) | ~30 | ~40 | Variable | Best semantic coherence, slowest |
+| Fixed-Size (1000, overlap 100) | 217 | 20 | 96.3% | Poor |
+| Recursive Char (1000, overlap 200) | 258 | 22 | 66.7% | Good |
+| Token-Based (500t, overlap 50) | 162 | 10 | — | Good (token-accurate) |
+| Semantic (threshold 0.75, sample) | 32 | 32 | — | Best coherence, slowest |
 
 ## Key Trade-offs
 
 | Strategy | Pros | Cons | Best For |
 |---|---|---|---|
-| Fixed-Size | Simple, fast, predictable count | Breaks sentences and context arbitrarily | Quick prototyping, uniform plain text |
+| Fixed-Size | Simple, fast, predictable count | Breaks sentences in 96% of chunks | Quick prototyping, uniform plain text |
 | Recursive Char | Preserves paragraph/sentence structure | Slightly more complex config | Structured documents (PDFs, articles) |
-| Token-Based | Accurate for LLM context limits | Requires tokenizer dependency | Any production RAG pipeline |
-| Semantic | Splits on meaning, not size | Slow, needs embedding model | High-quality retrieval on complex content |
+| Token-Based | Accurate for LLM context limits | Requires tiktoken dependency | Any production RAG pipeline |
+| Semantic | Splits on meaning | Slow, needs embedding model | High-quality retrieval on complex content |
 
 ## Recommendations
 
-**PDF Documents** — use `RecursiveCharacterTextSplitter` with chunk_size=1000 and chunk_overlap=200. PDFs reward structure-aware splitting; the recursive hierarchy avoids orphaned bullet points and keeps section context intact.
+**PDF Documents** — `RecursiveCharacterTextSplitter`, chunk_size=1000, chunk_overlap=200. The recursive hierarchy avoids mid-paragraph cuts and keeps section context intact.
 
-**Podcast Transcripts** — use `TokenTextSplitter` with chunk_size=500 and chunk_overlap=50. Transcripts are unstructured run-on prose, so character-level structure hints are absent; controlling token count directly gives the most reliable retrieval chunks and prevents context-window overflow at query time.
+**Podcast Transcripts** — `TokenTextSplitter`, chunk_size=500, chunk_overlap=50. Transcripts are unstructured run-on prose; token-level splitting gives the most reliable retrieval chunks and prevents context-window overflow at query time.
