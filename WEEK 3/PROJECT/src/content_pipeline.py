@@ -48,7 +48,7 @@ class ContentPipeline:
         try:
             from integrations.hermes_client import HermesClient
             client = HermesClient()
-            raw = client.get_significant_items(limit=20)
+            raw = client.get_procurement_briefing(limit=20)
             urgency_rank = {"HIGH": 3, "MEDIUM": 2, "LOW": 1}
             threshold = urgency_rank.get(min_urgency, 2)
             signals = []
