@@ -1,6 +1,7 @@
 # Hermes Agent
 
 > **Presentation:** [Open slides](presentation/index.html) — open in any browser, arrow keys to navigate.
+> **Kanban:** [Project board](KANBAN.html) — done, in progress, up next, and planned.
 > See [TLDR.md](TLDR.md) for a one-page summary and [DIAGRAM.md](DIAGRAM.md) for the system diagram.
 
 Hermes is a market intelligence crawler and a supporting sub-agent of **Icarus AI**, a personal operations system, and a live data source for **SpendLens**, a procurement intelligence platform. While Icarus manages your personal world — calendar, email, tasks, Telegram — Hermes watches the external world: tech suppliers, AI companies, semiconductor markets, SEC filings, and research. He stores everything he finds in a shared Redis instance. Icarus and SpendLens pull from it on demand.
