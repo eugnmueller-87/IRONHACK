@@ -581,141 +581,177 @@
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 2 — ARCHITECTURE
+     SLIDE 2 — KNOWLEDGE BASE SETUP
 ═══════════════════════════════════════ -->
 <div class="slide" id="s2">
-  <h2 class="slide-title">Two-layer architecture</h2>
-  <p class="slide-sub">Intelligence layer feeds the content layer. Both run autonomously.</p>
+  <h2 class="slide-title">Knowledge Base Setup</h2>
+  <p class="slide-sub">Two layers of context injected into every prompt — document_processor.py parses and serves both.</p>
 
-  <div class="pipeline" style="margin-bottom:18px">
-
-    <div class="pipe-stage">
-      <div class="stage-header">Data Sources</div>
-      <div class="pnode rss">
-        <div class="pnode-name">RSS Crawler</div>
-        <div class="pnode-desc">250 companies<br>Every 6 hours</div>
+  <div class="cap-layout" style="margin-bottom:22px">
+    <div class="cap-section">
+      <div class="cap-section-title">Primary Knowledge Base — company-specific</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>brand_voice.md</strong> — tone rules, forbidden phrases ("I'm excited to share"), post formula, format rules</div>
       </div>
-      <div class="pnode edgar">
-        <div class="pnode-name">SEC EDGAR</div>
-        <div class="pnode-desc">10-K, 10-Q, 8-K<br>Daily at 07:30</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>background.md</strong> — 10yr procurement career at TeamViewer, Scout24, Delivery Hero; why I built this</div>
       </div>
-      <div class="pnode tavily">
-        <div class="pnode-name">Tavily Search</div>
-        <div class="pnode-desc">Live web<br>Weekly Monday</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>linkedin_examples.md</strong> — 2 full example posts with structure annotations for style matching</div>
       </div>
-    </div>
-
-    <div class="pipe-arrow">→</div>
-
-    <div class="pipe-stage">
-      <div class="stage-header">Intelligence (Claude Haiku)</div>
-      <div class="pnode claude">
-        <div class="pnode-name">Signal Classification</div>
-        <div class="pnode-desc">11 signal types<br>HIGH / MEDIUM / LOW</div>
-      </div>
-      <div class="pnode claude">
-        <div class="pnode-name">Significance Flag</div>
-        <div class="pnode-desc">is_significant + reason<br>Dedup via MD5</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>methodology.md</strong> — content pillars, post types, signal-to-post workflow, what makes a post worth writing</div>
       </div>
     </div>
 
-    <div class="pipe-arrow">→</div>
-
-    <div class="pipe-stage">
-      <div class="stage-header">Storage</div>
-      <div class="pnode redis">
-        <div class="pnode-name">Upstash Redis</div>
-        <div class="pnode-desc">hermes:item:{id}<br>hermes:supplier:{slug}<br>7-day TTL</div>
+    <div class="cap-section">
+      <div class="cap-section-title">Secondary Research Layer — industry context</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>hermes_signals_sample.md</strong> — structured market signals with procurement angles: NVIDIA, TSMC, Anthropic, Micron, CrowdStrike</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>supplier_landscape.md</strong> — 250 companies across 17 categories, tier rankings, content angles per category</div>
+      </div>
+      <div class="cap-section-title" style="margin-top:12px">Document Processing</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>document_processor.py</strong> — ingests all <code style="font-size:0.8em;color:#5dd4a8">.md</code> files, builds context blocks capped at 8,000 chars for prompt injection</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>knowledge_base.py</strong> — manager class with <code style="font-size:0.8em;color:#5dd4a8">brand_voice_context()</code> and <code style="font-size:0.8em;color:#5dd4a8">signals_context()</code> helpers</div>
       </div>
     </div>
-
-    <div class="pipe-arrow">→</div>
-
-    <div class="pipe-stage">
-      <div class="stage-header">Content Layer</div>
-      <div class="pnode out">
-        <div class="pnode-name">Content Pipeline</div>
-        <div class="pnode-desc">KB + signal → draft<br>Claude Sonnet</div>
-      </div>
-      <div class="pnode out">
-        <div class="pnode-name">Icarus (Telegram)</div>
-        <div class="pnode-desc">Review + publish<br>LinkedIn skill</div>
-      </div>
-    </div>
-
   </div>
 
-  <div style="display:flex;gap:10px;width:100%;max-width:960px;flex-wrap:wrap;">
-    <div style="flex:1;min-width:200px;background:rgba(58,96,128,0.08);border:1px solid #3a6080;border-radius:8px;padding:12px 16px;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#7ac0f0;margin-bottom:6px">Primary KB</div>
-      <div style="font-size:0.78rem;color:#55556a;line-height:1.5">brand_voice.md · background.md<br>linkedin_examples.md · methodology.md</div>
+  <div style="display:flex;gap:10px;width:100%;max-width:900px;">
+    <div style="flex:1;background:rgba(58,96,128,0.08);border:1px solid #3a6080;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
+      <span style="color:#7ac0f0;font-weight:700">Primary KB</span> — who you are, how you write, what you've written before
     </div>
-    <div style="flex:1;min-width:200px;background:rgba(90,58,128,0.08);border:1px solid #5a3a80;border-radius:8px;padding:12px 16px;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#b07af0;margin-bottom:6px">Secondary KB (Hermes)</div>
-      <div style="font-size:0.78rem;color:#55556a;line-height:1.5">hermes_signals_sample.md<br>supplier_landscape.md</div>
+    <div style="flex:1;background:rgba(90,58,128,0.08);border:1px solid #5a3a80;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
+      <span style="color:#b07af0;font-weight:700">Secondary KB</span> — live market data from Hermes, supplier landscape, signal history
     </div>
-    <div style="flex:1;min-width:200px;background:rgba(128,96,48,0.08);border:1px solid #806030;border-radius:8px;padding:12px 16px;">
-      <div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#f0c07a;margin-bottom:6px">Prompt Templates</div>
-      <div style="font-size:0.78rem;color:#55556a;line-height:1.5">linkedin_post · market_brief<br>signal_analysis · content_calendar</div>
+    <div style="flex:1;background:rgba(128,96,48,0.08);border:1px solid #806030;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
+      <span style="color:#f0c07a;font-weight:700">Together</span> — every prompt gets both layers, making output specific to you and to what's happening right now
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 3 — CONTENT PIPELINE
+     SLIDE 3 — LLM API INTEGRATION & PROMPT ENGINEERING
 ═══════════════════════════════════════ -->
 <div class="slide" id="s3">
-  <h2 class="slide-title">The content pipeline</h2>
-  <p class="slide-sub">Six steps from raw market data to a draft post — all in Python, all in your repo.</p>
+  <h2 class="slide-title">LLM API Integration &amp; Prompt Engineering Templates</h2>
+  <p class="slide-sub">Two Claude models with distinct roles — llm_integration.py wraps both, prompt_templates.py defines all templates.</p>
+
+  <div class="cap-layout" style="margin-bottom:20px">
+    <div class="cap-section">
+      <div class="cap-section-title">LLM API Integration — two models, two jobs</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>Claude Haiku</strong> — fast, cheap. Signal classification (11 types), significance scoring, market briefs. Runs on every crawl cycle.</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#8ba4ff"></div>
+        <div class="cap-text"><strong>Claude Sonnet</strong> — powerful. LinkedIn post drafting, signal analysis, content calendar generation. Runs on demand.</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>llm_integration.py</strong> — single <code style="font-size:0.8em;color:#5dd4a8">LLMClient</code> class, model-aware methods: <code style="font-size:0.8em;color:#5dd4a8">generate_linkedin_post()</code>, <code style="font-size:0.8em;color:#5dd4a8">generate_brief()</code>, <code style="font-size:0.8em;color:#5dd4a8">classify_signal()</code></div>
+      </div>
+    </div>
+
+    <div class="cap-section">
+      <div class="cap-section-title">Prompt Engineering Templates — 5 reusable templates</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>LINKEDIN_POST</strong> — injects KB context + signal, enforces brand voice rules, 150-300 words</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>MARKET_BRIEF</strong> — summarises a list of signals into a procurement intelligence brief under 200 words</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>SIGNAL_ANALYSIS</strong> — 3 structured questions: what happened, why it matters, what to do in 30 days</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>CONTENT_CALENDAR</strong> — generates a 5-post weekly plan using available signals + background context</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f07a7a"></div>
+        <div class="cap-text"><strong>UNIQUENESS_COMPARISON</strong> — structured side-by-side: Hermes system vs generic ChatGPT across 6 dimensions</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a30;border-radius:10px;padding:14px 20px;width:100%;max-width:900px;font-size:0.78rem;color:#44446a;line-height:1.7">
+    All templates use <strong style="color:#8888aa">{kb_context}</strong> and <strong style="color:#8888aa">{signal}</strong> placeholders — the KB and live signal are injected at runtime, keeping templates reusable across any company or topic.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 4 — CONTENT GENERATION PIPELINE
+═══════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <h2 class="slide-title">Content Generation Pipeline</h2>
+  <p class="slide-sub">content_pipeline.py implements all six stages — run via <code style="font-size:0.85em;color:#5dd4a8">python -m src.main</code></p>
 
   <div class="pipeline-steps" style="margin-bottom:20px">
     <div class="ps">
       <div class="ps-num">Step 1</div>
       <div class="ps-icon">📄</div>
       <div class="ps-name">Document</div>
-      <div class="ps-desc">Load KB markdown files — brand voice, background, signal data</div>
+      <div class="ps-desc">KnowledgeBase loads all .md files, builds context blocks for prompts</div>
     </div>
     <div class="ps-arrow">→</div>
     <div class="ps">
       <div class="ps-num">Step 2</div>
       <div class="ps-icon">📡</div>
       <div class="ps-name">Monitor</div>
-      <div class="ps-desc">Pull HIGH/MEDIUM signals from Hermes Redis via HermesClient</div>
+      <div class="ps-desc">HermesClient pulls HIGH/MEDIUM signals from Redis — live, not training data</div>
     </div>
     <div class="ps-arrow">→</div>
     <div class="ps">
       <div class="ps-num">Step 3</div>
       <div class="ps-icon">📋</div>
       <div class="ps-name">Brief</div>
-      <div class="ps-desc">Claude Haiku summarises signals into a procurement intelligence brief</div>
+      <div class="ps-desc">Claude Haiku condenses signals into a procurement intelligence brief</div>
     </div>
     <div class="ps-arrow">→</div>
     <div class="ps">
       <div class="ps-num">Step 4</div>
       <div class="ps-icon">✍️</div>
       <div class="ps-name">Draft</div>
-      <div class="ps-desc">Claude Sonnet writes a LinkedIn post in Eugen's voice using KB + signal</div>
+      <div class="ps-desc">Claude Sonnet writes the post using KB context + signal + brand voice rules</div>
     </div>
     <div class="ps-arrow">→</div>
     <div class="ps">
       <div class="ps-num">Step 5</div>
       <div class="ps-icon">🚀</div>
       <div class="ps-name">Publish</div>
-      <div class="ps-desc">Staged for approval in Telegram — one tap to post via Icarus</div>
+      <div class="ps-desc">Draft staged in Telegram — Post / Edit / Cancel. Never auto-published.</div>
     </div>
     <div class="ps-arrow">→</div>
     <div class="ps">
       <div class="ps-num">Step 6</div>
       <div class="ps-icon">🔄</div>
       <div class="ps-name">Iterate</div>
-      <div class="ps-desc">User feedback → refine_post() → new draft, same KB context</div>
+      <div class="ps-desc">refine_post(feedback) regenerates with same KB context — loop until approved</div>
     </div>
   </div>
 
   <div class="cap-layout">
     <div class="cap-section">
-      <div class="cap-section-title">Signal types that feed content</div>
-      <div class="signal-badges" style="margin-bottom:10px">
+      <div class="cap-section-title">Signal types that trigger content generation</div>
+      <div class="signal-badges" style="margin-bottom:8px">
         <span class="sbadge sb-fin">FUNDING</span>
         <span class="sbadge sb-prod">PRODUCT_RELEASE</span>
         <span class="sbadge sb-risk">SUPPLY_CHAIN</span>
@@ -726,35 +762,35 @@
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>Only HIGH/MEDIUM urgency signals</strong> with <code style="font-size:0.8em;color:#5dd4a8">is_significant=true</code> reach the content pipeline — noise is filtered at the intelligence layer</div>
+        <div class="cap-text">Only <code style="font-size:0.8em;color:#5dd4a8">is_significant=true</code> signals with HIGH/MEDIUM urgency reach the content layer — noise filtered upstream by Claude Haiku</div>
       </div>
     </div>
     <div class="cap-section">
-      <div class="cap-section-title">What makes the draft unique</div>
+      <div class="cap-section-title">What the draft contains that generic AI cannot</div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>Brand voice KB</strong> — tone rules, forbidden phrases, post formula, real example posts</div>
+        <div class="cap-text"><strong>Real event data</strong> — actual company, actual filing, actual date — not a hallucination</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>Background KB</strong> — 10yr procurement context injected into every prompt automatically</div>
+        <div class="cap-text"><strong>Procurement angle</strong> — what this means for a buyer, not just general commentary</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>Live signal data</strong> — actual company, actual event, actual urgency — not a generic prompt</div>
+        <div class="cap-text"><strong>Personal voice</strong> — KB-grounded tone, style, and career context in every prompt</div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 4 — UNIQUENESS & COST
+     SLIDE 5 — UNIQUENESS DEMONSTRATION
 ═══════════════════════════════════════ -->
-<div class="slide" id="s4">
-  <h2 class="slide-title">Why not just use ChatGPT?</h2>
-  <p class="slide-sub">The difference is automation, personalization, and domain data — working together.</p>
+<div class="slide" id="s5">
+  <h2 class="slide-title">Uniqueness Demonstration</h2>
+  <p class="slide-sub">Same topic. Two approaches. The difference is data, context, and automation.</p>
 
-  <div class="s4-layout">
+  <div class="s4-layout" style="max-width:960px">
     <div>
       <table class="cmp-table">
         <thead>
@@ -773,59 +809,58 @@
           <tr>
             <td>Supplier specificity</td>
             <td>Generic industry knowledge</td>
-            <td><strong>250 companies, per-supplier signal history</strong></td>
+            <td><strong>250 companies, per-supplier signal history in Redis</strong></td>
           </tr>
           <tr>
             <td>Domain voice</td>
             <td>Generic business writing</td>
-            <td><strong>KB-tuned to 10yr procurement professional</strong></td>
+            <td><strong>Primary KB: brand voice, career background, past posts</strong></td>
           </tr>
           <tr>
             <td>Automation</td>
-            <td>Manual: copy/paste each time</td>
-            <td><strong>Scheduled crawls → classification → draft</strong></td>
+            <td>Manual every time — open tab, write prompt, copy output</td>
+            <td><strong>Crawl → classify → draft runs on schedule, zero input</strong></td>
           </tr>
           <tr>
-            <td>Personalization</td>
-            <td>No user profile</td>
-            <td><strong>Brand voice, background, past posts in KB</strong></td>
+            <td>Procurement angle</td>
+            <td>General commentary, no buyer perspective</td>
+            <td><strong>Signal analysis answers: what should a buyer do in 30 days?</strong></td>
           </tr>
           <tr>
-            <td>Cost per insight</td>
-            <td>$0 + hours of manual research</td>
-            <td><strong>~$7/month, zero manual monitoring</strong></td>
+            <td>Cost</td>
+            <td>$0 + hours of manual research per post</td>
+            <td><strong>~$7/month total, monitoring runs 24/7</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="scale-box">
-      <div class="scale-section-title">What's built</div>
+      <div class="scale-section-title">What's live today</div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
-        <div style="font-size:0.8rem; color:#55556a; line-height:1.5"><span style="color:#5dd4a8">Live</span> — intelligence crawler, signal classifier, Redis store, Railway deployment</div>
+        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — RSS + EDGAR + Tavily crawlers, deployed on Railway</div>
       </div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
-        <div style="font-size:0.8rem; color:#55556a; line-height:1.5"><span style="color:#5dd4a8">Live</span> — content pipeline, KB loader, prompt templates, LLM integration</div>
+        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Primary KB (4 docs) + Secondary KB (2 docs)</div>
       </div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
-        <div style="font-size:0.8rem; color:#55556a; line-height:1.5"><span style="color:#5dd4a8">Live</span> — Icarus LinkedIn skill (Telegram → stage → approve → publish)</div>
+        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — 5 prompt templates, full 6-step pipeline</div>
       </div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#44446a; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
-        <div style="font-size:0.8rem; color:#55556a; line-height:1.5"><span style="color:#66667a">Next</span> — scheduled weekly content brief + auto-draft, SpendLens enrichment</div>
+        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Icarus LinkedIn skill (Telegram → approve → publish)</div>
       </div>
-
-      <div class="scale-section-title" style="margin-top:8px">Cost breakdown</div>
-      <div style="font-size:0.78rem; color:#55556a; line-height:1.9">
+      <div class="scale-section-title" style="margin-top:10px">Cost breakdown</div>
+      <div style="font-size:0.76rem;color:#55556a;line-height:2">
         Railway hosting — ~$5<br>
         Claude Haiku (classify) — ~$1–2<br>
         Claude Sonnet (drafts) — ~$1<br>
         Upstash Redis — $0<br>
-        Tavily Search — $0<br>
-        <span style="color:#f0c07a; font-weight:700">Total — ~$7–8 / month</span>
+        Tavily + EDGAR — $0<br>
+        <span style="color:#f0c07a;font-weight:700">Total — ~$7–8 / month</span>
       </div>
     </div>
   </div>
@@ -841,9 +876,10 @@
     <div class="dot" data-i="1"></div>
     <div class="dot" data-i="2"></div>
     <div class="dot" data-i="3"></div>
+    <div class="dot" data-i="4"></div>
   </div>
   <button id="next">→</button>
-  <span class="slide-num" id="snum">1 / 4</span>
+  <span class="slide-num" id="snum">1 / 5</span>
 </nav>
 
 <script>
