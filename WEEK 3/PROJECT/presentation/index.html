@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HERMES — AI Market Intelligence Agent</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #07070f;
+    color: #e8e8f0;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .deck { width: 100%; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 52px 80px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .slide.active { opacity: 1; pointer-events: all; }
+
+  /* ────────────────────────────────────────
+     SLIDE 1 — VISION
+  ──────────────────────────────────────── */
+  #s1 { background: radial-gradient(ellipse at 60% 40%, #0d1030 0%, #07070f 70%); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6a7dde;
+    margin-bottom: 20px;
+  }
+
+  h1.hero {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    background: linear-gradient(140deg, #d0d8ff 20%, #7b96ff 70%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: #7070a0;
+    text-align: center;
+    max-width: 700px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+  }
+
+  .tagline strong { color: #a0b0ff; font-weight: 600; }
+
+  .stat-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #8ba4ff;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: #44446a;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .context-box {
+    max-width: 660px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 18px 28px;
+    font-size: 0.88rem;
+    color: #55556a;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .context-box strong { color: #7a88aa; }
+
+  .built-by {
+    position: absolute;
+    bottom: 32px;
+    right: 60px;
+    font-size: 0.76rem;
+    color: #2a2a3a;
+  }
+
+  /* ────────────────────────────────────────
+     SLIDE 2 — ARCHITECTURE
+  ──────────────────────────────────────── */
+  #s2 { background: radial-gradient(ellipse at 40% 50%, #080d20 0%, #07070f 70%); }
+
+  h2.slide-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d8d8f0;
+    margin-bottom: 6px;
+    align-self: flex-start;
+  }
+
+  .slide-sub {
+    font-size: 0.9rem;
+    color: #44446a;
+    margin-bottom: 36px;
+    align-self: flex-start;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: 960px;
+  }
+
+  .pipe-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pipe-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #2a3060;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .stage-header {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #44446a;
+    margin-bottom: 4px;
+    padding-left: 2px;
+  }
+
+  .pnode {
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid;
+    font-size: 0.82rem;
+  }
+
+  .pnode-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 3px;
+  }
+
+  .pnode-desc {
+    font-size: 0.74rem;
+    opacity: 0.6;
+    line-height: 1.4;
+  }
+
+  .pnode.rss    { border-color: #3a6080; background: rgba(58,96,128,0.12); }
+  .pnode.rss .pnode-name { color: #7ac0f0; }
+
+  .pnode.edgar  { border-color: #5a3a80; background: rgba(90,58,128,0.12); }
+  .pnode.edgar .pnode-name { color: #b07af0; }
+
+  .pnode.tavily { border-color: #3a7060; background: rgba(58,112,96,0.12); }
+  .pnode.tavily .pnode-name { color: #7ae0c0; }
+
+  .pnode.claude { border-color: #806030; background: rgba(128,96,48,0.12); }
+  .pnode.claude .pnode-name { color: #f0c07a; }
+
+  .pnode.redis  { border-color: #803a3a; background: rgba(128,58,58,0.12); }
+  .pnode.redis .pnode-name { color: #f07a7a; }
+
+  .pnode.out    { border-color: #3a6040; background: rgba(58,96,64,0.12); }
+  .pnode.out .pnode-name { color: #7af0a0; }
+
+  /* ────────────────────────────────────────
+     SLIDE 3 — CAPABILITIES
+  ──────────────────────────────────────── */
+  #s3 { background: radial-gradient(ellipse at 50% 30%, #080a18 0%, #07070f 70%); }
+
+  .cap-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .cap-section { display: flex; flex-direction: column; gap: 12px; }
+
+  .cap-section-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #44446a;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #13131e;
+  }
+
+  .cap-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .cap-bullet {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .cap-text {
+    font-size: 0.88rem;
+    color: #8888aa;
+    line-height: 1.45;
+  }
+
+  .cap-text strong { color: #b8b8d8; font-weight: 600; }
+
+  .signal-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .sbadge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+
+  .sb-risk     { border-color: #803a3a; color: #f07a7a; background: rgba(128,58,58,0.12); }
+  .sb-opp      { border-color: #3a8050; color: #7af0a0; background: rgba(58,128,80,0.12); }
+  .sb-fin      { border-color: #806030; color: #f0c07a; background: rgba(128,96,48,0.12); }
+  .sb-prod     { border-color: #3a6080; color: #7ac0f0; background: rgba(58,96,128,0.12); }
+  .sb-ma       { border-color: #5a3a80; color: #b07af0; background: rgba(90,58,128,0.12); }
+  .sb-reg      { border-color: #80603a; color: #f0a07a; background: rgba(128,96,58,0.12); }
+
+  /* ────────────────────────────────────────
+     SLIDE 4 — COSTS & SCALE
+  ──────────────────────────────────────── */
+  #s4 { background: radial-gradient(ellipse at 30% 60%, #070d0d 0%, #07070f 70%); }
+
+  .s4-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    width: 100%;
+    max-width: 900px;
+    align-items: start;
+  }
+
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cost-table th {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #33334a;
+    text-align: left;
+    padding: 0 12px 12px;
+    border-bottom: 1px solid #13131e;
+  }
+
+  .cost-table td {
+    padding: 11px 12px;
+    font-size: 0.86rem;
+    border-bottom: 1px solid #0f0f18;
+    vertical-align: middle;
+  }
+
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table td:first-child { color: #55556a; font-size: 0.76rem; }
+  .cost-table td:nth-child(2) { color: #b8b8d8; font-weight: 600; }
+  .cost-table td:nth-child(3) { color: #7af0a0; font-weight: 700; }
+
+  .total-row td { padding-top: 18px !important; }
+  .total-row td:first-child { color: #d8d8f0 !important; font-weight: 700 !important; }
+  .total-row td:nth-child(3) { color: #f0c07a !important; font-size: 1.1rem !important; }
+
+  .scale-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .scale-section-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #44446a;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #13131e;
+  }
+
+  .scale-stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scale-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #8ba4ff;
+    line-height: 1;
+  }
+
+  .scale-label {
+    font-size: 0.76rem;
+    color: #44446a;
+    margin-top: 4px;
+  }
+
+  /* ────────────────────────────────────────
+     NAV
+  ──────────────────────────────────────── */
+  .nav {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(8,8,18,0.9);
+    border: 1px solid #1a1a28;
+    border-radius: 100px;
+    padding: 9px 22px;
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .nav button {
+    background: none;
+    border: none;
+    color: #6a7dde;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+
+  .nav button:hover { background: rgba(106,125,222,0.15); }
+  .nav button:disabled { color: #22223a; cursor: default; }
+  .nav button:disabled:hover { background: none; }
+
+  .dots { display: flex; gap: 8px; }
+
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22223a;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .dot.active { background: #6a7dde; }
+
+  .slide-num {
+    font-size: 0.74rem;
+    color: #2a2a3a;
+    min-width: 32px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ══════════════════════════════════════
+     SLIDE 1 — VISION
+═══════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="eyebrow">Ironhack Berlin · AI Integration Bootcamp · Week 3 Project</div>
+  <h1 class="hero">Your market intelligence<br>never sleeps.</h1>
+  <p class="tagline">
+    <strong>HERMES</strong> is an autonomous AI sub-agent that crawls supplier news,
+    SEC filings, and the live web — scores every signal with Claude —
+    and delivers the intelligence your team needs before you even ask.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Suppliers tracked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4×</div>
+      <div class="stat-label">Daily crawl cycles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Signal types</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always running</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    Built by a <strong>procurement professional with 10+ years</strong> at TeamViewer, Scout24, and Delivery Hero —
+    to solve a real problem: staying on top of dozens of suppliers is a full-time job.
+    HERMES makes it a background task.
+  </div>
+  <div class="built-by">Eugen Mueller · eugnmueller@googlemail.com</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 2 — ARCHITECTURE
+═══════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <h2 class="slide-title">How HERMES works</h2>
+  <p class="slide-sub">Pull-only architecture — reads everything, writes only to its own Redis namespace.</p>
+
+  <div class="pipeline">
+
+    <div class="pipe-stage">
+      <div class="stage-header">Data Sources</div>
+      <div class="pnode rss">
+        <div class="pnode-name">RSS Crawler</div>
+        <div class="pnode-desc">Company news feeds<br>Runs every 6 hours</div>
+      </div>
+      <div class="pnode edgar">
+        <div class="pnode-name">SEC EDGAR</div>
+        <div class="pnode-desc">10-K, 10-Q, 8-K filings<br>Runs daily at 07:30</div>
+      </div>
+      <div class="pnode tavily">
+        <div class="pnode-name">Tavily Web Search</div>
+        <div class="pnode-desc">Deep web intelligence<br>Runs weekly on Monday</div>
+      </div>
+    </div>
+
+    <div class="pipe-arrow">→</div>
+
+    <div class="pipe-stage">
+      <div class="stage-header">AI Processing (Claude Haiku)</div>
+      <div class="pnode claude">
+        <div class="pnode-name">Significance Scoring</div>
+        <div class="pnode-desc">Is this signal worth an alert?<br>Score 1–10</div>
+      </div>
+      <div class="pnode claude">
+        <div class="pnode-name">Signal Classification</div>
+        <div class="pnode-desc">RISK · OPPORTUNITY · FINANCIAL<br>PRODUCT · M&A · REGULATORY</div>
+      </div>
+      <div class="pnode claude">
+        <div class="pnode-name">Context Extraction</div>
+        <div class="pnode-desc">Why does this matter?<br>Urgency · Emoji · Summary</div>
+      </div>
+    </div>
+
+    <div class="pipe-arrow">→</div>
+
+    <div class="pipe-stage">
+      <div class="stage-header">Storage</div>
+      <div class="pnode redis">
+        <div class="pnode-name">Upstash Redis</div>
+        <div class="pnode-desc">hermes:item:{id}<br>hermes:supplier:{slug}<br>7-day TTL · up to 3000/supplier</div>
+      </div>
+    </div>
+
+    <div class="pipe-arrow">→</div>
+
+    <div class="pipe-stage">
+      <div class="stage-header">Consumers</div>
+      <div class="pnode out">
+        <div class="pnode-name">ICARUS (Telegram)</div>
+        <div class="pnode-desc">On-demand briefings<br>Company queries</div>
+      </div>
+      <div class="pnode out">
+        <div class="pnode-name">FastAPI Endpoints</div>
+        <div class="pnode-desc">/health · /miro/landscape<br>/miro/signals</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 3 — CAPABILITIES
+═══════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <h2 class="slide-title">What HERMES delivers</h2>
+  <p class="slide-sub">From raw crawl to actionable intelligence — fully automated.</p>
+
+  <div class="cap-layout">
+
+    <div class="cap-section">
+      <div class="cap-section-title">Intelligence Collection</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>40+ suppliers tracked</strong> across AI, semiconductors, cloud, logistics, and consulting — configurable via a single JSON file</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>SEC EDGAR filings</strong> automatically fetched and summarised — earnings surprises, risk disclosures, M&A activity</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ae0c0"></div>
+        <div class="cap-text"><strong>Live web search</strong> via Tavily fills gaps that RSS misses — product launches, pricing changes, leadership moves</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:8px">Signal Types</div>
+      <div class="signal-badges">
+        <span class="sbadge sb-risk">RISK</span>
+        <span class="sbadge sb-opp">OPPORTUNITY</span>
+        <span class="sbadge sb-fin">FINANCIAL</span>
+        <span class="sbadge sb-prod">PRODUCT</span>
+        <span class="sbadge sb-ma">M&amp;A</span>
+        <span class="sbadge sb-reg">REGULATORY</span>
+      </div>
+    </div>
+
+    <div class="cap-section">
+      <div class="cap-section-title">AI-Powered Processing</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>Significance scoring</strong> — Claude Haiku rates each item 1–10. Only high-signal items surface in briefings</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f07a7a"></div>
+        <div class="cap-text"><strong>Deduplication</strong> — SHA-256 content hashing prevents the same story from being stored twice</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>Fuzzy company matching</strong> — "TSMC" → "taiwan_semiconductor" automatically, no manual mapping required</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:8px">On-Demand Queries</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#8ba4ff"></div>
+        <div class="cap-text"><strong>"What does Hermes have on NVIDIA?"</strong> — returns the latest scored signals for any tracked company</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#8ba4ff"></div>
+        <div class="cap-text"><strong>"Give me a Hermes briefing"</strong> — top 10 significant signals across all suppliers, sorted by date</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:8px">SpendLens Integration (built)</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>enrich_vendor_list()</strong> — bulk-enriches SpendLens spend data with Hermes risk levels: HIGH / MEDIUM / LOW per vendor</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>get_risk_flags()</strong> — returns only significant HIGH/MEDIUM signals to feed the SpendLens flag engine. Drop-in via <code style="font-size:0.8em;color:#5dd4a8">hermes_client.py</code></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 4 — COSTS & SCALE
+═══════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <h2 class="slide-title">Cost &amp; Scale</h2>
+  <p class="slide-sub">Production-grade market intelligence. Runs for less than a coffee.</p>
+
+  <div class="s4-grid">
+
+    <div>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Role in HERMES</th>
+            <th>/month</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Railway</td>
+            <td>Always-on hosting, auto-restart, env vars</td>
+            <td>~$5</td>
+          </tr>
+          <tr>
+            <td>Upstash Redis</td>
+            <td>Signal storage · 7-day TTL · shared with ICARUS</td>
+            <td>$0</td>
+          </tr>
+          <tr>
+            <td>Claude Haiku</td>
+            <td>Significance scoring + signal classification</td>
+            <td>~$1–3</td>
+          </tr>
+          <tr>
+            <td>Tavily Search</td>
+            <td>Weekly deep web crawl per supplier</td>
+            <td>$0</td>
+          </tr>
+          <tr>
+            <td>SEC EDGAR</td>
+            <td>Public API — filing data, no cost</td>
+            <td>$0</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total</td>
+            <td>Full autonomous intelligence pipeline</td>
+            <td>~$6–8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scale-box">
+      <div class="scale-section-title">Current Scale</div>
+      <div class="scale-stat">
+        <div class="scale-num">~1.1 MB</div>
+        <div class="scale-label">Redis usage (free tier: 256 MB)</div>
+      </div>
+      <div class="scale-stat">
+        <div class="scale-num">~1,500</div>
+        <div class="scale-label">Redis commands/day (limit: 10,000)</div>
+      </div>
+      <div class="scale-stat">
+        <div class="scale-num">3,000</div>
+        <div class="scale-label">Max signals stored per supplier</div>
+      </div>
+      <div class="scale-stat">
+        <div class="scale-num">7 days</div>
+        <div class="scale-label">Signal TTL — auto-expires old data</div>
+      </div>
+      <div class="scale-section-title" style="margin-top:4px">What's live vs. next</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
+        <div style="font-size:0.82rem; color:#55556a; line-height:1.45"><span style="color:#5dd4a8">Live:</span> SpendLens client built — <code style="font-size:0.8em;color:#5dd4a8">enrich_vendor_list()</code> + risk flags ready to wire in</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#44446a; margin-top:5px; flex-shrink:0; width:6px; height:6px; border-radius:50%"></div>
+        <div style="font-size:0.82rem; color:#55556a; line-height:1.45"><span style="color:#66667a">Planned:</span> Slack / email digest — weekly summary pushed automatically</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- .deck -->
+
+<!-- NAV -->
+<nav class="nav">
+  <button id="prev" disabled>←</button>
+  <div class="dots">
+    <div class="dot active" data-i="0"></div>
+    <div class="dot" data-i="1"></div>
+    <div class="dot" data-i="2"></div>
+    <div class="dot" data-i="3"></div>
+  </div>
+  <button id="next">→</button>
+  <span class="slide-num" id="snum">1 / 4</span>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  const prev   = document.getElementById('prev');
+  const next   = document.getElementById('next');
+  const snum   = document.getElementById('snum');
+  let cur = 0;
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    snum.textContent = `${cur + 1} / ${slides.length}`;
+    prev.disabled = cur === 0;
+    next.disabled = cur === slides.length - 1;
+  }
+
+  prev.addEventListener('click', () => cur > 0 && go(cur - 1));
+  next.addEventListener('click', () => cur < slides.length - 1 && go(cur + 1));
+  dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.i)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next.click();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev.click();
+  });
+</script>
+</body>
+</html>
