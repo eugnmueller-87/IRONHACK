@@ -301,6 +301,62 @@
   .pill.purple { border-color: #ccb8e8; }
   .pill.purple strong { color: #6030a0; }
 
+  /* ── CRAWLER ROW ── */
+  .crawler-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 940px;
+  }
+
+  .cr-item {
+    flex: 1;
+    border-radius: 10px;
+    padding: 13px 14px;
+    border: 1px solid;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .cr-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .cr-bullet {
+    font-size: 0.74rem;
+    color: #555570;
+    line-height: 1.5;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .cr-bullet::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #ccccdd;
+  }
+
+  .cr-blue   { border-color: #b8d0e8; }
+  .cr-blue .cr-title { color: #1a6090; }
+
+  .cr-purple { border-color: #ccb8e8; }
+  .cr-purple .cr-title { color: #6030a0; }
+
+  .cr-gold   { border-color: #e8d0a0; }
+  .cr-gold .cr-title { color: #906010; }
+
+  .cr-green  { border-color: #b0ddd0; }
+  .cr-green .cr-title { color: #1a7060; }
+
+  .cr-indigo { border-color: #c0c8f0; }
+  .cr-indigo .cr-title { color: #3040a0; }
+
   /* ── NAV ── */
   .nav {
     position: fixed;
@@ -510,59 +566,54 @@
 ═══════════════════════════════════════ -->
 <div class="slide" id="s4">
   <h2 class="slide-title">What Hermes can actually do</h2>
-  <p class="slide-sub">Nine capabilities built in layers — each one isolating its failures so nothing breaks what came before.</p>
+  <p class="slide-sub">Five specialised crawlers, each with a different job. Everything they collect feeds the same pipeline — classify, store, make queryable.</p>
 
-  <div class="card-grid" style="margin-bottom:16px">
-    <div class="card blue">
-      <div class="card-title">Signal detection on every crawl</div>
-      <div class="card-body">
-        Every item collected gets classified by Claude Haiku into one of 11 types:
-        supply chain disruption, funding round, pricing change, acquisition, earnings signal, regulatory risk, product release, layoffs/hiring, partnership, research paper, or other.
-        Each gets an urgency score and a significance flag.
-      </div>
+  <div class="crawler-row" style="margin-bottom:14px">
+    <div class="cr-item cr-blue">
+      <div class="cr-title">RSS feeds</div>
+      <div class="cr-bullet">Runs every 6 hours — covers all 590 suppliers plus 18 industry news sources</div>
+      <div class="cr-bullet">Free and unlimited — no reason to restrict which companies get monitored here</div>
     </div>
+    <div class="cr-item cr-purple">
+      <div class="cr-title">SEC EDGAR</div>
+      <div class="cr-bullet">Pulls official 8-K, 10-Q, and 10-K filings daily — only public companies that have a CIK number</div>
+      <div class="cr-bullet">Direct from the US government's filing database — no middleman, no paywalls</div>
+    </div>
+    <div class="cr-item cr-gold">
+      <div class="cr-title">Tavily news</div>
+      <div class="cr-bullet">Weekly Monday search for company-specific news — Tier 1 and Tier 2 suppliers only (~177 companies)</div>
+      <div class="cr-bullet">Costs API credits, so Tier 3 is skipped — the tier system exists to protect this budget</div>
+    </div>
+    <div class="cr-item cr-green">
+      <div class="cr-title">Job postings</div>
+      <div class="cr-bullet">Every Wednesday — searches Lever, Greenhouse, and Workday for Tier 1+2 companies</div>
+      <div class="cr-bullet">Hiring spikes are 6-month leading indicators — a company aggressively hiring AI engineers tells you something before their press release does</div>
+    </div>
+    <div class="cr-item cr-indigo">
+      <div class="cr-title">Earnings transcripts</div>
+      <div class="cr-bullet">Every Thursday — fetches the full text of earnings call filings from SEC EDGAR (8-K type)</div>
+      <div class="cr-bullet">Dense forward-looking language ("we expect", "we're cautious about") that Claude classifies for supply chain and pricing signals</div>
+    </div>
+  </div>
 
+  <div class="card-grid">
+    <div class="card blue">
+      <div class="card-title">Signal detection — every item classified</div>
+      <div class="card-body">Claude Haiku reads each item and assigns a signal type (supply chain, funding, pricing, regulatory...), an urgency (HIGH / MEDIUM / LOW), and a significance flag. Only flagged items surface to you.</div>
+    </div>
     <div class="card purple">
       <div class="card-title">Company profiles — living dossiers</div>
-      <div class="card-body">
-        Every signal permanently updates a profile for that company: total signals, urgency breakdown, top signal types, risk flags, and last 10 events.
-        When a company hits 10+ significant signals, Claude Haiku automatically extracts key products, pricing trends, and a risk summary.
-      </div>
-      <div class="card-why"><em>"What do we know about Cerebras?" → full history, not just last 7 days.</em></div>
+      <div class="card-body">Every signal permanently updates that company's profile: history, urgency breakdown, risk flags. At 10+ signals, Haiku auto-extracts key products and a risk summary.</div>
+      <div class="card-why">"What do we know about Cerebras?" → full accumulated history, not just last 7 days.</div>
     </div>
-
     <div class="card gold">
-      <div class="card-title">Macro theme clustering</div>
-      <div class="card-body">
-        Claude Sonnet reads recent significant signals from all companies and groups them into macro themes — with a synthesis paragraph and a list of which companies are involved.
-        Cached for 6 hours. Ask: <strong>"What macro themes are emerging this week?"</strong>
-      </div>
-      <div class="card-why"><em>Cross-company patterns you'd never spot by querying one company at a time.</em></div>
+      <div class="card-title">Macro clustering + weekly digest</div>
+      <div class="card-body">Sonnet groups signals into macro themes across all companies. Every Sunday 18:00 it writes a full category-by-category market summary — auto-delivered to Telegram at 18:30.</div>
+      <div class="card-why">Cross-company patterns you'd never spot by querying one supplier at a time.</div>
     </div>
-
-    <div class="card green">
-      <div class="card-title">Semantic search — ask by topic</div>
-      <div class="card-body">
-        Ask <strong>"chip export controls"</strong> and get back signals from ASML, NVIDIA, Applied Materials, and KLA — without naming any of them.
-        The vector database understands meaning, so it finds relevant content even when the exact words don't match.
-      </div>
-    </div>
-
-    <div class="card red">
-      <div class="card-title">Weekly digest — fully autonomous</div>
-      <div class="card-body">
-        Every Sunday at 18:00, Claude Sonnet reads the week's signals, groups them by category, and writes a market summary with an overall verdict for a procurement professional.
-        Icarus automatically sends it to Telegram at 18:30. No manual trigger needed.
-      </div>
-    </div>
-
     <div class="card indigo">
-      <div class="card-title">Trend memory + content pipeline</div>
-      <div class="card-body">
-        <strong>Trend delta:</strong> compares this week's themes to last week — what's NEW, CONTINUING, or RESOLVED — without an AI call in the comparison step.
-        <br><br>
-        <strong>Content pipeline:</strong> significant signals → KB context → Haiku brief → Sonnet draft → Telegram staging → one-tap LinkedIn publish.
-      </div>
+      <div class="card-title">Semantic search + trend memory</div>
+      <div class="card-body">Ask "chip export controls" — get results from ASML, NVIDIA, KLA without naming them. Trend delta compares this week's themes to last week: NEW / CONTINUING / RESOLVED.</div>
     </div>
   </div>
 </div>
