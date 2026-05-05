@@ -57,7 +57,19 @@ Example: *"5 chip suppliers flagged export control risk this week — TSMC, ASML
 ### 4. Semantic RAG Search
 Upstash Vector (BAAI/bge-large-en-v1.5, 1024-dim, cosine). Ask *"chip export controls"* → returns signals from TSMC, NVIDIA, Applied Materials without naming them.
 
-### 5. Content Generation Pipeline
+### 5. Weekly Digest
+Every Sunday 18:00, Claude Sonnet reads the week's significant signals grouped by category and writes a category-by-category market summary with an overall verdict. Stored 30 days. Icarus forwards to Telegram at 18:30 automatically.
+
+### 6. Trend Memory
+Weekly cluster snapshots stored in Redis. `GET /trends/delta` compares this week vs last week: NEW / CONTINUING / RESOLVED themes. Procurement-relevant drift detection without an LLM in the comparison path.
+
+### 7. Supplier Watchlist
+Companies added via `POST /watchlist/{company}` get RSS-crawled every 2 hours instead of every 6 hours. Higher signal frequency for companies that matter most.
+
+### 8. Profile Enrichment
+When a company accumulates 10+ significant signals, Claude Haiku auto-extracts `key_products`, `pricing_notes`, and `risk_summary` into the profile. Also triggerable on demand.
+
+### 9. Content Generation Pipeline
 6-step pipeline: Redis signals → knowledge base (brand voice + supplier landscape) → Claude Sonnet draft → Telegram staging → Icarus one-tap approval → LinkedIn publish.
 
 ---
@@ -84,8 +96,12 @@ Upstash Vector (BAAI/bge-large-en-v1.5, 1024-dim, cosine). Ask *"chip export con
 | "Give me a market briefing" | `hermes_briefing` | Top significant signals |
 | "Any signals about chip export controls?" | `hermes_search` | RAG semantic search |
 | "What macro themes are emerging?" | `hermes_trends` | Claude Sonnet cluster synthesis |
-| "Tell Hermes to run a crawl" | `hermes_crawl` | Triggers crawler on demand |
+| "Tell Hermes to run a crawl" | `hermes_crawl` | Triggers crawler on demand (RSS/EDGAR/Tavily/Jobs/Transcripts) |
 | "Show me a signals chart" | `hermes_chart` | QuickChart PNG inline photo |
+| "What's the weekly digest?" | `hermes_digest` | Latest Sunday market summary |
+| "Watch TSMC closely" | `hermes_watch` | Add company to high-frequency watchlist |
+| "What themes are new this week?" | `hermes_delta` | NEW / CONTINUING / RESOLVED trend comparison |
+| "Enrich the ASML profile" | `hermes_enrich` | Trigger Haiku profile enrichment on demand |
 
 ---
 

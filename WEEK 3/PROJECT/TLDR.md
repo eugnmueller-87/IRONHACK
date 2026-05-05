@@ -13,12 +13,13 @@
 
 | | |
 |---|---|
-| **Coverage** | ~250 companies · 17 categories · 3 tiers |
-| **Crawlers** | RSS every 6h · EDGAR daily · Tavily weekly |
+| **Coverage** | ~590 companies · 17 categories · 3 tiers |
+| **Crawlers** | RSS every 6h · EDGAR daily · Tavily weekly · Jobs Wed · Transcripts Thu |
 | **Signal types** | 11 (FUNDING, SUPPLY_CHAIN, PRICING_CHANGE, EARNINGS, ...) |
 | **Knowledge base** | Primary KB (brand voice, background, examples) + Secondary KB (Hermes signals, supplier landscape) |
 | **Prompt templates** | 5 (linkedin_post, market_brief, signal_analysis, content_calendar, uniqueness_comparison) |
-| **Storage** | Upstash Redis · 7-day TTL · dedup · `hermes:*` namespace |
+| **Storage** | Upstash Redis · profiles permanent · signals 7-day TTL · Upstash Vector (semantic RAG) |
+| **Intelligence** | Company profiles · macro theme clustering · weekly digest · trend delta · semantic search |
 | **Deployment** | Railway · 24/7 · auto-deploys on push |
 | **Cost** | ~$7–8/month total |
 
@@ -34,4 +35,4 @@
 
 ---
 
-**Status:** Live. All crawlers running. Knowledge base built. Content pipeline complete. Icarus LinkedIn skill wired for approval-gated publishing.
+**Status:** Live. All crawlers running. Company profiles accumulating. Weekly digest generates every Sunday. Icarus queries Hermes via natural language on demand.
