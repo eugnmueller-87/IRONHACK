@@ -24,18 +24,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 52px 80px;
+    padding: 48px 80px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease;
   }
 
   .slide.active { opacity: 1; pointer-events: all; }
-
-  /* ────────────────────────────────────────
-     SLIDE 1 — VISION
-  ──────────────────────────────────────── */
-  #s1 { background: radial-gradient(ellipse at 60% 40%, #0d1030 0%, #07070f 70%); }
 
   .eyebrow {
     font-size: 0.72rem;
@@ -46,7 +41,7 @@
   }
 
   h1.hero {
-    font-size: 3.8rem;
+    font-size: 3.6rem;
     font-weight: 800;
     line-height: 1.1;
     text-align: center;
@@ -57,26 +52,41 @@
     margin-bottom: 24px;
   }
 
+  h2.slide-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d8d8f0;
+    margin-bottom: 6px;
+    align-self: flex-start;
+  }
+
+  .slide-sub {
+    font-size: 0.92rem;
+    color: #55557a;
+    margin-bottom: 30px;
+    align-self: flex-start;
+    max-width: 900px;
+    line-height: 1.6;
+  }
+
   .tagline {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: #7070a0;
     text-align: center;
-    max-width: 700px;
-    line-height: 1.65;
-    margin-bottom: 48px;
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 44px;
   }
 
   .tagline strong { color: #a0b0ff; font-weight: 600; }
 
   .stat-row {
     display: flex;
-    gap: 40px;
+    gap: 44px;
     margin-bottom: 40px;
   }
 
-  .stat {
-    text-align: center;
-  }
+  .stat { text-align: center; }
 
   .stat-num {
     font-size: 2.4rem;
@@ -94,15 +104,15 @@
   }
 
   .context-box {
-    max-width: 660px;
+    max-width: 680px;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 14px;
     padding: 18px 28px;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: #55556a;
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .context-box strong { color: #7a88aa; }
@@ -115,27 +125,70 @@
     color: #2a2a3a;
   }
 
-  /* ────────────────────────────────────────
-     SLIDE 2 — ARCHITECTURE
-  ──────────────────────────────────────── */
-  #s2 { background: radial-gradient(ellipse at 40% 50%, #080d20 0%, #07070f 70%); }
+  /* ── TWO-COLUMN CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 940px;
+  }
 
-  h2.slide-title {
-    font-size: 2rem;
+  .card {
+    border-radius: 12px;
+    padding: 16px 20px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-title {
+    font-size: 0.88rem;
     font-weight: 700;
-    color: #d8d8f0;
-    margin-bottom: 6px;
-    align-self: flex-start;
+    margin-bottom: 2px;
   }
 
-  .slide-sub {
-    font-size: 0.9rem;
-    color: #44446a;
-    margin-bottom: 36px;
-    align-self: flex-start;
+  .card-body {
+    font-size: 0.82rem;
+    color: #66668a;
+    line-height: 1.55;
   }
 
-  .pipeline {
+  .card-body strong { color: #9898b8; font-weight: 600; }
+
+  .card-why {
+    font-size: 0.76rem;
+    color: #44445a;
+    line-height: 1.5;
+    padding-top: 6px;
+    border-top: 1px solid #111120;
+    margin-top: 4px;
+  }
+
+  .card-why em { color: #5d5d8a; font-style: normal; }
+
+  /* colours */
+  .card.blue   { border-color: #3a6080; background: rgba(58,96,128,0.08); }
+  .card.blue .card-title { color: #7ac0f0; }
+
+  .card.purple { border-color: #5a3a80; background: rgba(90,58,128,0.08); }
+  .card.purple .card-title { color: #b07af0; }
+
+  .card.gold   { border-color: #806030; background: rgba(128,96,48,0.08); }
+  .card.gold .card-title { color: #f0c07a; }
+
+  .card.green  { border-color: #3a7060; background: rgba(58,112,96,0.08); }
+  .card.green .card-title { color: #7ae0c0; }
+
+  .card.red    { border-color: #803a3a; background: rgba(128,58,58,0.08); }
+  .card.red .card-title { color: #f07a7a; }
+
+  .card.indigo { border-color: #4a4a90; background: rgba(74,74,144,0.08); }
+  .card.indigo .card-title { color: #8ba4ff; }
+
+  /* ── STEP FLOW ── */
+  .step-flow {
     display: flex;
     align-items: stretch;
     gap: 0;
@@ -143,147 +196,7 @@
     max-width: 960px;
   }
 
-  .pipe-stage {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .pipe-arrow {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    color: #2a3060;
-    font-size: 1.4rem;
-    flex-shrink: 0;
-  }
-
-  .stage-header {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #44446a;
-    margin-bottom: 4px;
-    padding-left: 2px;
-  }
-
-  .pnode {
-    border-radius: 10px;
-    padding: 12px 14px;
-    border: 1px solid;
-    font-size: 0.82rem;
-  }
-
-  .pnode-name {
-    font-weight: 700;
-    font-size: 0.88rem;
-    margin-bottom: 3px;
-  }
-
-  .pnode-desc {
-    font-size: 0.74rem;
-    opacity: 0.6;
-    line-height: 1.4;
-  }
-
-  .pnode.rss    { border-color: #3a6080; background: rgba(58,96,128,0.12); }
-  .pnode.rss .pnode-name { color: #7ac0f0; }
-
-  .pnode.edgar  { border-color: #5a3a80; background: rgba(90,58,128,0.12); }
-  .pnode.edgar .pnode-name { color: #b07af0; }
-
-  .pnode.tavily { border-color: #3a7060; background: rgba(58,112,96,0.12); }
-  .pnode.tavily .pnode-name { color: #7ae0c0; }
-
-  .pnode.claude { border-color: #806030; background: rgba(128,96,48,0.12); }
-  .pnode.claude .pnode-name { color: #f0c07a; }
-
-  .pnode.redis  { border-color: #803a3a; background: rgba(128,58,58,0.12); }
-  .pnode.redis .pnode-name { color: #f07a7a; }
-
-  .pnode.out    { border-color: #3a6040; background: rgba(58,96,64,0.12); }
-  .pnode.out .pnode-name { color: #7af0a0; }
-
-  /* ────────────────────────────────────────
-     SLIDE 3 — CAPABILITIES
-  ──────────────────────────────────────── */
-  #s3 { background: radial-gradient(ellipse at 50% 30%, #080a18 0%, #07070f 70%); }
-
-  .cap-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    width: 100%;
-    max-width: 900px;
-  }
-
-  .cap-section { display: flex; flex-direction: column; gap: 12px; }
-
-  .cap-section-title {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #44446a;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #13131e;
-  }
-
-  .cap-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .cap-bullet {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 6px;
-  }
-
-  .cap-text {
-    font-size: 0.88rem;
-    color: #8888aa;
-    line-height: 1.45;
-  }
-
-  .cap-text strong { color: #b8b8d8; font-weight: 600; }
-
-  .signal-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .sbadge {
-    font-size: 0.68rem;
-    padding: 4px 10px;
-    border-radius: 100px;
-    font-weight: 600;
-    border: 1px solid;
-  }
-
-  .sb-risk     { border-color: #803a3a; color: #f07a7a; background: rgba(128,58,58,0.12); }
-  .sb-opp      { border-color: #3a8050; color: #7af0a0; background: rgba(58,128,80,0.12); }
-  .sb-fin      { border-color: #806030; color: #f0c07a; background: rgba(128,96,48,0.12); }
-  .sb-prod     { border-color: #3a6080; color: #7ac0f0; background: rgba(58,96,128,0.12); }
-  .sb-ma       { border-color: #5a3a80; color: #b07af0; background: rgba(90,58,128,0.12); }
-  .sb-reg      { border-color: #80603a; color: #f0a07a; background: rgba(128,96,58,0.12); }
-
-  /* ────────────────────────────────────────
-     SLIDE 3 — CONTENT PIPELINE
-  ──────────────────────────────────────── */
-  .pipeline-steps {
-    display: flex;
-    gap: 6px;
-    width: 100%;
-    max-width: 900px;
-    align-items: stretch;
-  }
-
-  .ps {
+  .step {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -293,84 +206,42 @@
     padding: 14px 10px;
     border: 1px solid #1a1a30;
     background: rgba(255,255,255,0.02);
-    position: relative;
   }
 
-  .ps-num {
-    font-size: 0.6rem;
+  .step-num {
+    font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     color: #33334a;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     text-transform: uppercase;
   }
 
-  .ps-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .step-icon { font-size: 1.3rem; margin-bottom: 5px; }
 
-  .ps-name {
+  .step-name {
     font-size: 0.78rem;
     font-weight: 700;
     color: #c0c0e0;
     margin-bottom: 4px;
   }
 
-  .ps-desc {
+  .step-desc {
     font-size: 0.67rem;
     color: #44446a;
     line-height: 1.4;
   }
 
-  .ps-arrow {
+  .step-arr {
     display: flex;
     align-items: center;
     color: #1e1e30;
     font-size: 1rem;
     flex-shrink: 0;
-    padding: 0 2px;
+    padding: 0 3px;
   }
 
-  .kb-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    width: 100%;
-    max-width: 900px;
-  }
-
-  .kb-box {
-    border-radius: 10px;
-    padding: 14px 18px;
-    border: 1px solid;
-  }
-
-  .kb-box.primary { border-color: #3a6080; background: rgba(58,96,128,0.08); }
-  .kb-box.secondary { border-color: #5a3a80; background: rgba(90,58,128,0.08); }
-
-  .kb-title {
-    font-size: 0.65rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .kb-box.primary .kb-title { color: #7ac0f0; }
-  .kb-box.secondary .kb-title { color: #b07af0; }
-
-  .kb-files { display: flex; flex-wrap: wrap; gap: 6px; }
-
-  .kb-file {
-    font-size: 0.68rem;
-    padding: 3px 9px;
-    border-radius: 100px;
-    border: 1px solid #1a1a30;
-    color: #55556a;
-  }
-
-  /* ────────────────────────────────────────
-     SLIDE 4 — UNIQUENESS & COST
-  ──────────────────────────────────────── */
-  #s4 { background: radial-gradient(ellipse at 30% 60%, #070d0d 0%, #07070f 70%); }
-
+  /* ── COMPARISON TABLE ── */
   .cmp-table {
     width: 100%;
     border-collapse: collapse;
@@ -392,72 +263,32 @@
 
   .cmp-table td {
     padding: 10px 14px;
-    font-size: 0.83rem;
+    font-size: 0.84rem;
     border-bottom: 1px solid #0f0f18;
     vertical-align: top;
   }
 
-  .cmp-table td:first-child { color: #44446a; font-size: 0.72rem; white-space: nowrap; }
+  .cmp-table td:first-child { color: #44446a; font-size: 0.76rem; white-space: nowrap; }
   .cmp-table td:nth-child(2) { color: #664444; }
   .cmp-table td:nth-child(3) { color: #8888aa; }
   .cmp-table td:nth-child(3) strong { color: #7af0a0; }
 
-  .s4-layout {
+  .s5-layout {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1.35fr 0.65fr;
     gap: 32px;
     width: 100%;
-    max-width: 920px;
+    max-width: 960px;
     align-items: start;
   }
 
-  .s4-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 32px;
-    width: 100%;
-    max-width: 900px;
-    align-items: start;
-  }
-
-  .cost-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .cost-table th {
-    font-size: 0.65rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #33334a;
-    text-align: left;
-    padding: 0 12px 12px;
-    border-bottom: 1px solid #13131e;
-  }
-
-  .cost-table td {
-    padding: 11px 12px;
-    font-size: 0.86rem;
-    border-bottom: 1px solid #0f0f18;
-    vertical-align: middle;
-  }
-
-  .cost-table tr:last-child td { border-bottom: none; }
-  .cost-table td:first-child { color: #55556a; font-size: 0.76rem; }
-  .cost-table td:nth-child(2) { color: #b8b8d8; font-weight: 600; }
-  .cost-table td:nth-child(3) { color: #7af0a0; font-weight: 700; }
-
-  .total-row td { padding-top: 18px !important; }
-  .total-row td:first-child { color: #d8d8f0 !important; font-weight: 700 !important; }
-  .total-row td:nth-child(3) { color: #f0c07a !important; font-size: 1.1rem !important; }
-
-  .scale-box {
+  .sidebar-box {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
   }
 
-  .scale-section-title {
+  .sidebar-title {
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -466,87 +297,59 @@
     border-bottom: 1px solid #13131e;
   }
 
-  .scale-stat {
+  .check-item {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
   }
 
-  .scale-num {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #8ba4ff;
-    line-height: 1;
+  .check-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #7af0a0;
+    flex-shrink: 0;
+    margin-top: 5px;
   }
 
-  .scale-label {
+  .check-text {
+    font-size: 0.79rem;
+    color: #55556a;
+    line-height: 1.5;
+  }
+
+  .check-text span { color: #5dd4a8; }
+
+  /* ── FOOTER PILL ── */
+  .footer-pills {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 940px;
+    margin-top: 16px;
+  }
+
+  .pill {
+    flex: 1;
+    border-radius: 8px;
+    padding: 10px 16px;
     font-size: 0.76rem;
     color: #44446a;
-    margin-top: 4px;
-  }
-
-  /* arch diagram */
-  .arch-row {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    max-width: 960px;
-    align-items: stretch;
-  }
-
-  .arch-col {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-  }
-
-  .arch-box {
-    border-radius: 10px;
-    padding: 12px 16px;
+    line-height: 1.55;
     border: 1px solid;
-    font-size: 0.82rem;
   }
 
-  .arch-box .abox-title {
-    font-weight: 700;
-    font-size: 0.88rem;
-    margin-bottom: 4px;
-  }
+  .pill strong { font-weight: 700; }
 
-  .arch-box .abox-desc {
-    font-size: 0.74rem;
-    opacity: 0.55;
-    line-height: 1.4;
-  }
+  .pill.blue   { border-color: #2a4060; background: rgba(58,96,128,0.06); }
+  .pill.blue strong { color: #7ac0f0; }
 
-  .arch-box.icarus  { border-color: #3a6080; background: rgba(58,96,128,0.10); }
-  .arch-box.icarus .abox-title { color: #7ac0f0; }
+  .pill.gold   { border-color: #604020; background: rgba(128,96,48,0.06); }
+  .pill.gold strong { color: #f0c07a; }
 
-  .arch-box.hermes  { border-color: #806030; background: rgba(128,96,48,0.10); }
-  .arch-box.hermes .abox-title { color: #f0c07a; }
+  .pill.purple { border-color: #3a2060; background: rgba(90,58,128,0.06); }
+  .pill.purple strong { color: #b07af0; }
 
-  .arch-box.crawl   { border-color: #3a7060; background: rgba(58,112,96,0.10); }
-  .arch-box.crawl .abox-title { color: #7ae0c0; }
-
-  .arch-box.storage { border-color: #803a3a; background: rgba(128,58,58,0.10); }
-  .arch-box.storage .abox-title { color: #f07a7a; }
-
-  .arch-box.intel   { border-color: #5a3a80; background: rgba(90,58,128,0.10); }
-  .arch-box.intel .abox-title { color: #b07af0; }
-
-  .arch-connector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #2a3060;
-    font-size: 1.3rem;
-    flex-shrink: 0;
-    width: 24px;
-  }
-
-  /* ────────────────────────────────────────
-     NAV
-  ──────────────────────────────────────── */
+  /* ── NAV ── */
   .nav {
     position: fixed;
     bottom: 28px;
@@ -602,29 +405,28 @@
 <div class="deck">
 
 <!-- ══════════════════════════════════════
-     SLIDE 1 — VISION
+     SLIDE 1 — WHAT IS THIS AND WHY
 ═══════════════════════════════════════ -->
 <div class="slide active" id="s1">
   <div class="eyebrow">Ironhack Berlin · AI Integration Bootcamp · Week 3 Project</div>
-  <h1 class="hero">Autonomous market intelligence.<br>On demand. In your pocket.</h1>
+  <h1 class="hero">Your external intelligence layer.<br>Always on. Never manual.</h1>
   <p class="tagline">
-    <strong>HERMES</strong> watches 590 suppliers 24/7 — RSS, SEC filings, job boards, earnings calls.
-    <strong>ICARUS</strong> queries it in natural language via Telegram.
-    Together they replace hours of manual research with a two-agent AI system that never sleeps.
+    <strong>HERMES</strong> is an AI agent that watches 590 tech suppliers around the clock — reading news, SEC filings, job boards, and earnings calls.
+    <strong>ICARUS</strong> is the personal assistant you talk to. Ask it anything about the market in plain language and it queries Hermes for you.
   </p>
 
   <div class="stat-row">
     <div class="stat">
       <div class="stat-num">590</div>
-      <div class="stat-label">Suppliers tracked</div>
+      <div class="stat-label">Companies monitored</div>
     </div>
     <div class="stat">
       <div class="stat-num">5</div>
-      <div class="stat-label">Crawlers running</div>
+      <div class="stat-label">Data crawlers</div>
     </div>
     <div class="stat">
-      <div class="stat-num">9</div>
-      <div class="stat-label">Intelligence features</div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Runs automatically</div>
     </div>
     <div class="stat">
       <div class="stat-num">~$7</div>
@@ -633,348 +435,269 @@
   </div>
 
   <div class="context-box">
-    Built by a <strong>procurement professional with 10+ years</strong> at TeamViewer, Scout24, and Delivery Hero —
-    to automate what used to take hours: tracking supplier moves, spotting macro themes,
-    and turning live market signals into LinkedIn content that sounds like you wrote it.
+    Built by a <strong>procurement professional with 10+ years</strong> at TeamViewer, Scout24, and Delivery Hero.
+    Tracking supplier news and writing content about it used to take hours every week.
+    This system automates both — the monitoring runs itself, and the first draft is waiting for you.
   </div>
   <div class="built-by">Eugen Mueller · eugnmueller@googlemail.com</div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 2 — TWO-AGENT ARCHITECTURE
+     SLIDE 2 — HOW THE TWO AGENTS WORK TOGETHER
 ═══════════════════════════════════════ -->
 <div class="slide" id="s2">
-  <h2 class="slide-title">Two-Agent Architecture</h2>
-  <p class="slide-sub">Icarus is the master agent you talk to. Hermes is the external intelligence sub-agent it calls. Neither crosses the other's boundary.</p>
+  <h2 class="slide-title">How the two agents work together</h2>
+  <p class="slide-sub">Hermes is the intelligence engine running in the background. Icarus is the assistant you talk to via Telegram. They communicate through a simple API — Icarus asks, Hermes answers.</p>
 
-  <div class="arch-row" style="margin-bottom:20px">
-    <!-- DATA SOURCES -->
-    <div class="arch-col" style="max-width:190px">
-      <div class="stage-header">Data sources</div>
-      <div class="arch-box crawl">
-        <div class="abox-title">RSS + 18 feeds</div>
-        <div class="abox-desc">590 companies · every 6h</div>
+  <div class="card-grid" style="margin-bottom:16px">
+    <div class="card gold">
+      <div class="card-title">Hermes — the market watcher</div>
+      <div class="card-body">
+        Runs 24/7 on Railway (a cloud server). Five crawlers collect data on a schedule:
+        news feeds every 6 hours, SEC filings daily, company news weekly, job postings on Wednesdays, earnings call transcripts on Thursdays.
+        Claude AI reads every item and decides if it's relevant — then stores it.
       </div>
-      <div class="arch-box crawl">
-        <div class="abox-title">SEC EDGAR</div>
-        <div class="abox-desc">8-K · 10-Q · 10-K · daily</div>
-      </div>
-      <div class="arch-box crawl">
-        <div class="abox-title">Tavily search</div>
-        <div class="abox-desc">Tier 1+2 · weekly Mon</div>
-      </div>
-      <div class="arch-box crawl">
-        <div class="abox-title">Job postings</div>
-        <div class="abox-desc">Lever / Greenhouse · Wed</div>
-      </div>
-      <div class="arch-box crawl">
-        <div class="abox-title">Earnings transcripts</div>
-        <div class="abox-desc">8-K full text · Thu</div>
-      </div>
+      <div class="card-why"><em>Think of it as a researcher that never sleeps and never misses a filing.</em></div>
     </div>
 
-    <div class="arch-connector">→</div>
-
-    <!-- HERMES -->
-    <div class="arch-col" style="max-width:210px">
-      <div class="stage-header">Hermes — sub-agent</div>
-      <div class="arch-box hermes">
-        <div class="abox-title">Claude Haiku</div>
-        <div class="abox-desc">Classify · 11 signal types · HIGH/MEDIUM/LOW · profile enrichment</div>
+    <div class="card blue">
+      <div class="card-title">Icarus — the assistant you talk to</div>
+      <div class="card-body">
+        Your personal Telegram bot, also powered by Claude. When you ask something like
+        <strong>"What's happening with TSMC?"</strong> or <strong>"What macro themes are emerging this week?"</strong>,
+        Icarus picks the right Hermes tool, calls it, and gives you a clean answer — no searching required.
       </div>
-      <div class="arch-box hermes">
-        <div class="abox-title">Claude Sonnet</div>
-        <div class="abox-desc">Macro theme clustering · weekly digest · trend delta</div>
-      </div>
-      <div class="arch-box storage">
-        <div class="abox-title">Upstash Redis</div>
-        <div class="abox-desc">Signals 7d TTL · profiles permanent · watchlist · clusters</div>
-      </div>
-      <div class="arch-box storage">
-        <div class="abox-title">Upstash Vector</div>
-        <div class="abox-desc">BAAI/bge-large · 1024-dim · cosine — semantic RAG search</div>
-      </div>
+      <div class="card-why"><em>The interface between you and everything Hermes knows.</em></div>
     </div>
 
-    <div class="arch-connector">⇌</div>
-
-    <!-- ICARUS -->
-    <div class="arch-col" style="max-width:210px">
-      <div class="stage-header">Icarus — master agent</div>
-      <div class="arch-box icarus">
-        <div class="abox-title">Claude Sonnet</div>
-        <div class="abox-desc">Routes NL queries to the right Hermes tool · resolves conversation context</div>
+    <div class="card green">
+      <div class="card-title">Redis — the memory store</div>
+      <div class="card-body">
+        Every signal Hermes finds is stored here instantly. Company profiles accumulate over time (permanent storage).
+        Signals expire after 7 days so the database stays lean. The weekly digest and cluster snapshots also live here.
       </div>
-      <div class="arch-box icarus">
-        <div class="abox-title">Hermes tools (12)</div>
-        <div class="abox-desc">greet · query · profile · briefing · search · trends · digest · watch · delta · enrich · crawl · chart</div>
-      </div>
-      <div class="arch-box icarus">
-        <div class="abox-title">Morning briefing</div>
-        <div class="abox-desc">06:00 — top 3 Hermes signals appended automatically</div>
-      </div>
+      <div class="card-why"><em>Fast key-value database — like a very organised filing cabinet in the cloud.</em></div>
     </div>
 
-    <div class="arch-connector">→</div>
-
-    <!-- USER -->
-    <div class="arch-col" style="max-width:160px">
-      <div class="stage-header">You</div>
-      <div class="arch-box out">
-        <div class="abox-title">Telegram</div>
-        <div class="abox-desc">Natural language queries · inline answers · chart photos</div>
+    <div class="card purple">
+      <div class="card-title">Upstash Vector — the search index</div>
+      <div class="card-body">
+        Every signal is also saved into a vector database — a special index that understands meaning, not just keywords.
+        This is what makes <strong>"chip export controls"</strong> return signals from ASML, NVIDIA, and KLA
+        even though you didn't name any of them.
       </div>
-      <div class="arch-box out">
-        <div class="abox-title">Weekly digest</div>
-        <div class="abox-desc">Sun 18:30 — auto-pushed to Telegram by Icarus</div>
-      </div>
-      <div class="arch-box out">
-        <div class="abox-title">LinkedIn drafts</div>
-        <div class="abox-desc">Approval-gated · one-tap publish</div>
-      </div>
+      <div class="card-why"><em>Semantic search: finds what you mean, not just what you typed.</em></div>
     </div>
   </div>
 
-  <div style="display:flex;gap:10px;width:100%;max-width:960px;">
-    <div style="flex:1;background:rgba(128,96,48,0.08);border:1px solid #806030;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#f0c07a;font-weight:700">Hermes never pushes</span> — Icarus pulls on demand. Failures are isolated per feature.
-    </div>
-    <div style="flex:1;background:rgba(58,96,128,0.08);border:1px solid #3a6080;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#7ac0f0;font-weight:700">Two databases, one call</span> — every signal writes Redis + Vector + profile atomically.
-    </div>
-    <div style="flex:1;background:rgba(90,58,128,0.08);border:1px solid #5a3a80;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#b07af0;font-weight:700">Free tier discipline</span> — Tavily capped weekly, Vector 10K, Redis 10K/day. ~$7/month.
-    </div>
+  <div class="footer-pills">
+    <div class="pill gold"><strong>Rule 1:</strong> Hermes never pushes data anywhere. Icarus always pulls when asked. Clean separation of concerns.</div>
+    <div class="pill blue"><strong>Rule 2:</strong> Every new feature is wrapped in error handling. If the weekly digest fails, signals still store. Nothing cascades.</div>
+    <div class="pill purple"><strong>Rule 3:</strong> Every signal writes to Redis, the vector index, and the company profile in one atomic call — three databases, one operation.</div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 3 — KNOWLEDGE BASE & LLM INTEGRATION
+     SLIDE 3 — THE KNOWLEDGE BASE & CLAUDE INTEGRATION
 ═══════════════════════════════════════ -->
 <div class="slide" id="s3">
-  <h2 class="slide-title">Knowledge Base &amp; LLM API Integration</h2>
-  <p class="slide-sub">Two Claude models with distinct roles. Two KB layers that ground every output in real data and your professional voice.</p>
+  <h2 class="slide-title">Knowledge base &amp; Claude AI integration</h2>
+  <p class="slide-sub">Two layers of context are injected into every prompt. Two Claude models handle different jobs. Five reusable templates keep the output consistent.</p>
 
-  <div class="cap-layout" style="margin-bottom:20px">
-    <div class="cap-section">
-      <div class="cap-section-title">Primary KB — who you are and how you write</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>brand_voice.md</strong> — tone rules, forbidden phrases, post formula, format constraints</div>
+  <div class="card-grid" style="margin-bottom:16px">
+    <div class="card blue">
+      <div class="card-title">Primary knowledge base — who you are</div>
+      <div class="card-body">
+        Four Markdown documents Claude reads before writing anything:
+        <strong>brand_voice.md</strong> (tone rules, forbidden phrases, post format),
+        <strong>background.md</strong> (10yr procurement career),
+        <strong>linkedin_examples.md</strong> (2 real posts with annotations),
+        <strong>methodology.md</strong> (what makes a post worth writing).
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>background.md</strong> — 10yr procurement career at TeamViewer, Scout24, Delivery Hero</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>linkedin_examples.md</strong> — 2 annotated posts for style matching</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>methodology.md</strong> — content pillars, post types, signal-to-post workflow</div>
-      </div>
-
-      <div class="cap-section-title" style="margin-top:6px">Secondary KB — live market context</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>hermes_signals_sample.md</strong> — structured signals with procurement angles: NVIDIA, TSMC, Anthropic, Micron</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>supplier_landscape.md</strong> — 590 companies · 17 categories · tier rankings · content angles</div>
-      </div>
+      <div class="card-why"><em>Without this, Claude writes generic content. With it, drafts sound like you actually wrote them.</em></div>
     </div>
 
-    <div class="cap-section">
-      <div class="cap-section-title">LLM integration — two models, distinct roles</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>Claude Haiku</strong> — fast, cheap. Signal classification (11 types + urgency), market briefs, profile enrichment. Runs on every crawl cycle.</div>
+    <div class="card purple">
+      <div class="card-title">Secondary knowledge base — what's happening now</div>
+      <div class="card-body">
+        Two documents with live market context:
+        <strong>hermes_signals_sample.md</strong> (real signals from NVIDIA, TSMC, Anthropic with procurement angles)
+        and <strong>supplier_landscape.md</strong> (590 companies, 17 categories, tier rankings, content angles per category).
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#8ba4ff"></div>
-        <div class="cap-text"><strong>Claude Sonnet</strong> — powerful. LinkedIn drafts, macro theme clustering, weekly digest generation. On demand.</div>
-      </div>
-
-      <div class="cap-section-title" style="margin-top:6px">Prompt templates — 5 reusable</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>LINKEDIN_POST</strong> — injects KB + signal, enforces brand voice, 150–300 words</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>MARKET_BRIEF</strong> — procurement intelligence brief under 200 words</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>SIGNAL_ANALYSIS</strong> — what happened · why it matters · what to do in 30 days</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>CONTENT_CALENDAR</strong> — 5-post weekly plan from available signals</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f07a7a"></div>
-        <div class="cap-text"><strong>UNIQUENESS_COMPARISON</strong> — Hermes vs generic ChatGPT across 6 dimensions</div>
-      </div>
+      <div class="card-why"><em>This is what makes drafts about real events — not training data from months ago.</em></div>
     </div>
+
+    <div class="card gold">
+      <div class="card-title">Claude Haiku — the fast worker</div>
+      <div class="card-body">
+        Runs on every single crawl cycle. Reads each news item and decides: what type of signal is this? (funding, supply chain, regulatory, earnings, etc.) How urgent is it — HIGH, MEDIUM, or LOW?
+        Is it significant enough to surface? Also handles profile enrichment summaries.
+      </div>
+      <div class="card-why"><em>Cheap and fast — handles the volume. Processes thousands of items per month for ~$1–2.</em></div>
+    </div>
+
+    <div class="card indigo">
+      <div class="card-title">Claude Sonnet — the deep thinker</div>
+      <div class="card-body">
+        Used for tasks that need real reasoning: writing LinkedIn post drafts, generating macro theme clusters
+        (grouping signals across companies into themes), and producing the weekly market digest every Sunday.
+      </div>
+      <div class="card-why"><em>More powerful and more expensive — reserved for output you actually read and act on.</em></div>
+    </div>
+  </div>
+
+  <div class="footer-pills">
+    <div class="pill blue"><strong>LINKEDIN_POST:</strong> injects both KBs + signal, enforces brand voice, outputs 150–300 words</div>
+    <div class="pill gold"><strong>MARKET_BRIEF:</strong> condenses a list of signals into a procurement intelligence brief under 200 words</div>
+    <div class="pill purple"><strong>3 more templates:</strong> SIGNAL_ANALYSIS · CONTENT_CALENDAR · UNIQUENESS_COMPARISON — all reusable across any company or topic</div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 4 — DEEP INTELLIGENCE LAYER
+     SLIDE 4 — WHAT HERMES CAN ACTUALLY DO
 ═══════════════════════════════════════ -->
 <div class="slide" id="s4">
-  <h2 class="slide-title">Deep Intelligence Layer</h2>
-  <p class="slide-sub">Beyond single-company queries — Hermes builds dossiers, detects macro themes, and delivers a weekly market summary autonomously.</p>
+  <h2 class="slide-title">What Hermes can actually do</h2>
+  <p class="slide-sub">Nine capabilities built in layers — each one isolating its failures so nothing breaks what came before.</p>
 
-  <div class="cap-layout" style="margin-bottom:20px">
-    <div class="cap-section">
-      <div class="cap-section-title">Company knowledge profiles</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>Living dossier</strong> — every signal permanently updates <code style="font-size:0.8em;color:#5dd4a8">hermes:profile:{slug}</code>: signal counts, urgency breakdown, risk flags, recent history</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>Auto-enrichment</strong> — at 10+ significant signals, Haiku extracts <code style="font-size:0.8em;color:#5dd4a8">key_products</code>, <code style="font-size:0.8em;color:#5dd4a8">pricing_notes</code>, <code style="font-size:0.8em;color:#5dd4a8">risk_summary</code> automatically</div>
-      </div>
-
-      <div class="cap-section-title" style="margin-top:6px">Macro theme clustering</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>Cross-company patterns</strong> — Sonnet groups recent signals into macro themes with synthesis paragraphs. Cached 6h.</div>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text">Example: <em style="color:#7070a0">"5 chip suppliers flagged export control risk — TSMC, ASML, NVIDIA, KLA, Applied Materials"</em> — without naming any of them in the query</div>
-      </div>
-
-      <div class="cap-section-title" style="margin-top:6px">Semantic RAG search</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text">Upstash Vector (BAAI/bge-large-en-v1.5, 1024-dim, cosine). <em style="color:#7070a0">"chip export controls"</em> returns signals from ASML, NVIDIA, KLA — no company names needed</div>
+  <div class="card-grid" style="margin-bottom:16px">
+    <div class="card blue">
+      <div class="card-title">Signal detection on every crawl</div>
+      <div class="card-body">
+        Every item collected gets classified by Claude Haiku into one of 11 types:
+        supply chain disruption, funding round, pricing change, acquisition, earnings signal, regulatory risk, product release, layoffs/hiring, partnership, research paper, or other.
+        Each gets an urgency score and a significance flag.
       </div>
     </div>
 
-    <div class="cap-section">
-      <div class="cap-section-title">Weekly digest — fully autonomous</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>Every Sunday 18:00</strong> — Sonnet writes a category-by-category market summary with an overall procurement verdict. Stored 30 days.</div>
+    <div class="card purple">
+      <div class="card-title">Company profiles — living dossiers</div>
+      <div class="card-body">
+        Every signal permanently updates a profile for that company: total signals, urgency breakdown, top signal types, risk flags, and last 10 events.
+        When a company hits 10+ significant signals, Claude Haiku automatically extracts key products, pricing trends, and a risk summary.
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>Auto-delivered</strong> — Icarus forwards the digest to Telegram at 18:30. Zero manual input.</div>
-      </div>
+      <div class="card-why"><em>"What do we know about Cerebras?" → full history, not just last 7 days.</em></div>
+    </div>
 
-      <div class="cap-section-title" style="margin-top:6px">Trend memory</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f07a7a"></div>
-        <div class="cap-text"><strong>Week-over-week drift</strong> — weekly cluster snapshots stored in Redis. <code style="font-size:0.8em;color:#5dd4a8">GET /trends/delta</code> returns <span style="color:#7af0a0">NEW</span> / <span style="color:#f0c07a">CONTINUING</span> / <span style="color:#f07a7a">RESOLVED</span> themes with no LLM in the comparison path.</div>
+    <div class="card gold">
+      <div class="card-title">Macro theme clustering</div>
+      <div class="card-body">
+        Claude Sonnet reads recent significant signals from all companies and groups them into macro themes — with a synthesis paragraph and a list of which companies are involved.
+        Cached for 6 hours. Ask: <strong>"What macro themes are emerging this week?"</strong>
       </div>
+      <div class="card-why"><em>Cross-company patterns you'd never spot by querying one company at a time.</em></div>
+    </div>
 
-      <div class="cap-section-title" style="margin-top:6px">Supplier watchlist</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#8ba4ff"></div>
-        <div class="cap-text"><strong>High-frequency crawl</strong> — watchlisted companies get RSS-crawled every 2h instead of 6h. <em style="color:#7070a0">"Watch TSMC closely"</em> via Telegram adds them instantly.</div>
-      </div>
-
-      <div class="cap-section-title" style="margin-top:6px">Content generation pipeline</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0a07a"></div>
-        <div class="cap-text"><strong>6-step pipeline</strong> — Redis signals → KB (brand voice + landscape) → Haiku brief → Sonnet draft → Telegram staging → approval-gated publish</div>
+    <div class="card green">
+      <div class="card-title">Semantic search — ask by topic</div>
+      <div class="card-body">
+        Ask <strong>"chip export controls"</strong> and get back signals from ASML, NVIDIA, Applied Materials, and KLA — without naming any of them.
+        The vector database understands meaning, so it finds relevant content even when the exact words don't match.
       </div>
     </div>
-  </div>
 
-  <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a30;border-radius:10px;padding:12px 20px;width:100%;max-width:900px;font-size:0.78rem;color:#44446a;line-height:1.7">
-    <strong style="color:#8888aa">Isolation principle:</strong> every feature catches its own exceptions and never blocks the primary write path. A failing digest never stops signal storage. A failing enrichment never breaks a crawl cycle.
+    <div class="card red">
+      <div class="card-title">Weekly digest — fully autonomous</div>
+      <div class="card-body">
+        Every Sunday at 18:00, Claude Sonnet reads the week's signals, groups them by category, and writes a market summary with an overall verdict for a procurement professional.
+        Icarus automatically sends it to Telegram at 18:30. No manual trigger needed.
+      </div>
+    </div>
+
+    <div class="card indigo">
+      <div class="card-title">Trend memory + content pipeline</div>
+      <div class="card-body">
+        <strong>Trend delta:</strong> compares this week's themes to last week — what's NEW, CONTINUING, or RESOLVED — without an AI call in the comparison step.
+        <br><br>
+        <strong>Content pipeline:</strong> significant signals → KB context → Haiku brief → Sonnet draft → Telegram staging → one-tap LinkedIn publish.
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 5 — UNIQUENESS DEMONSTRATION
+     SLIDE 5 — WHY THIS IS DIFFERENT FROM CHATGPT
 ═══════════════════════════════════════ -->
 <div class="slide" id="s5">
-  <h2 class="slide-title">Uniqueness Demonstration</h2>
-  <p class="slide-sub">Same topic. Two approaches. The difference is data, context, memory, and automation.</p>
+  <h2 class="slide-title">Why this is different from just using ChatGPT</h2>
+  <p class="slide-sub">Generic AI is a starting point. This system is built around your data, your voice, and your workflow — running automatically so you don't have to think about it.</p>
 
-  <div class="s4-layout" style="max-width:960px">
+  <div class="s5-layout">
     <div>
       <table class="cmp-table">
         <thead>
           <tr>
-            <th>Dimension</th>
+            <th>What you'd ask</th>
             <th>Generic ChatGPT</th>
             <th>Hermes + Icarus</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Data freshness</td>
-            <td>Training cutoff — no live data</td>
-            <td><strong>Live: RSS 6h, EDGAR daily, Tavily weekly, Jobs Wed, Transcripts Thu</strong></td>
+            <td>What happened with TSMC this week?</td>
+            <td>Training data from months ago — no live events</td>
+            <td><strong>Actual RSS + SEC filings pulled in the last 6 hours</strong></td>
           </tr>
           <tr>
-            <td>Supplier specificity</td>
-            <td>Generic industry knowledge</td>
-            <td><strong>590 companies · per-company profile · signal history · risk summary</strong></td>
+            <td>What should I know about ASML as a vendor?</td>
+            <td>Generic public knowledge, no company history</td>
+            <td><strong>Accumulated profile: signal history, risk summary, key products extracted by AI</strong></td>
           </tr>
           <tr>
-            <td>Macro intelligence</td>
-            <td>Single query, no cross-company patterns</td>
-            <td><strong>Claude Sonnet clusters signals across all suppliers into macro themes</strong></td>
+            <td>What themes are multiple suppliers signaling?</td>
+            <td>Can't correlate across companies — single query</td>
+            <td><strong>Claude Sonnet clusters signals across all 590 companies into shared themes</strong></td>
           </tr>
           <tr>
-            <td>Domain voice</td>
-            <td>Generic business writing</td>
-            <td><strong>Primary KB: brand voice, career background, past posts — every draft</strong></td>
+            <td>Write a LinkedIn post about this news</td>
+            <td>Generic business writing, no personal context</td>
+            <td><strong>Draft grounded in your KB: your tone, your career, your past post style</strong></td>
           </tr>
           <tr>
-            <td>Automation</td>
-            <td>Manual every time — open tab, write prompt</td>
-            <td><strong>5 crawlers on schedule · auto-briefing 06:00 · weekly digest Sun 18:30</strong></td>
+            <td>Keep me informed without me asking</td>
+            <td>Doesn't work that way — you have to prompt it</td>
+            <td><strong>06:00 morning briefing + Sunday digest pushed to Telegram automatically</strong></td>
           </tr>
           <tr>
-            <td>Cost</td>
-            <td>$0 + hours of manual research per week</td>
-            <td><strong>~$7/month total · 24/7 monitoring · zero manual input</strong></td>
+            <td>Total effort per week</td>
+            <td>Hours of manual research + prompt writing</td>
+            <td><strong>~$7/month. Zero manual monitoring. Everything runs on a schedule.</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="scale-box">
-      <div class="scale-section-title">What's live today</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — 5 crawlers, 590 companies, 17 categories</div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">What's live right now</div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — 5 crawlers running on Railway, 590 companies, 17 categories</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Company profiles · clustering · RAG search</div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — Company profiles building up automatically with every crawl</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Weekly digest · trend delta · watchlist</div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — Macro theme clustering, semantic search, trend delta</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — KB (4+2 docs) · 5 prompt templates · 6-step pipeline</div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — Weekly digest every Sunday, morning briefing at 06:00</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Icarus: 12 Hermes tools, morning briefing, LinkedIn publish</div>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — Knowledge base (4+2 docs), 5 prompt templates, content pipeline</div>
       </div>
-      <div class="scale-section-title" style="margin-top:10px">Cost breakdown</div>
-      <div style="font-size:0.76rem;color:#55556a;line-height:2">
-        Railway hosting — ~$5<br>
-        Claude Haiku (classify + enrich) — ~$1–2<br>
-        Claude Sonnet (clusters + digest) — ~$1<br>
-        Upstash Redis + Vector — $0<br>
-        Tavily + EDGAR — $0<br>
+      <div class="check-item">
+        <div class="check-dot"></div>
+        <div class="check-text"><span>Live</span> — 12 Icarus tools: ask anything in plain language via Telegram</div>
+      </div>
+      <div class="sidebar-title" style="margin-top:8px">Monthly cost</div>
+      <div style="font-size:0.78rem;color:#55556a;line-height:2">
+        Railway server — ~$5<br>
+        Claude AI (classify + write) — ~$2–3<br>
+        All data sources — $0 (free APIs)<br>
         <span style="color:#f0c07a;font-weight:700">Total — ~$7–8 / month</span>
       </div>
     </div>
