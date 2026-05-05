@@ -484,6 +484,66 @@
     margin-top: 4px;
   }
 
+  /* arch diagram */
+  .arch-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 960px;
+    align-items: stretch;
+  }
+
+  .arch-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .arch-box {
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 1px solid;
+    font-size: 0.82rem;
+  }
+
+  .arch-box .abox-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+  }
+
+  .arch-box .abox-desc {
+    font-size: 0.74rem;
+    opacity: 0.55;
+    line-height: 1.4;
+  }
+
+  .arch-box.icarus  { border-color: #3a6080; background: rgba(58,96,128,0.10); }
+  .arch-box.icarus .abox-title { color: #7ac0f0; }
+
+  .arch-box.hermes  { border-color: #806030; background: rgba(128,96,48,0.10); }
+  .arch-box.hermes .abox-title { color: #f0c07a; }
+
+  .arch-box.crawl   { border-color: #3a7060; background: rgba(58,112,96,0.10); }
+  .arch-box.crawl .abox-title { color: #7ae0c0; }
+
+  .arch-box.storage { border-color: #803a3a; background: rgba(128,58,58,0.10); }
+  .arch-box.storage .abox-title { color: #f07a7a; }
+
+  .arch-box.intel   { border-color: #5a3a80; background: rgba(90,58,128,0.10); }
+  .arch-box.intel .abox-title { color: #b07af0; }
+
+  .arch-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2a3060;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
   /* ────────────────────────────────────────
      NAV
   ──────────────────────────────────────── */
@@ -546,240 +606,291 @@
 ═══════════════════════════════════════ -->
 <div class="slide active" id="s1">
   <div class="eyebrow">Ironhack Berlin · AI Integration Bootcamp · Week 3 Project</div>
-  <h1 class="hero">From market signal<br>to published post.</h1>
+  <h1 class="hero">Autonomous market intelligence.<br>On demand. In your pocket.</h1>
   <p class="tagline">
-    <strong>HERMES</strong> is an autonomous AI agent that watches 250 suppliers 24/7,
-    classifies every signal with Claude Haiku, and turns the most relevant ones
-    into LinkedIn drafts — grounded in your voice, your background, your data.
+    <strong>HERMES</strong> watches 590 suppliers 24/7 — RSS, SEC filings, job boards, earnings calls.
+    <strong>ICARUS</strong> queries it in natural language via Telegram.
+    Together they replace hours of manual research with a two-agent AI system that never sleeps.
   </p>
 
   <div class="stat-row">
     <div class="stat">
-      <div class="stat-num">250</div>
+      <div class="stat-num">590</div>
       <div class="stat-label">Suppliers tracked</div>
     </div>
     <div class="stat">
-      <div class="stat-num">11</div>
-      <div class="stat-label">Signal types</div>
+      <div class="stat-num">5</div>
+      <div class="stat-label">Crawlers running</div>
     </div>
     <div class="stat">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Pipeline steps</div>
+      <div class="stat-num">9</div>
+      <div class="stat-label">Intelligence features</div>
     </div>
     <div class="stat">
       <div class="stat-num">~$7</div>
-      <div class="stat-label">Per month</div>
+      <div class="stat-label">Per month total</div>
     </div>
   </div>
 
   <div class="context-box">
     Built by a <strong>procurement professional with 10+ years</strong> at TeamViewer, Scout24, and Delivery Hero —
-    to automate what used to take hours: tracking supplier moves and turning them into content
-    that actually sounds like you wrote it.
+    to automate what used to take hours: tracking supplier moves, spotting macro themes,
+    and turning live market signals into LinkedIn content that sounds like you wrote it.
   </div>
   <div class="built-by">Eugen Mueller · eugnmueller@googlemail.com</div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 2 — KNOWLEDGE BASE SETUP
+     SLIDE 2 — TWO-AGENT ARCHITECTURE
 ═══════════════════════════════════════ -->
 <div class="slide" id="s2">
-  <h2 class="slide-title">Knowledge Base Setup</h2>
-  <p class="slide-sub">Two layers of context injected into every prompt — document_processor.py parses and serves both.</p>
+  <h2 class="slide-title">Two-Agent Architecture</h2>
+  <p class="slide-sub">Icarus is the master agent you talk to. Hermes is the external intelligence sub-agent it calls. Neither crosses the other's boundary.</p>
 
-  <div class="cap-layout" style="margin-bottom:22px">
-    <div class="cap-section">
-      <div class="cap-section-title">Primary Knowledge Base — company-specific</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>brand_voice.md</strong> — tone rules, forbidden phrases ("I'm excited to share"), post formula, format rules</div>
+  <div class="arch-row" style="margin-bottom:20px">
+    <!-- DATA SOURCES -->
+    <div class="arch-col" style="max-width:190px">
+      <div class="stage-header">Data sources</div>
+      <div class="arch-box crawl">
+        <div class="abox-title">RSS + 18 feeds</div>
+        <div class="abox-desc">590 companies · every 6h</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>background.md</strong> — 10yr procurement career at TeamViewer, Scout24, Delivery Hero; why I built this</div>
+      <div class="arch-box crawl">
+        <div class="abox-title">SEC EDGAR</div>
+        <div class="abox-desc">8-K · 10-Q · 10-K · daily</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>linkedin_examples.md</strong> — 2 full example posts with structure annotations for style matching</div>
+      <div class="arch-box crawl">
+        <div class="abox-title">Tavily search</div>
+        <div class="abox-desc">Tier 1+2 · weekly Mon</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>methodology.md</strong> — content pillars, post types, signal-to-post workflow, what makes a post worth writing</div>
+      <div class="arch-box crawl">
+        <div class="abox-title">Job postings</div>
+        <div class="abox-desc">Lever / Greenhouse · Wed</div>
+      </div>
+      <div class="arch-box crawl">
+        <div class="abox-title">Earnings transcripts</div>
+        <div class="abox-desc">8-K full text · Thu</div>
       </div>
     </div>
 
-    <div class="cap-section">
-      <div class="cap-section-title">Secondary Research Layer — industry context</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>hermes_signals_sample.md</strong> — structured market signals with procurement angles: NVIDIA, TSMC, Anthropic, Micron, CrowdStrike</div>
+    <div class="arch-connector">→</div>
+
+    <!-- HERMES -->
+    <div class="arch-col" style="max-width:210px">
+      <div class="stage-header">Hermes — sub-agent</div>
+      <div class="arch-box hermes">
+        <div class="abox-title">Claude Haiku</div>
+        <div class="abox-desc">Classify · 11 signal types · HIGH/MEDIUM/LOW · profile enrichment</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>supplier_landscape.md</strong> — 250 companies across 17 categories, tier rankings, content angles per category</div>
+      <div class="arch-box hermes">
+        <div class="abox-title">Claude Sonnet</div>
+        <div class="abox-desc">Macro theme clustering · weekly digest · trend delta</div>
       </div>
-      <div class="cap-section-title" style="margin-top:12px">Document Processing</div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>document_processor.py</strong> — ingests all <code style="font-size:0.8em;color:#5dd4a8">.md</code> files, builds context blocks capped at 8,000 chars for prompt injection</div>
+      <div class="arch-box storage">
+        <div class="abox-title">Upstash Redis</div>
+        <div class="abox-desc">Signals 7d TTL · profiles permanent · watchlist · clusters</div>
       </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>knowledge_base.py</strong> — manager class with <code style="font-size:0.8em;color:#5dd4a8">brand_voice_context()</code> and <code style="font-size:0.8em;color:#5dd4a8">signals_context()</code> helpers</div>
+      <div class="arch-box storage">
+        <div class="abox-title">Upstash Vector</div>
+        <div class="abox-desc">BAAI/bge-large · 1024-dim · cosine — semantic RAG search</div>
+      </div>
+    </div>
+
+    <div class="arch-connector">⇌</div>
+
+    <!-- ICARUS -->
+    <div class="arch-col" style="max-width:210px">
+      <div class="stage-header">Icarus — master agent</div>
+      <div class="arch-box icarus">
+        <div class="abox-title">Claude Sonnet</div>
+        <div class="abox-desc">Routes NL queries to the right Hermes tool · resolves conversation context</div>
+      </div>
+      <div class="arch-box icarus">
+        <div class="abox-title">Hermes tools (12)</div>
+        <div class="abox-desc">greet · query · profile · briefing · search · trends · digest · watch · delta · enrich · crawl · chart</div>
+      </div>
+      <div class="arch-box icarus">
+        <div class="abox-title">Morning briefing</div>
+        <div class="abox-desc">06:00 — top 3 Hermes signals appended automatically</div>
+      </div>
+    </div>
+
+    <div class="arch-connector">→</div>
+
+    <!-- USER -->
+    <div class="arch-col" style="max-width:160px">
+      <div class="stage-header">You</div>
+      <div class="arch-box out">
+        <div class="abox-title">Telegram</div>
+        <div class="abox-desc">Natural language queries · inline answers · chart photos</div>
+      </div>
+      <div class="arch-box out">
+        <div class="abox-title">Weekly digest</div>
+        <div class="abox-desc">Sun 18:30 — auto-pushed to Telegram by Icarus</div>
+      </div>
+      <div class="arch-box out">
+        <div class="abox-title">LinkedIn drafts</div>
+        <div class="abox-desc">Approval-gated · one-tap publish</div>
       </div>
     </div>
   </div>
 
-  <div style="display:flex;gap:10px;width:100%;max-width:900px;">
+  <div style="display:flex;gap:10px;width:100%;max-width:960px;">
+    <div style="flex:1;background:rgba(128,96,48,0.08);border:1px solid #806030;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
+      <span style="color:#f0c07a;font-weight:700">Hermes never pushes</span> — Icarus pulls on demand. Failures are isolated per feature.
+    </div>
     <div style="flex:1;background:rgba(58,96,128,0.08);border:1px solid #3a6080;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#7ac0f0;font-weight:700">Primary KB</span> — who you are, how you write, what you've written before
+      <span style="color:#7ac0f0;font-weight:700">Two databases, one call</span> — every signal writes Redis + Vector + profile atomically.
     </div>
     <div style="flex:1;background:rgba(90,58,128,0.08);border:1px solid #5a3a80;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#b07af0;font-weight:700">Secondary KB</span> — live market data from Hermes, supplier landscape, signal history
-    </div>
-    <div style="flex:1;background:rgba(128,96,48,0.08);border:1px solid #806030;border-radius:8px;padding:10px 16px;font-size:0.75rem;color:#44446a;">
-      <span style="color:#f0c07a;font-weight:700">Together</span> — every prompt gets both layers, making output specific to you and to what's happening right now
+      <span style="color:#b07af0;font-weight:700">Free tier discipline</span> — Tavily capped weekly, Vector 10K, Redis 10K/day. ~$7/month.
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 3 — LLM API INTEGRATION & PROMPT ENGINEERING
+     SLIDE 3 — KNOWLEDGE BASE & LLM INTEGRATION
 ═══════════════════════════════════════ -->
 <div class="slide" id="s3">
-  <h2 class="slide-title">LLM API Integration &amp; Prompt Engineering Templates</h2>
-  <p class="slide-sub">Two Claude models with distinct roles — llm_integration.py wraps both, prompt_templates.py defines all templates.</p>
+  <h2 class="slide-title">Knowledge Base &amp; LLM API Integration</h2>
+  <p class="slide-sub">Two Claude models with distinct roles. Two KB layers that ground every output in real data and your professional voice.</p>
 
   <div class="cap-layout" style="margin-bottom:20px">
     <div class="cap-section">
-      <div class="cap-section-title">LLM API Integration — two models, two jobs</div>
+      <div class="cap-section-title">Primary KB — who you are and how you write</div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>Claude Haiku</strong> — fast, cheap. Signal classification (11 types), significance scoring, market briefs. Runs on every crawl cycle.</div>
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>brand_voice.md</strong> — tone rules, forbidden phrases, post formula, format constraints</div>
       </div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#8ba4ff"></div>
-        <div class="cap-text"><strong>Claude Sonnet</strong> — powerful. LinkedIn post drafting, signal analysis, content calendar generation. Runs on demand.</div>
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>background.md</strong> — 10yr procurement career at TeamViewer, Scout24, Delivery Hero</div>
       </div>
       <div class="cap-item">
-        <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>llm_integration.py</strong> — single <code style="font-size:0.8em;color:#5dd4a8">LLMClient</code> class, model-aware methods: <code style="font-size:0.8em;color:#5dd4a8">generate_linkedin_post()</code>, <code style="font-size:0.8em;color:#5dd4a8">generate_brief()</code>, <code style="font-size:0.8em;color:#5dd4a8">classify_signal()</code></div>
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>linkedin_examples.md</strong> — 2 annotated posts for style matching</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>methodology.md</strong> — content pillars, post types, signal-to-post workflow</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Secondary KB — live market context</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>hermes_signals_sample.md</strong> — structured signals with procurement angles: NVIDIA, TSMC, Anthropic, Micron</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>supplier_landscape.md</strong> — 590 companies · 17 categories · tier rankings · content angles</div>
       </div>
     </div>
 
     <div class="cap-section">
-      <div class="cap-section-title">Prompt Engineering Templates — 5 reusable templates</div>
+      <div class="cap-section-title">LLM integration — two models, distinct roles</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text"><strong>Claude Haiku</strong> — fast, cheap. Signal classification (11 types + urgency), market briefs, profile enrichment. Runs on every crawl cycle.</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#8ba4ff"></div>
+        <div class="cap-text"><strong>Claude Sonnet</strong> — powerful. LinkedIn drafts, macro theme clustering, weekly digest generation. On demand.</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Prompt templates — 5 reusable</div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>LINKEDIN_POST</strong> — injects KB context + signal, enforces brand voice rules, 150-300 words</div>
+        <div class="cap-text"><strong>LINKEDIN_POST</strong> — injects KB + signal, enforces brand voice, 150–300 words</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>MARKET_BRIEF</strong> — summarises a list of signals into a procurement intelligence brief under 200 words</div>
+        <div class="cap-text"><strong>MARKET_BRIEF</strong> — procurement intelligence brief under 200 words</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text"><strong>SIGNAL_ANALYSIS</strong> — 3 structured questions: what happened, why it matters, what to do in 30 days</div>
+        <div class="cap-text"><strong>SIGNAL_ANALYSIS</strong> — what happened · why it matters · what to do in 30 days</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>CONTENT_CALENDAR</strong> — generates a 5-post weekly plan using available signals + background context</div>
+        <div class="cap-text"><strong>CONTENT_CALENDAR</strong> — 5-post weekly plan from available signals</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#f07a7a"></div>
-        <div class="cap-text"><strong>UNIQUENESS_COMPARISON</strong> — structured side-by-side: Hermes system vs generic ChatGPT across 6 dimensions</div>
+        <div class="cap-text"><strong>UNIQUENESS_COMPARISON</strong> — Hermes vs generic ChatGPT across 6 dimensions</div>
       </div>
     </div>
-  </div>
-
-  <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a30;border-radius:10px;padding:14px 20px;width:100%;max-width:900px;font-size:0.78rem;color:#44446a;line-height:1.7">
-    All templates use <strong style="color:#8888aa">{kb_context}</strong> and <strong style="color:#8888aa">{signal}</strong> placeholders — the KB and live signal are injected at runtime, keeping templates reusable across any company or topic.
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 4 — CONTENT GENERATION PIPELINE
+     SLIDE 4 — DEEP INTELLIGENCE LAYER
 ═══════════════════════════════════════ -->
 <div class="slide" id="s4">
-  <h2 class="slide-title">Content Generation Pipeline</h2>
-  <p class="slide-sub">content_pipeline.py implements all six stages — run via <code style="font-size:0.85em;color:#5dd4a8">python -m src.main</code></p>
+  <h2 class="slide-title">Deep Intelligence Layer</h2>
+  <p class="slide-sub">Beyond single-company queries — Hermes builds dossiers, detects macro themes, and delivers a weekly market summary autonomously.</p>
 
-  <div class="pipeline-steps" style="margin-bottom:20px">
-    <div class="ps">
-      <div class="ps-num">Step 1</div>
-      <div class="ps-icon">📄</div>
-      <div class="ps-name">Document</div>
-      <div class="ps-desc">KnowledgeBase loads all .md files, builds context blocks for prompts</div>
-    </div>
-    <div class="ps-arrow">→</div>
-    <div class="ps">
-      <div class="ps-num">Step 2</div>
-      <div class="ps-icon">📡</div>
-      <div class="ps-name">Monitor</div>
-      <div class="ps-desc">HermesClient pulls HIGH/MEDIUM signals from Redis — live, not training data</div>
-    </div>
-    <div class="ps-arrow">→</div>
-    <div class="ps">
-      <div class="ps-num">Step 3</div>
-      <div class="ps-icon">📋</div>
-      <div class="ps-name">Brief</div>
-      <div class="ps-desc">Claude Haiku condenses signals into a procurement intelligence brief</div>
-    </div>
-    <div class="ps-arrow">→</div>
-    <div class="ps">
-      <div class="ps-num">Step 4</div>
-      <div class="ps-icon">✍️</div>
-      <div class="ps-name">Draft</div>
-      <div class="ps-desc">Claude Sonnet writes the post using KB context + signal + brand voice rules</div>
-    </div>
-    <div class="ps-arrow">→</div>
-    <div class="ps">
-      <div class="ps-num">Step 5</div>
-      <div class="ps-icon">🚀</div>
-      <div class="ps-name">Publish</div>
-      <div class="ps-desc">Draft staged in Telegram — Post / Edit / Cancel. Never auto-published.</div>
-    </div>
-    <div class="ps-arrow">→</div>
-    <div class="ps">
-      <div class="ps-num">Step 6</div>
-      <div class="ps-icon">🔄</div>
-      <div class="ps-name">Iterate</div>
-      <div class="ps-desc">refine_post(feedback) regenerates with same KB context — loop until approved</div>
-    </div>
-  </div>
-
-  <div class="cap-layout">
+  <div class="cap-layout" style="margin-bottom:20px">
     <div class="cap-section">
-      <div class="cap-section-title">Signal types that trigger content generation</div>
-      <div class="signal-badges" style="margin-bottom:8px">
-        <span class="sbadge sb-fin">FUNDING</span>
-        <span class="sbadge sb-prod">PRODUCT_RELEASE</span>
-        <span class="sbadge sb-risk">SUPPLY_CHAIN</span>
-        <span class="sbadge sb-fin">EARNINGS</span>
-        <span class="sbadge sb-ma">ACQUISITION</span>
-        <span class="sbadge sb-reg">REGULATORY</span>
-        <span class="sbadge sb-opp">RESEARCH_PAPER</span>
-      </div>
-      <div class="cap-item">
-        <div class="cap-bullet" style="background:#f0c07a"></div>
-        <div class="cap-text">Only <code style="font-size:0.8em;color:#5dd4a8">is_significant=true</code> signals with HIGH/MEDIUM urgency reach the content layer — noise filtered upstream by Claude Haiku</div>
-      </div>
-    </div>
-    <div class="cap-section">
-      <div class="cap-section-title">What the draft contains that generic AI cannot</div>
+      <div class="cap-section-title">Company knowledge profiles</div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7ac0f0"></div>
-        <div class="cap-text"><strong>Real event data</strong> — actual company, actual filing, actual date — not a hallucination</div>
+        <div class="cap-text"><strong>Living dossier</strong> — every signal permanently updates <code style="font-size:0.8em;color:#5dd4a8">hermes:profile:{slug}</code>: signal counts, urgency breakdown, risk flags, recent history</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7ac0f0"></div>
+        <div class="cap-text"><strong>Auto-enrichment</strong> — at 10+ significant signals, Haiku extracts <code style="font-size:0.8em;color:#5dd4a8">key_products</code>, <code style="font-size:0.8em;color:#5dd4a8">pricing_notes</code>, <code style="font-size:0.8em;color:#5dd4a8">risk_summary</code> automatically</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Macro theme clustering</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#b07af0"></div>
+        <div class="cap-text"><strong>Cross-company patterns</strong> — Sonnet groups recent signals into macro themes with synthesis paragraphs. Cached 6h.</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#b07af0"></div>
-        <div class="cap-text"><strong>Procurement angle</strong> — what this means for a buyer, not just general commentary</div>
+        <div class="cap-text">Example: <em style="color:#7070a0">"5 chip suppliers flagged export control risk — TSMC, ASML, NVIDIA, KLA, Applied Materials"</em> — without naming any of them in the query</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Semantic RAG search</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0c07a"></div>
+        <div class="cap-text">Upstash Vector (BAAI/bge-large-en-v1.5, 1024-dim, cosine). <em style="color:#7070a0">"chip export controls"</em> returns signals from ASML, NVIDIA, KLA — no company names needed</div>
+      </div>
+    </div>
+
+    <div class="cap-section">
+      <div class="cap-section-title">Weekly digest — fully autonomous</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0"></div>
+        <div class="cap-text"><strong>Every Sunday 18:00</strong> — Sonnet writes a category-by-category market summary with an overall procurement verdict. Stored 30 days.</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0"></div>
-        <div class="cap-text"><strong>Personal voice</strong> — KB-grounded tone, style, and career context in every prompt</div>
+        <div class="cap-text"><strong>Auto-delivered</strong> — Icarus forwards the digest to Telegram at 18:30. Zero manual input.</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Trend memory</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f07a7a"></div>
+        <div class="cap-text"><strong>Week-over-week drift</strong> — weekly cluster snapshots stored in Redis. <code style="font-size:0.8em;color:#5dd4a8">GET /trends/delta</code> returns <span style="color:#7af0a0">NEW</span> / <span style="color:#f0c07a">CONTINUING</span> / <span style="color:#f07a7a">RESOLVED</span> themes with no LLM in the comparison path.</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Supplier watchlist</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#8ba4ff"></div>
+        <div class="cap-text"><strong>High-frequency crawl</strong> — watchlisted companies get RSS-crawled every 2h instead of 6h. <em style="color:#7070a0">"Watch TSMC closely"</em> via Telegram adds them instantly.</div>
+      </div>
+
+      <div class="cap-section-title" style="margin-top:6px">Content generation pipeline</div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#f0a07a"></div>
+        <div class="cap-text"><strong>6-step pipeline</strong> — Redis signals → KB (brand voice + landscape) → Haiku brief → Sonnet draft → Telegram staging → approval-gated publish</div>
       </div>
     </div>
+  </div>
+
+  <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a30;border-radius:10px;padding:12px 20px;width:100%;max-width:900px;font-size:0.78rem;color:#44446a;line-height:1.7">
+    <strong style="color:#8888aa">Isolation principle:</strong> every feature catches its own exceptions and never blocks the primary write path. A failing digest never stops signal storage. A failing enrichment never breaks a crawl cycle.
   </div>
 </div>
 
@@ -788,7 +899,7 @@
 ═══════════════════════════════════════ -->
 <div class="slide" id="s5">
   <h2 class="slide-title">Uniqueness Demonstration</h2>
-  <p class="slide-sub">Same topic. Two approaches. The difference is data, context, and automation.</p>
+  <p class="slide-sub">Same topic. Two approaches. The difference is data, context, memory, and automation.</p>
 
   <div class="s4-layout" style="max-width:960px">
     <div>
@@ -797,39 +908,39 @@
           <tr>
             <th>Dimension</th>
             <th>Generic ChatGPT</th>
-            <th>Hermes System</th>
+            <th>Hermes + Icarus</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Data freshness</td>
             <td>Training cutoff — no live data</td>
-            <td><strong>Live: RSS 6h, EDGAR daily, Tavily weekly</strong></td>
+            <td><strong>Live: RSS 6h, EDGAR daily, Tavily weekly, Jobs Wed, Transcripts Thu</strong></td>
           </tr>
           <tr>
             <td>Supplier specificity</td>
             <td>Generic industry knowledge</td>
-            <td><strong>250 companies, per-supplier signal history in Redis</strong></td>
+            <td><strong>590 companies · per-company profile · signal history · risk summary</strong></td>
+          </tr>
+          <tr>
+            <td>Macro intelligence</td>
+            <td>Single query, no cross-company patterns</td>
+            <td><strong>Claude Sonnet clusters signals across all suppliers into macro themes</strong></td>
           </tr>
           <tr>
             <td>Domain voice</td>
             <td>Generic business writing</td>
-            <td><strong>Primary KB: brand voice, career background, past posts</strong></td>
+            <td><strong>Primary KB: brand voice, career background, past posts — every draft</strong></td>
           </tr>
           <tr>
             <td>Automation</td>
-            <td>Manual every time — open tab, write prompt, copy output</td>
-            <td><strong>Crawl → classify → draft runs on schedule, zero input</strong></td>
-          </tr>
-          <tr>
-            <td>Procurement angle</td>
-            <td>General commentary, no buyer perspective</td>
-            <td><strong>Signal analysis answers: what should a buyer do in 30 days?</strong></td>
+            <td>Manual every time — open tab, write prompt</td>
+            <td><strong>5 crawlers on schedule · auto-briefing 06:00 · weekly digest Sun 18:30</strong></td>
           </tr>
           <tr>
             <td>Cost</td>
-            <td>$0 + hours of manual research per post</td>
-            <td><strong>~$7/month total, monitoring runs 24/7</strong></td>
+            <td>$0 + hours of manual research per week</td>
+            <td><strong>~$7/month total · 24/7 monitoring · zero manual input</strong></td>
           </tr>
         </tbody>
       </table>
@@ -839,26 +950,30 @@
       <div class="scale-section-title">What's live today</div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — RSS + EDGAR + Tavily crawlers, deployed on Railway</div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — 5 crawlers, 590 companies, 17 categories</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Primary KB (4 docs) + Secondary KB (2 docs)</div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Company profiles · clustering · RAG search</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — 5 prompt templates, full 6-step pipeline</div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Weekly digest · trend delta · watchlist</div>
       </div>
       <div class="cap-item">
         <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
-        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Icarus LinkedIn skill (Telegram → approve → publish)</div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — KB (4+2 docs) · 5 prompt templates · 6-step pipeline</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-bullet" style="background:#7af0a0;margin-top:5px;flex-shrink:0;width:6px;height:6px;border-radius:50%"></div>
+        <div style="font-size:0.79rem;color:#55556a;line-height:1.5"><span style="color:#5dd4a8">Live</span> — Icarus: 12 Hermes tools, morning briefing, LinkedIn publish</div>
       </div>
       <div class="scale-section-title" style="margin-top:10px">Cost breakdown</div>
       <div style="font-size:0.76rem;color:#55556a;line-height:2">
         Railway hosting — ~$5<br>
-        Claude Haiku (classify) — ~$1–2<br>
-        Claude Sonnet (drafts) — ~$1<br>
-        Upstash Redis — $0<br>
+        Claude Haiku (classify + enrich) — ~$1–2<br>
+        Claude Sonnet (clusters + digest) — ~$1<br>
+        Upstash Redis + Vector — $0<br>
         Tavily + EDGAR — $0<br>
         <span style="color:#f0c07a;font-weight:700">Total — ~$7–8 / month</span>
       </div>
