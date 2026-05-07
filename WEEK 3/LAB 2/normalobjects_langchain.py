@@ -1,9 +1,14 @@
 import os
+import sys
 import random
 from dotenv import load_dotenv
+
+# Ensure UTF-8 output on Windows terminals
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 from langchain_openai import ChatOpenAI
 from langchain.tools import tool
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 from typing import List, Dict
 
 load_dotenv()
@@ -151,9 +156,7 @@ Guidelines:
 - Always acknowledge the complaint before diving into solutions
 """
 
-# create_react_agent from langgraph.prebuilt is the modern replacement for
-# the deprecated AgentExecutor + create_openai_tools_agent pattern.
-agent = create_react_agent(llm, tools, prompt=SYSTEM_PROMPT)
+agent = create_agent(llm, tools, system_prompt=SYSTEM_PROMPT)
 
 
 # ─────────────────────────────────────────────
@@ -168,7 +171,7 @@ complaints = [
 ]
 
 
-def handle_complaint(complaint: str) -> str:
+def handle_complaint(complaint: str, tracker: "ToolUsageTracker | None" = None) -> str:
     """Handle a single complaint through the agent and print tool steps."""
     print(f"\n{'='*60}")
     print(f"COMPLAINT: {complaint}")
@@ -176,14 +179,15 @@ def handle_complaint(complaint: str) -> str:
 
     result = agent.invoke({"messages": [("human", complaint)]})
 
-    # Stream the intermediate tool calls for visibility
     tools_used = []
     for msg in result["messages"]:
-        role = getattr(msg, "type", type(msg).__name__)
-        if role == "tool":
+        if getattr(msg, "type", "") == "tool":
             tool_name = getattr(msg, "name", "unknown")
             tools_used.append(tool_name)
             print(f"  [tool: {tool_name}] -> {str(msg.content)[:120]}...")
+
+    if tracker:
+        tracker.record(tools_used)
 
     final = result["messages"][-1].content
     print(f"\nTools used: {' -> '.join(tools_used) if tools_used else 'none'}")
@@ -230,7 +234,7 @@ if __name__ == "__main__":
     tracker = ToolUsageTracker()
 
     for complaint in complaints:
-        response = handle_complaint(complaint)
+        response = handle_complaint(complaint, tracker)
         print(f"\nFINAL RESPONSE:\n{response}\n")
 
     print("\n" + "="*60)
