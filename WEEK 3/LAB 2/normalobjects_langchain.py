@@ -3,22 +3,30 @@ import sys
 import random
 from dotenv import load_dotenv
 
-# Ensure UTF-8 output on Windows terminals
+# Fix encoding so special chars print correctly on Windows terminals
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 from langchain_openai import ChatOpenAI
-from langchain.tools import tool
-from langchain.agents import create_agent
+from langchain.tools import tool          # @tool turns a plain function into an agent tool
+from langchain.agents import create_agent # builds the ReAct agent graph (replaced AgentExecutor in v1.2)
 from typing import List, Dict
 
+# Load OPENAI_API_KEY from the .env file in this directory
 load_dotenv()
 
-# Initialize LLM
+# The LLM is the AI "brain" — all agent reasoning flows through here.
+# temperature=0.7 → moderately creative (0 = deterministic, 1 = very random)
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
 
 
 # ─────────────────────────────────────────────
 # STEP 2: Creative Tools
+#
+# Each function below is decorated with @tool.
+# That decoration does two things:
+#   1. Wraps the function so LangChain can call it
+#   2. Exposes the docstring to the LLM so it knows when to use the tool
 # ─────────────────────────────────────────────
 
 @tool
@@ -34,6 +42,7 @@ def consult_demogorgon(complaint: str) -> str:
     Returns:
         The Demogorgon's perspective (creative and possibly chaotic)
     """
+    # Three possible responses — one is chosen at random each call
     responses = [
         f"The Demogorgon tilts its head. It seems confused by '{complaint}'. Perhaps the issue is that you're thinking in three dimensions?",
         f"The Demogorgon makes a sound that might be agreement. It suggests that the problem might be temporal - things work differently in the Upside Down's time.",
@@ -55,17 +64,20 @@ def check_hawkins_records(query: str) -> str:
     Returns:
         Information from Hawkins historical records
     """
+    # Fake database — keyword → matching record
     records = {
-        "portal": "Records show portals have opened on various dates with no clear pattern. Weather, electromagnetic activity, and unknown factors seem involved.",
-        "monsters": "Historical records indicate creatures from the Upside Down behave differently based on environmental factors, time of day, and proximity to certain individuals.",
-        "psychics": "Records show that psychic abilities vary greatly. Some individuals can move objects but not see the future, others can see visions but not move things.",
+        "portal":      "Records show portals have opened on various dates with no clear pattern. Weather, electromagnetic activity, and unknown factors seem involved.",
+        "monsters":    "Historical records indicate creatures from the Upside Down behave differently based on environmental factors, time of day, and proximity to certain individuals.",
+        "psychics":    "Records show that psychic abilities vary greatly. Some individuals can move objects but not see the future, others can see visions but not move things.",
         "electricity": "Hawkins has a history of electrical anomalies. Records suggest a connection between the Upside Down and electromagnetic fields.",
     }
 
+    # Case-insensitive keyword search
     for key, value in records.items():
         if key in query.lower():
             return value
 
+    # Fallback when no keyword matches
     return f"Records don't contain specific information about '{query}', but they note that many unexplained events have occurred in Hawkins over the years."
 
 
@@ -83,6 +95,7 @@ def cast_interdimensional_spell(problem: str, creativity_level: str = "medium") 
     Returns:
         A creative spell or solution suggestion
     """
+    # low=1 spell, medium=2, high=3
     creativity_multiplier = {"low": 1, "medium": 2, "high": 3}.get(creativity_level, 2)
 
     spells = [
@@ -92,6 +105,7 @@ def cast_interdimensional_spell(problem: str, creativity_level: str = "medium") 
         f"Gather three items: a lighter, a compass, and something personal. Arrange them in a triangle while thinking about: {problem}. The emotional connection might help.",
     ]
 
+    # Pick N unique spells without repeating
     selected = random.sample(spells, min(creativity_multiplier, len(spells)))
     return "\n".join(selected)
 
@@ -109,10 +123,11 @@ def gather_party_wisdom(question: str) -> str:
     Returns:
         The party's collective wisdom and suggestions
     """
+    # Same keyword-matching pattern as check_hawkins_records
     party_responses = {
-        "portal": "Mike: 'Portals are unpredictable, but they usually open near strong emotional events or electromagnetic disturbances.' Dustin: 'Also, they seem to follow some kind of pattern related to the Mind Flayer's activity.'",
-        "monsters": "Lucas: 'Demogorgons are territorial but also opportunistic.' Will: 'They can sense fear and strong emotions. Maybe that's why they act differently sometimes.'",
-        "psychics": "Mike: 'El's powers seem connected to her emotional state.' Dustin: 'And they're limited by her physical and mental energy. That's probably why she can't do everything.'",
+        "portal":      "Mike: 'Portals are unpredictable, but they usually open near strong emotional events or electromagnetic disturbances.' Dustin: 'Also, they seem to follow some kind of pattern related to the Mind Flayer's activity.'",
+        "monsters":    "Lucas: 'Demogorgons are territorial but also opportunistic.' Will: 'They can sense fear and strong emotions. Maybe that's why they act differently sometimes.'",
+        "psychics":    "Mike: 'El's powers seem connected to her emotional state.' Dustin: 'And they're limited by her physical and mental energy. That's probably why she can't do everything.'",
         "electricity": "Lucas: 'The Upside Down seems to interfere with electrical systems.' Dustin: 'But it also creates strange connections. It's like a feedback loop.'",
     }
 
@@ -120,10 +135,11 @@ def gather_party_wisdom(question: str) -> str:
         if key in question.lower():
             return response
 
+    # Generic fallback when no keyword matches
     return "The party huddles together. Mike: 'This is a tough one.' Dustin: 'We need more information.' Lucas: 'Let's think about what we know.' Will: 'Maybe we should consult other sources?'"
 
 
-# Register tools
+# All 4 tools in one list — this is what we hand to create_agent()
 tools = [
     consult_demogorgon,
     check_hawkins_records,
@@ -138,8 +154,17 @@ for t in tools:
 
 # ─────────────────────────────────────────────
 # STEP 3: Build the Agent
+#
+# create_agent wires the LLM + tools into a ReAct loop:
+#   1. LLM reads the complaint
+#   2. LLM picks a tool to call (or decides to stop)
+#   3. Tool runs and returns a result
+#   4. LLM reads the result and decides next step
+#   5. Repeat until the LLM has enough to give a final answer
 # ─────────────────────────────────────────────
 
+# The system prompt shapes the agent's personality and rules.
+# It is NOT the user's complaint — it's the background instructions.
 SYSTEM_PROMPT = """You are Becma, the creative director of the Downside-Up Complaint Bureau.
 Your job is to handle complaints about inconsistencies in the Normal Objects universe
 (an alternate-reality version of Hawkins, Indiana).
@@ -163,6 +188,7 @@ agent = create_agent(llm, tools, system_prompt=SYSTEM_PROMPT)
 # STEP 4: Handle Complaints
 # ─────────────────────────────────────────────
 
+# The 4 complaints we'll test with
 complaints = [
     "Why do demogorgons sometimes eat people and sometimes don't?",
     "The portal opens on different days—is there a schedule?",
@@ -172,23 +198,28 @@ complaints = [
 
 
 def handle_complaint(complaint: str, tracker: "ToolUsageTracker | None" = None) -> str:
-    """Handle a single complaint through the agent and print tool steps."""
+    """Send one complaint to the agent and print each tool call as it happens."""
     print(f"\n{'='*60}")
     print(f"COMPLAINT: {complaint}")
     print(f"{'='*60}\n")
 
+    # invoke() runs the full ReAct loop and returns when the agent is done
     result = agent.invoke({"messages": [("human", complaint)]})
 
+    # Walk the message history to find tool calls (msg.type == "tool")
     tools_used = []
     for msg in result["messages"]:
         if getattr(msg, "type", "") == "tool":
             tool_name = getattr(msg, "name", "unknown")
             tools_used.append(tool_name)
+            # Print a preview of what the tool returned
             print(f"  [tool: {tool_name}] -> {str(msg.content)[:120]}...")
 
+    # Log to the tracker if one was provided
     if tracker:
         tracker.record(tools_used)
 
+    # The last message is always the agent's final answer
     final = result["messages"][-1].content
     print(f"\nTools used: {' -> '.join(tools_used) if tools_used else 'none'}")
     return final
@@ -199,22 +230,25 @@ def handle_complaint(complaint: str, tracker: "ToolUsageTracker | None" = None) 
 # ─────────────────────────────────────────────
 
 class ToolUsageTracker:
-    """Track tool usage for analysis."""
+    """Counts how many times each tool was called across all complaints."""
 
     def __init__(self):
+        # Initialise all counts to 0 using the global tools list
         self.usage_count: Dict[str, int] = {t.name: 0 for t in tools}
-        self.tool_sequences: List[str] = []
+        self.tool_sequences: List[str] = []  # ordered log of every call
 
     def record(self, tool_names: List[str]):
+        """Called after each complaint with the list of tools that were used."""
         for name in tool_names:
             if name in self.usage_count:
                 self.usage_count[name] += 1
-            self.tool_sequences.extend(tool_names)
+        self.tool_sequences.extend(tool_names)
 
     def get_statistics(self) -> Dict:
         return {
             "total_tool_calls": sum(self.usage_count.values()),
             "tool_counts": self.usage_count,
+            # Tool with the highest call count — None if nothing was called
             "most_used": max(self.usage_count.items(), key=lambda x: x[1])[0]
             if any(self.usage_count.values())
             else None,
@@ -237,10 +271,12 @@ if __name__ == "__main__":
         response = handle_complaint(complaint, tracker)
         print(f"\nFINAL RESPONSE:\n{response}\n")
 
+    # Print usage summary
     print("\n" + "="*60)
     print("=== Tool Usage Analysis ===")
     stats = tracker.get_statistics()
     print(f"Complaints handled : {len(complaints)}")
+    print(f"Total tool calls   : {stats['total_tool_calls']}")
     print(f"Tool usage counts  : {stats['tool_counts']}")
     print(f"Most used tool     : {stats['most_used']}")
     print("="*60)

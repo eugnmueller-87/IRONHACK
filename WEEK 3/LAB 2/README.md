@@ -1,40 +1,71 @@
-# LAB 2 — NormalObjects Creative Complaint Handler (LangChain)
+# LAB 2 — NormalObjects Creative Complaint Handler
 
-A creative AI agent that handles complaints about inconsistencies in the Normal Objects
-universe using LangChain's tool-calling framework.
+Welcome to the **Downside-Up Complaint Bureau**! This project builds a creative AI agent called **Becma** that answers weird complaints about the Normal Objects universe (think Stranger Things, but stranger).
+
+The agent uses **LangChain** — a framework for building AI apps — to pick and use tools freely, in whatever order makes sense for each complaint.
+
+---
+
+## What does it do?
+
+You give it a complaint like *"Why do demogorgons sometimes eat people and sometimes don't?"* and Becma:
+1. Decides which tools to use
+2. Calls them in whatever order feels right
+3. Combines the results into a creative, entertaining answer
+
+---
 
 ## Files
 
-| File | Purpose |
+| File | What it is |
 |---|---|
-| `normalobjects_langchain.py` | Main agent implementation |
-| `lab_summary.md` | Short analysis paragraph (submission requirement) |
-| `.env` | API key config (not committed — add your own key) |
+| `normalobjects_langchain.py` | The main Python script |
+| `normalobjects_langchain.ipynb` | Same thing as a Jupyter notebook (easier to read) |
+| `lab_summary.md` | Short write-up comparing this approach to LangGraph |
+| `.env` | Your secret API key goes here (never shared) |
+| `.gitignore` | Tells Git to ignore `.env` and temp files |
 
-## Setup
+---
 
+## How to run it
+
+**Step 1 — Install the packages**
 ```bash
-# 1. Install dependencies
 pip install langchain langchain-openai python-dotenv
+```
 
-# 2. Add your OpenAI key to .env
-#    OPENAI_API_KEY=sk-...
+**Step 2 — Add your OpenAI key to `.env`**
+```
+OPENAI_API_KEY=sk-your-key-here
+```
 
-# 3. Run
+**Step 3 — Run the script**
+```bash
 python normalobjects_langchain.py
 ```
 
-## Tools
+Or open the notebook:
+```bash
+jupyter notebook normalobjects_langchain.ipynb
+```
 
-| Tool | Description |
+---
+
+## The 4 Tools Becma can use
+
+| Tool | What it does |
 |---|---|
-| `consult_demogorgon` | Get a chaotic Upside-Down perspective |
-| `check_hawkins_records` | Look up historical Hawkins records |
-| `cast_interdimensional_spell` | Suggest creative interdimensional fixes |
-| `gather_party_wisdom` | Ask Mike, Dustin, Lucas & Will for advice |
+| `consult_demogorgon` | Gets a chaotic, funny perspective from the Demogorgon |
+| `check_hawkins_records` | Looks up historical records from Hawkins |
+| `cast_interdimensional_spell` | Suggests a creative magical fix |
+| `gather_party_wisdom` | Asks Mike, Dustin, Lucas & Will for advice |
 
-## Notes
+The agent picks which tools to use — you don't tell it. That's the whole point.
 
-- Uses `langgraph.prebuilt.create_react_agent` (modern replacement for the deprecated
-  `AgentExecutor` + `create_openai_tools_agent` pattern removed in LangChain 1.2+)
-- The agent decides tool order freely — no fixed execution graph
+---
+
+## Tech notes (for the curious)
+
+- Uses `langchain.agents.create_agent` — the current way to build tool-using agents in LangChain 1.2+
+- The older `AgentExecutor` approach was removed; this is its replacement
+- The agent has no fixed script — it reasons about which tools to call on its own
