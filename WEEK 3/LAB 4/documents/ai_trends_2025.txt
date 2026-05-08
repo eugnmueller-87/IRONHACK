@@ -1,0 +1,22 @@
+AI Trends in 2025
+==================
+
+1. Multimodal Models
+Large language models now natively handle text, images, audio, and video in a single architecture.
+Companies like OpenAI, Google, and Anthropic have shipped production-grade multimodal APIs.
+
+2. Agent Frameworks
+Autonomous agents that plan, use tools, and self-correct have moved from research to production.
+MCP (Model Context Protocol) has emerged as a leading standard for agent-tool integration.
+
+3. On-Device AI
+Small language models (1-7B parameters) run efficiently on consumer laptops and phones.
+Privacy-preserving inference without cloud round-trips is now mainstream.
+
+4. Retrieval-Augmented Generation (RAG)
+RAG pipelines are the dominant pattern for grounding LLM outputs in fresh or private data.
+Vector databases like Pinecone, Weaviate, and pgvector are widely adopted.
+
+5. AI Safety & Alignment
+Constitutional AI and RLHF variants are standard training practices.
+Governments in the EU and US have enacted AI regulation frameworks.
