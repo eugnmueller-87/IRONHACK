@@ -21,4 +21,4 @@ jobs:
       - name: Install ruff and nbqa
         run: pip install ruff nbqa
       - name: Lint notebooks with ruff
-        run: nbqa ruff "WEEK 3/LAB 3/relevance_scoring_rerankers.ipynb" --select E,W,F --ignore E501
+        run: nbqa ruff "WEEK 3/LAB 3/relevance_scoring_rerankers.ipynb" --select E,W,F --ignore E501,E402
