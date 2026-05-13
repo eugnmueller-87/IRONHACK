@@ -357,6 +357,59 @@
   .cr-indigo { border-color: #c0c8f0; }
   .cr-indigo .cr-title { color: #3040a0; }
 
+  /* ── COMPETITOR COMPARISON SLIDE ── */
+  #s_comp { background: linear-gradient(160deg, #fff8f0 0%, #f5f6fa 60%); }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 960px;
+    font-size: 0.79rem;
+  }
+
+  .comp-table th {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0 13px 11px;
+    border-bottom: 2px solid #e0e0f0;
+    font-weight: 700;
+  }
+
+  .comp-table th:first-child  { color: #aaaacc; }
+  .comp-table .col-bloomberg  { color: #1a6090; }
+  .comp-table .col-gartner    { color: #1a7040; }
+  .comp-table .col-jaggaer    { color: #906010; }
+  .comp-table .col-hermes     { color: #6030a0; }
+
+  .comp-table td {
+    padding: 8px 13px;
+    border-bottom: 1px solid #eeeef8;
+    vertical-align: top;
+    color: #7070a0;
+    line-height: 1.4;
+  }
+
+  .comp-table td:first-child {
+    color: #9090aa;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .comp-table .hermes-win {
+    color: #4a2080;
+    background: rgba(180,140,240,0.08);
+    font-weight: 500;
+  }
+
+  .comp-table .verdict-bad  { color: #b04040; font-style: italic; }
+  .comp-table .verdict-mid  { color: #906010; font-style: italic; }
+  .comp-table .verdict-good { color: #1a7040; font-weight: 700; }
+
   /* ── NAV ── */
   .nav {
     position: fixed;
@@ -407,6 +460,152 @@
     min-width: 32px;
     text-align: center;
   }
+
+  /* ── STORAGE SLIDE ── */
+  .storage-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 940px;
+  }
+
+  .store-section-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .store-section-title.redis  { background: #e8f0d8; color: #3a6020; border: 1px solid #c0dd98; }
+  .store-section-title.vector { background: #e8e0f8; color: #502090; border: 1px solid #c8b8f0; }
+
+  .store-block {
+    border: 1px solid #e0e0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .store-label {
+    font-size: 0.68rem;
+    color: #9090aa;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    background: #fafafa;
+    border-bottom: 1px solid #e8e8f4;
+  }
+
+  .code-block {
+    background: #1e1e2e;
+    padding: 10px 14px;
+    font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    font-size: 0.67rem;
+    line-height: 1.65;
+    color: #cdd6f4;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  .ck   { color: #89b4fa; }
+  .cv   { color: #a6e3a1; }
+  .cn   { color: #fab387; }
+  .cm   { color: #6c7086; font-style: italic; }
+  .cttl { color: #f38ba8; font-weight: 700; }
+  .cperm{ color: #a6e3a1; font-weight: 700; }
+
+  .ttl-bar {
+    width: 100%;
+    max-width: 940px;
+    background: #fff;
+    border: 1px solid #e0e0f0;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-size: 0.8rem;
+    color: #444466;
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+
+  .ttl-bar strong { color: #1a1a2e; }
+  .ttl-bar .gone  { color: #b04040; font-weight: 600; }
+  .ttl-bar .kept  { color: #1a7040; font-weight: 600; }
+
+  /* ── API SLIDE ── */
+  .api-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 940px;
+  }
+
+  .api-group {
+    background: #fff;
+    border: 1px solid #e0e0f0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .api-group-title {
+    font-size: 0.63rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9090aa;
+    padding: 9px 16px 7px;
+    background: #fafafa;
+    border-bottom: 1px solid #eeeef8;
+  }
+
+  .api-row {
+    display: grid;
+    grid-template-columns: 1.1fr 2.2fr auto;
+    gap: 10px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #f4f4fc;
+    align-items: baseline;
+  }
+
+  .api-row:last-child { border-bottom: none; }
+
+  .api-name {
+    font-size: 0.77rem;
+    font-weight: 700;
+    color: #222240;
+  }
+
+  .api-desc {
+    font-size: 0.75rem;
+    color: #555570;
+    line-height: 1.45;
+  }
+
+  .api-cost {
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .cost-free { color: #1a7040; }
+  .cost-paid { color: #906010; }
+
+  .api-total {
+    width: 100%;
+    max-width: 940px;
+    text-align: center;
+    font-size: 0.81rem;
+    color: #555570;
+    margin-top: 8px;
+    padding: 10px 20px;
+    background: #fff;
+    border: 1px solid #e8d0a0;
+    border-radius: 10px;
+  }
+
+  .api-total strong { color: #e09020; font-size: 0.95rem; }
 </style>
 </head>
 <body>
@@ -425,8 +624,9 @@
 
   <div class="stat-row">
     <div class="stat">
-      <div class="stat-num">590</div>
+      <div class="stat-num">590<span style="font-size:1.4rem;color:#5a6fd6;vertical-align:super;margin-left:1px">+</span></div>
       <div class="stat-label">Companies monitored</div>
+      <div style="font-size:0.6rem;color:#aaaacc;margin-top:3px;letter-spacing:0.06em">growing weekly</div>
     </div>
     <div class="stat">
       <div class="stat-num">5</div>
@@ -451,7 +651,78 @@
 </div>
 
 <!-- ══════════════════════════════════════
-     SLIDE 2 — HOW THE TWO AGENTS WORK TOGETHER
+     SLIDE 2 — COMPETITOR COMPARISON
+═══════════════════════════════════════ -->
+<div class="slide" id="s_comp">
+  <h2 class="slide-title">Market context — where Hermes fits</h2>
+  <p class="slide-sub">Bloomberg and Gartner solve adjacent but different problems. Jaggaer is the right category — at roughly 300× the cost.</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-bloomberg">Bloomberg Terminal</th>
+        <th class="col-gartner">Gartner</th>
+        <th class="col-jaggaer">Jaggaer Risk</th>
+        <th class="col-hermes">Hermes + Icarus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Financial data terminal</td>
+        <td>Research &amp; advisory</td>
+        <td>Enterprise supply chain risk</td>
+        <td class="hermes-win">Procurement intelligence agent</td>
+      </tr>
+      <tr>
+        <td>Built for</td>
+        <td>Traders · portfolio managers</td>
+        <td>IT leaders · vendor decisions</td>
+        <td>Enterprise procurement teams</td>
+        <td class="hermes-win">Your specific 590-supplier universe</td>
+      </tr>
+      <tr>
+        <td>Data freshness</td>
+        <td>Real-time ms — market prices</td>
+        <td>Quarterly / annual reports</td>
+        <td>Near real-time event feeds</td>
+        <td class="hermes-win">6h RSS · daily EDGAR · weekly deep search</td>
+      </tr>
+      <tr>
+        <td>AI-native</td>
+        <td>Partial — being retrofitted</td>
+        <td>No — human analysts write reports</td>
+        <td>Partial — rules + ML triggers</td>
+        <td class="hermes-win">Yes — Claude Haiku (signals) + Sonnet (clusters)</td>
+      </tr>
+      <tr>
+        <td>Customisation</td>
+        <td>None — fixed product</td>
+        <td>None — fixed research scope</td>
+        <td>Limited — vendor-managed lists</td>
+        <td class="hermes-win">Full — you define every supplier, signal type, tier</td>
+      </tr>
+      <tr>
+        <td>Cost</td>
+        <td>~$24k / seat / year</td>
+        <td>$30k – $100k+ / year</td>
+        <td>$50k – $200k+ / year</td>
+        <td class="hermes-win">~$7 / month</td>
+      </tr>
+      <tr>
+        <td>Verdict</td>
+        <td class="verdict-bad">Wrong category — built for investors</td>
+        <td class="verdict-bad">Wrong category — built for IT strategy</td>
+        <td class="verdict-mid">Right category — wrong price</td>
+        <td class="verdict-good">Purpose-built · fraction of the cost</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 3 — HOW THE TWO AGENTS WORK TOGETHER
 ═══════════════════════════════════════ -->
 <div class="slide" id="s2">
   <h2 class="slide-title">How the two agents work together</h2>
@@ -707,6 +978,164 @@
   </div>
 </div>
 
+
+<!-- ══════════════════════════════════════
+     SLIDE 6 — WHERE DATA LIVES
+═══════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <h2 class="slide-title">Where data lives — Redis vs Vector</h2>
+  <p class="slide-sub">Every signal writes to two databases at once. Redis is fast structured storage for exact lookups. Upstash Vector is a search index that understands meaning. After 7 days the raw item is deleted — the intelligence extracted from it is not.</p>
+
+  <div class="storage-layout">
+    <div>
+      <div class="store-section-title redis">Redis — structured key-value storage</div>
+      <div class="store-block">
+        <div class="store-label">Signal item — what gets deleted after 7 days</div>
+        <div class="code-block">KEY: hermes:item:rss_nvidia_7f3a2b
+{
+  <span class="ck">"supplier"</span>:    <span class="cv">"NVIDIA"</span>,
+  <span class="ck">"signal_type"</span>: <span class="cv">"SUPPLY_CHAIN"</span>,
+  <span class="ck">"urgency"</span>:     <span class="cv">"HIGH"</span>,
+  <span class="ck">"title"</span>:       <span class="cv">"NVIDIA limits H100 exports to..."</span>,
+  <span class="ck">"significant"</span>: <span class="cn">true</span>
+}
+<span class="cttl">⏱ TTL: 7 days → auto-deleted by Redis</span></div>
+      </div>
+      <div class="store-block">
+        <div class="store-label">Company profile — built from signals, stays forever</div>
+        <div class="code-block">KEY: hermes:profile:nvidia
+{
+  <span class="ck">"signal_count"</span>: <span class="cn">47</span>,  <span class="ck">"high_urgency"</span>: <span class="cn">12</span>,
+  <span class="ck">"top_types"</span>:    [<span class="cv">"SUPPLY_CHAIN"</span>, <span class="cv">"REGULATORY"</span>],
+  <span class="ck">"risk_flags"</span>:   [<span class="cv">"export controls"</span>, <span class="cv">"chip sanctions"</span>],
+  <span class="ck">"risk_summary"</span>: <span class="cv">"High US export policy exposure..."</span>
+}
+<span class="cperm">⏱ No TTL — permanent, updated with every new signal</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="store-section-title vector">Upstash Vector — semantic search index</div>
+      <div class="store-block">
+        <div class="store-label">Same signal — stored as meaning, not text</div>
+        <div class="code-block">TEXT:   <span class="cv">"NVIDIA limits H100 exports due to
+        new US export control regulations..."</span>
+        ↓ AI model converts text to numbers
+VECTOR: [<span class="cn">0.021, -0.134, 0.089, 0.201...</span>] <span class="cm">(1024 numbers)</span>
+META:   { <span class="ck">company</span>: <span class="cv">"NVIDIA"</span>,
+          <span class="ck">type</span>: <span class="cv">"SUPPLY_CHAIN"</span>, <span class="ck">urgency</span>: <span class="cv">"HIGH"</span> }
+<span class="cperm">⏱ No TTL — stays even after the Redis item expires</span></div>
+      </div>
+      <div class="store-block">
+        <div class="store-label">What happens when you search</div>
+        <div class="code-block">Query:   <span class="cv">"chip export controls"</span>
+         ↓ also converted to 1024 numbers
+Finds:   nearest vectors by mathematical similarity
+Results: NVIDIA · ASML · KLA · Applied Materials
+<span class="cm">→ none of these companies were typed in the query
+→ matched by meaning, not by keyword</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ttl-bar">
+    <strong>After 7 days:</strong>&nbsp;
+    <span class="gone">Raw signal deleted from Redis</span> — the full text and URL are gone to keep storage lean. &nbsp;|&nbsp;
+    <span class="kept">Company profile remains</span> — signal count, urgency history, risk flags, key products. &nbsp;|&nbsp;
+    <span class="kept">Vector entry remains</span> — still searchable by meaning long after the item expires.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 7 — APIS AND SERVICES
+═══════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <h2 class="slide-title">Every API and service — what it does, what it costs</h2>
+  <p class="slide-sub">11 external services in total. 8 are completely free. The entire monthly bill comes down to three line items: a server, and two AI models.</p>
+
+  <div class="api-layout">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="api-group">
+        <div class="api-group-title">Data sources — what Hermes reads</div>
+        <div class="api-row">
+          <div class="api-name">RSS feeds</div>
+          <div class="api-desc">News pulled directly from 590 company websites every 6 hours. Standard web protocol — no API key, no sign-up, no cost.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">SEC EDGAR</div>
+          <div class="api-desc">Official US government filing database. All 8-K, 10-Q, and 10-K filings for every public company, free and unlimited.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">Tavily</div>
+          <div class="api-desc">Web news search for company-specific stories. Free tier allows ~1,000 queries/month — the reason Tier 3 companies are skipped.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">Lever · Greenhouse</div>
+          <div class="api-desc">Public job board APIs. No authentication needed — any company's open roles are publicly accessible. Hiring spikes = 6-month leading indicators.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">Storage — where everything is kept</div>
+        <div class="api-row">
+          <div class="api-name">Upstash Redis</div>
+          <div class="api-desc">Key-value database for signals, profiles, clusters, and digests. Free tier: 10,000 commands/day — enough for current scale.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">Upstash Vector</div>
+          <div class="api-desc">Stores signal embeddings (the 1024-number representations). Enables "ask by meaning" queries. Free tier: 10,000 queries/day.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="api-group">
+        <div class="api-group-title">AI models — the reasoning layer</div>
+        <div class="api-row">
+          <div class="api-name">Claude Haiku</div>
+          <div class="api-desc">Reads every single crawled item and assigns: signal type (11 types), urgency (HIGH / MED / LOW), and a significance flag. Runs thousands of times per month — kept cheap by design.</div>
+          <div class="api-cost cost-paid">~$1/mo</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">Claude Sonnet</div>
+          <div class="api-desc">Reserved for output you actually read: LinkedIn post drafts (grounded in your KB), macro theme clustering across 590 companies, and the Sunday market digest.</div>
+          <div class="api-cost cost-paid">~$1–2/mo</div>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">Infrastructure + communication</div>
+        <div class="api-row">
+          <div class="api-name">Railway</div>
+          <div class="api-desc">Cloud server that runs Hermes 24/7. Auto-deploys every time code is pushed to GitHub — zero manual restarts.</div>
+          <div class="api-cost cost-paid">~$5/mo</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">Telegram Bot API</div>
+          <div class="api-desc">How Icarus talks to you. Receives commands in plain language, pushes morning briefings, and delivers post drafts for one-tap approval.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+        <div class="api-row">
+          <div class="api-name">QuickChart.io</div>
+          <div class="api-desc">Generates signal distribution charts as PNG images on demand. Displayed inline in Telegram when you ask for a visual summary.</div>
+          <div class="api-cost cost-free">$0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="api-total">
+    8 of 11 services are completely free &nbsp;·&nbsp; 3 are paid &nbsp;·&nbsp;
+    <strong>Total: ~$7–8 / month</strong>
+  </div>
+</div>
+
 </div><!-- .deck -->
 
 <!-- NAV -->
@@ -718,9 +1147,12 @@
     <div class="dot" data-i="2"></div>
     <div class="dot" data-i="3"></div>
     <div class="dot" data-i="4"></div>
+    <div class="dot" data-i="5"></div>
+    <div class="dot" data-i="6"></div>
+    <div class="dot" data-i="7"></div>
   </div>
   <button id="next">→</button>
-  <span class="slide-num" id="snum">1 / 5</span>
+  <span class="slide-num" id="snum">1 / 8</span>
 </nav>
 
 <script>
