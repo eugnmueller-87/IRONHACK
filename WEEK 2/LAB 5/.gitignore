@@ -1,9 +1,0 @@
-.env
-.venv/
-__pycache__/
-*.pyc
-pdf_text.txt
-podcast_transcript.txt
-*.m4a
-*.mp3
-*.pdf

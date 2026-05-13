@@ -1,9 +1,0 @@
-{
-  "products": [
-    {
-      "id": "P001",
-      "name": "Broken JSON"
-      "price": 99.99,
-    }
-  ]
-}

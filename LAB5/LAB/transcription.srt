@@ -1,8 +1,0 @@
-1
-00:00:00,000 --> 00:00:04,800
-It's a very unique use case and then let's see
-
-2
-00:00:08,620 --> 00:00:09,980
-And now I record
-
