@@ -1,0 +1,271 @@
+{
+  "name": "Notion research paper pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "arxiv-summarizer",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -624,
+        -16
+      ],
+      "id": "dc1c22b1-e7c0-4834-9ee0-74e9c2194ec4",
+      "name": "Webhook",
+      "webhookId": "f208f0d0-ad59-4588-923b-c92937cf1518"
+    },
+    {
+      "parameters": {
+        "language": "pythonNative",
+        "pythonCode": "import re\n\nurl = _items[0]['json']['body']['arxiv_url']\nmatch = re.search(r'abs/([^\\?]+)', url)\npaper_id = match.group(1)\n\nreturn [{\"json\": {\"paper_id\": paper_id, \"arxiv_url\": url}}]\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -416,
+        -16
+      ],
+      "id": "f20fe05e-5b2d-4540-8938-20d06f6433ed",
+      "name": "Code in Python"
+    },
+    {
+      "parameters": {
+        "url": "=https://arxiv.org/api/query?id_list={{ $json.paper_id }}&start=0&max_results=1",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -224,
+        -16
+      ],
+      "id": "9acd382f-0923-4e63-8925-ddbd01a1ccc2",
+      "name": "HTTP Request",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "language": "pythonNative",
+        "pythonCode": "import re\n\nxml = _items[0]['json']['data']\n\ndef get(tag, text):\n    m = re.search(rf'<{tag}[^>]*>([\\s\\S]*?)</{tag}>', text)\n    return m.group(1).strip() if m else ''\n\ndef get_all(tag, text):\n    return re.findall(rf'<{tag}[^>]*>([\\s\\S]*?)</{tag}>', text)\n\nentry_match = re.search(r'<entry>([\\s\\S]*?)</entry>', xml)\nentry = entry_match.group(1) if entry_match else xml\n\ntitle = re.sub(r'\\s+', ' ', get('title', entry))\nabstract = re.sub(r'\\s+', ' ', get('summary', entry))\nauthors = ', '.join(get_all('name', entry))\n\ncat_match = re.search(r'arxiv:primary_category[^>]*term=\"([^\"]+)\"', xml)\nraw_cat = cat_match.group(1) if cat_match else 'Other'\nprefix = raw_cat.split('.')[0]\n\ncat_map = {'cs': 'CS', 'math': 'Math', 'physics': 'Physics', 'stat': 'ML', 'eess': 'CS'}\ncategory = cat_map.get(prefix, 'Other')\n\narxiv_url = _items[0]['json'].get('arxiv_url', '')\n\nreturn [{\"json\": {\"title\": title, \"abstract\": abstract, \"authors\": authors, \"category\": category, \"arxiv_url\": arxiv_url}}]\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        -16
+      ],
+      "id": "5e15d84b-c292-4429-bb76-2d8feba87d0b",
+      "name": "Code in Python1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "360329bd-0ea7-804d-a5dc-e2136ea0d1c6",
+          "mode": "list",
+          "cachedResultName": "Research Papers",
+          "cachedResultUrl": "https://www.notion.so/360329bd0ea7804da5dce2136ea0d1c6"
+        },
+        "title": "={{ $('Code in Python1').first().json.title }}\n",
+        "simple": false,
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Authors|rich_text"
+            },
+            {
+              "key": "arXiv URL|url",
+              "urlValue": "={{ $('Code in Python1').first().json.arxiv_url }}\n"
+            },
+            {
+              "key": "Category|select",
+              "selectValue": "={{ $json.category }}"
+            },
+            {
+              "key": "Date added|date",
+              "date": "2026-05-14T10:58:35"
+            },
+            {
+              "key": "Read?|checkbox"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "={{ $json.content[0].text }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        -16
+      ],
+      "id": "86462f54-63ee-4725-b33f-beea548d016e",
+      "name": "Create a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "w5P9ybxCpSyUTkMv",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": true,\n  \"message\": \"Paper added successfully\",\n  \"title\": \"{{ $json.title }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        704,
+        -16
+      ],
+      "id": "8254900c-3190-437b-b259-b42e28d9664d",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "content": "Invoke-RestMethod -Uri \"https://eugen-m.n8n.irn.hk/webhook-test/arxiv-summarizer\" -Method POST -ContentType \"application/json\" -Body '{\"arxiv_url\": \"https://arxiv.org/abs/1706.03762\"}'\n",
+        "height": 256
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -656,
+        288
+      ],
+      "id": "a58243eb-1915-4a22-930a-070eb92627ea",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "claude-haiku-4-5-20251001"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Summarize this abstract in 2-3 sentences for non-experts: {{ $json.abstract }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        176,
+        -16
+      ],
+      "id": "70ad3cd7-be5f-429b-9e1b-031ab38f898d",
+      "name": "Message a model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "2wWtN7yDEY8aQctg",
+          "name": "Anthropic account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code in Python",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in Python1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python1": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a database page": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "Create a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6cd843bc-b424-488f-a6c7-29d7ecd3af2d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e5ed8bcf392b52a9baf37e1c53638a30b787922e7637c7b116b93d22c7d63e87"
+  },
+  "id": "EZdkjhrupenNrAEi",
+  "tags": []
+}

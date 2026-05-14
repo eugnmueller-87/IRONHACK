@@ -1,0 +1,12 @@
+# Environment variables - never commit API keys
+.env
+.env.local
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
