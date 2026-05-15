@@ -1,0 +1,123 @@
+{
+  "name": "Workflow 3 — ERP Integration (Budget Check & PO Creation)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "erp-request",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "node-webhook-erp",
+      "name": "Webhook: ERP Request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 400]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputKey": "budget_check",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.action }}", "rightValue": "budget_check", "operator": { "type": "string", "operation": "equals" } }]
+              }
+            },
+            {
+              "outputKey": "create_po",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.action }}", "rightValue": "create_po", "operator": { "type": "string", "operation": "equals" } }]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-action-switch",
+      "name": "Switch: Budget Check or Create PO",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [460, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Stub: simulates ERP budget check response\n// Replace this node with a real HTTP Request to your ERP API in production\n\nconst { cost_center, amount, currency, pr_id } = $input.first().json;\n\n// Synthetic budget data per cost center\nconst budgets = {\n  'CC-1001': { owner: 'Maria Schmidt', owner_email: 'maria.schmidt@company.com', available: 45000, currency: 'EUR' },\n  'CC-1002': { owner: 'Thomas Bauer', owner_email: 'thomas.bauer@company.com', available: 120000, currency: 'EUR' },\n  'CC-1003': { owner: 'Julia Wagner', owner_email: 'julia.wagner@company.com', available: 8500, currency: 'EUR' },\n  'CC-1004': { owner: 'Stefan Hoffmann', owner_email: 'stefan.hoffmann@company.com', available: 250000, currency: 'EUR' }\n};\n\nconst budget = budgets[cost_center] ?? { owner: 'Unknown', owner_email: 'procurement@company.com', available: 0, currency: 'EUR' };\nconst sufficient = budget.available >= parseFloat(amount);\n\nreturn [{\n  json: {\n    pr_id,\n    action: 'budget_check',\n    cost_center,\n    cost_center_head_name: budget.owner,\n    cost_center_head_email: budget.owner_email,\n    available_budget: budget.available,\n    requested_amount: parseFloat(amount),\n    currency: budget.currency,\n    budget_sufficient: sufficient,\n    checked_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-budget-check-stub",
+      "name": "ERP Stub: Budget Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 280]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Stub: simulates ERP PO creation\n// Replace this node with a real HTTP Request to your ERP API in production\n\nconst { pr_id, amount, currency, cost_center, category, description, preferred_supplier } = $input.first().json;\n\nconst po_number = 'PO-' + Date.now().toString().slice(-8);\n\nreturn [{\n  json: {\n    pr_id,\n    action: 'create_po',\n    po_number,\n    amount: parseFloat(amount),\n    currency,\n    cost_center,\n    category,\n    description,\n    supplier: preferred_supplier ?? 'TBD',\n    status: 'created',\n    created_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-create-po-stub",
+      "name": "ERP Stub: Create PO",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 520]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/erp-callback",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "node-callback-budget",
+      "name": "HTTP: Return Budget Result to LangGraph",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [940, 280]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/erp-callback",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "node-callback-po",
+      "name": "HTTP: Return PO Result to LangGraph",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [940, 520]
+    }
+  ],
+  "connections": {
+    "Webhook: ERP Request": {
+      "main": [[{ "node": "Switch: Budget Check or Create PO", "type": "main", "index": 0 }]]
+    },
+    "Switch: Budget Check or Create PO": {
+      "main": [
+        [{ "node": "ERP Stub: Budget Check", "type": "main", "index": 0 }],
+        [{ "node": "ERP Stub: Create PO", "type": "main", "index": 0 }]
+      ]
+    },
+    "ERP Stub: Budget Check": {
+      "main": [[{ "node": "HTTP: Return Budget Result to LangGraph", "type": "main", "index": 0 }]]
+    },
+    "ERP Stub: Create PO": {
+      "main": [[{ "node": "HTTP: Return PO Result to LangGraph", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Handles ERP interactions. Routes to either a budget check stub (returns available budget + cost center head details) or a PO creation stub (generates a PO number and confirms creation). Both stubs return results to the LangGraph agent. Replace stub Code nodes with real ERP HTTP calls in production."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "name": "Workflow 6 — Approval Response Handling",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "approval-response",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "node-webhook-approval",
+      "name": "Webhook: Approval Response",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Approval links use GET with query params:\n// ?pr_id=PR-001&decision=approved&approver=manager@company.com&reason=optional+text\nconst query = $input.first().json.query ?? $input.first().json;\n\nconst pr_id = query.pr_id;\nconst decision = query.decision;\nconst approver = query.approver;\nconst reason = query.reason ?? null;\n\nif (!pr_id) throw new Error('Missing pr_id');\nif (!['approved', 'rejected'].includes(decision)) throw new Error('Invalid decision value: ' + decision);\n\nreturn [{\n  json: {\n    pr_id,\n    decision,\n    approver_email: approver,\n    reason,\n    responded_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-parse-decision",
+      "name": "Parse Approval Decision",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 400]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputKey": "approved",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.decision }}", "rightValue": "approved", "operator": { "type": "string", "operation": "equals" } }]
+              }
+            },
+            {
+              "outputKey": "rejected",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.decision }}", "rightValue": "rejected", "operator": { "type": "string", "operation": "equals" } }]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-decision-switch",
+      "name": "Switch: Approved or Rejected?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/approval-callback",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify({ pr_id: $json.pr_id, decision: 'approved', approver_email: $json.approver_email, responded_at: $json.responded_at }) }}",
+        "options": {}
+      },
+      "id": "node-notify-agent-approved",
+      "name": "HTTP: Notify LangGraph — Approved",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [920, 260]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/approval-callback",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify({ pr_id: $json.pr_id, decision: 'rejected', approver_email: $json.approver_email, reason: $json.reason, responded_at: $json.responded_at }) }}",
+        "options": {}
+      },
+      "id": "node-notify-agent-rejected",
+      "name": "HTTP: Notify LangGraph — Rejected",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [920, 540]
+    },
+    {
+      "parameters": {
+        "jsCode": "// LangGraph returns requester details after processing the approval\nconst agentResponse = $input.first().json;\nreturn [{\n  json: {\n    pr_id: agentResponse.pr_id,\n    requester_email: agentResponse.requester_email,\n    requester_name: agentResponse.requester_name,\n    po_number: agentResponse.po_number,\n    amount: agentResponse.amount,\n    currency: agentResponse.currency,\n    description: agentResponse.description\n  }\n}];"
+      },
+      "id": "node-get-requester-approved",
+      "name": "Extract Requester Info (Approved)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1140, 260]
+    },
+    {
+      "parameters": {
+        "jsCode": "const agentResponse = $input.first().json;\nreturn [{\n  json: {\n    pr_id: agentResponse.pr_id,\n    requester_email: agentResponse.requester_email,\n    requester_name: agentResponse.requester_name,\n    amount: agentResponse.amount,\n    currency: agentResponse.currency,\n    description: agentResponse.description,\n    rejection_reason: agentResponse.rejection_reason ?? 'No reason provided'\n  }\n}];"
+      },
+      "id": "node-get-requester-rejected",
+      "name": "Extract Requester Info (Rejected)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1140, 540]
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.requester_email }}",
+        "subject": "Purchase Request {{ $json.pr_id }} — Approved",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.requester_name }},</p><p>Your purchase request <strong>{{ $json.pr_id }}</strong> has been <strong style='color:green;'>approved</strong>.</p><table border='1' cellpadding='6' cellspacing='0'><tr><td><strong>Amount</strong></td><td>{{ $json.currency }} {{ $json.amount }}</td></tr><tr><td><strong>Description</strong></td><td>{{ $json.description }}</td></tr><tr><td><strong>PO Number</strong></td><td>{{ $json.po_number }}</td></tr></table><p>The purchase order has been created in the ERP system. You will be notified once the order is confirmed with the supplier.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-requester-approved",
+      "name": "SMTP: Notify Requester — Approved",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1360, 260],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.requester_email }}",
+        "subject": "Purchase Request {{ $json.pr_id }} — Not Approved",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.requester_name }},</p><p>Your purchase request <strong>{{ $json.pr_id }}</strong> for <strong>{{ $json.currency }} {{ $json.amount }}</strong> has <strong style='color:red;'>not been approved</strong> at this time.</p><p><strong>Reason:</strong> {{ $json.rejection_reason }}</p><p>If you have questions or would like to resubmit with additional information, please contact your cost center manager or the procurement team.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-requester-rejected",
+      "name": "SMTP: Notify Requester — Rejected",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1360, 540],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "<html><body style='font-family:sans-serif;text-align:center;padding:40px;'><h2 style='color:green;'>✓ Response Recorded</h2><p>Your decision has been saved. The requester will be notified automatically.</p><p><em>You can close this window.</em></p></body></html>",
+        "options": {
+          "responseHeaders": {
+            "entries": [{ "name": "Content-Type", "value": "text/html" }]
+          }
+        }
+      },
+      "id": "node-browser-response",
+      "name": "Respond to Browser",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 620]
+    }
+  ],
+  "connections": {
+    "Webhook: Approval Response": {
+      "main": [[{ "node": "Parse Approval Decision", "type": "main", "index": 0 }]]
+    },
+    "Parse Approval Decision": {
+      "main": [[
+        { "node": "Switch: Approved or Rejected?", "type": "main", "index": 0 },
+        { "node": "Respond to Browser", "type": "main", "index": 0 }
+      ]]
+    },
+    "Switch: Approved or Rejected?": {
+      "main": [
+        [{ "node": "HTTP: Notify LangGraph — Approved", "type": "main", "index": 0 }],
+        [{ "node": "HTTP: Notify LangGraph — Rejected", "type": "main", "index": 0 }]
+      ]
+    },
+    "HTTP: Notify LangGraph — Approved": {
+      "main": [[{ "node": "Extract Requester Info (Approved)", "type": "main", "index": 0 }]]
+    },
+    "HTTP: Notify LangGraph — Rejected": {
+      "main": [[{ "node": "Extract Requester Info (Rejected)", "type": "main", "index": 0 }]]
+    },
+    "Extract Requester Info (Approved)": {
+      "main": [[{ "node": "SMTP: Notify Requester — Approved", "type": "main", "index": 0 }]]
+    },
+    "Extract Requester Info (Rejected)": {
+      "main": [[{ "node": "SMTP: Notify Requester — Rejected", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Handles approve/reject clicks from the email links sent in Workflow 2. Parses the decision from query params, immediately shows a confirmation page to the approver's browser, notifies the LangGraph agent to resume the workflow (triggering ERP PO creation for approvals), and sends the requester an outcome email with PO number (approved) or rejection reason (rejected)."
+  }
+}

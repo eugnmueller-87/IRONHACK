@@ -1,0 +1,146 @@
+{
+  "name": "Workflow 5 — Quote/Proposal Collection",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "supplier-response",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "node-webhook-response",
+      "name": "Webhook: Supplier Response",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body ?? $input.first().json;\nconst queryParams = $input.first().json.query ?? {};\n\n// pr_id can come from query param (link click) or body (form/API submission)\nconst pr_id = body.pr_id ?? queryParams.pr_id;\nconst supplier_email = body.supplier_email ?? queryParams.supplier ?? body.from_email;\n\nif (!pr_id) throw new Error('Missing pr_id in supplier response');\nif (!supplier_email) throw new Error('Missing supplier_email in supplier response');\n\nreturn [{\n  json: {\n    pr_id,\n    supplier_email,\n    supplier_name: body.supplier_name ?? 'Unknown Supplier',\n    response_type: body.response_type ?? 'quote',\n    total_price: body.total_price ? parseFloat(body.total_price) : null,\n    currency: body.currency ?? 'EUR',\n    delivery_days: body.delivery_days ? parseInt(body.delivery_days) : null,\n    payment_terms: body.payment_terms ?? null,\n    validity_days: body.validity_days ? parseInt(body.validity_days) : 30,\n    notes: body.notes ?? null,\n    has_attachment: body.has_attachment ?? false,\n    attachment_name: body.attachment_name ?? null,\n    received_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-parse-response",
+      "name": "Parse Supplier Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/supplier-response",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "node-forward-to-agent",
+      "name": "HTTP: Forward to LangGraph Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const agentResponse = $input.first().json;\nconst parsedResponse = $('Parse Supplier Response').first().json;\n\n// Check if agent says all suppliers have responded\nconst allResponded = agentResponse.all_suppliers_responded ?? false;\n\nreturn [{\n  json: {\n    pr_id: parsedResponse.pr_id,\n    supplier_email: parsedResponse.supplier_email,\n    all_suppliers_responded: allResponded,\n    responses_received: agentResponse.responses_received ?? 1,\n    responses_expected: agentResponse.responses_expected ?? 'unknown',\n    category_manager_email: agentResponse.category_manager_email ?? null\n  }\n}];"
+      },
+      "id": "node-check-completeness",
+      "name": "Check: All Suppliers Responded?",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputKey": "all_done",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.all_suppliers_responded }}", "rightValue": true, "operator": { "type": "boolean", "operation": "equals" } }]
+              }
+            },
+            {
+              "outputKey": "waiting",
+              "conditions": {
+                "conditions": [{ "leftValue": "={{ $json.all_suppliers_responded }}", "rightValue": false, "operator": { "type": "boolean", "operation": "equals" } }]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-switch-complete",
+      "name": "Switch: All Responded?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.category_manager_email }}",
+        "subject": "All Quotes Received — PR {{ $json.pr_id }} Ready for Evaluation",
+        "emailType": "html",
+        "message": "<p>Dear Category Manager,</p><p>All supplier responses for <strong>PR {{ $json.pr_id }}</strong> have been received.</p><p>The procurement agent has extracted key data from all {{ $json.responses_received }} responses and generated an evaluation matrix for your review.</p><p>Please access the evaluation matrix and make your award decision:</p><p><a href='http://localhost:8000/evaluation/{{ $json.pr_id }}' style='background:#007bff;color:white;padding:10px 20px;text-decoration:none;border-radius:4px;'>View Evaluation Matrix</a></p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-cm-ready",
+      "name": "SMTP: Notify CM — All Quotes Ready",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1360, 200],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.supplier_email }}",
+        "subject": "Response Received — PR {{ $json.pr_id }}",
+        "emailType": "html",
+        "message": "<p>Dear Supplier,</p><p>Thank you — we have received your response for <strong>PR {{ $json.pr_id }}</strong>.</p><p>We are still awaiting responses from other suppliers ({{ $json.responses_received }} of {{ $json.responses_expected }} received). We will be in touch once the evaluation is complete.</p><p>Best regards,<br>Procurement Team</p>",
+        "options": {}
+      },
+      "id": "node-email-supplier-ack",
+      "name": "SMTP: Acknowledge Supplier — Still Waiting",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1360, 400],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook: Supplier Response": {
+      "main": [[{ "node": "Parse Supplier Response", "type": "main", "index": 0 }]]
+    },
+    "Parse Supplier Response": {
+      "main": [[{ "node": "HTTP: Forward to LangGraph Agent", "type": "main", "index": 0 }]]
+    },
+    "HTTP: Forward to LangGraph Agent": {
+      "main": [[{ "node": "Check: All Suppliers Responded?", "type": "main", "index": 0 }]]
+    },
+    "Check: All Suppliers Responded?": {
+      "main": [[{ "node": "Switch: All Responded?", "type": "main", "index": 0 }]]
+    },
+    "Switch: All Responded?": {
+      "main": [
+        [{ "node": "SMTP: Notify CM — All Quotes Ready", "type": "main", "index": 0 }],
+        [{ "node": "SMTP: Acknowledge Supplier — Still Waiting", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Receives supplier quote or proposal submissions via webhook, parses and normalises the response fields, forwards to LangGraph for extraction and evaluation matrix update. If all suppliers have responded, notifies the Category Manager that the evaluation is ready. Otherwise sends an acknowledgement to the submitting supplier."
+  }
+}

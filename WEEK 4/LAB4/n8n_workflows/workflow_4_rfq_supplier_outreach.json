@@ -1,0 +1,140 @@
+{
+  "name": "Workflow 4 — RFQ/RFP Supplier Outreach",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "send-rfq",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "node-webhook-rfq",
+      "name": "Webhook: Send RFQ/RFP",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Unpack the supplier list from the LangGraph payload\n// Expected: { pr_id, type: 'rfq'|'rfp', rfq_document, suppliers: [{name, contact_name, contact_email}], deadline }\nconst input = $input.first().json;\nconst suppliers = input.suppliers ?? [];\n\nreturn suppliers.map(supplier => ({\n  json: {\n    pr_id: input.pr_id,\n    type: input.type,\n    rfq_document: input.rfq_document,\n    rfp_document: input.rfp_document ?? null,\n    deadline: input.deadline,\n    response_webhook: `http://localhost:5678/webhook/supplier-response?pr_id=${input.pr_id}`,\n    supplier_name: supplier.name,\n    supplier_contact_name: supplier.contact_name,\n    supplier_contact_email: supplier.contact_email,\n    sent_at: new Date().toISOString()\n  }\n}));"
+      },
+      "id": "node-split-suppliers",
+      "name": "Split into Individual Supplier Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 400]
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement@company.com",
+        "toEmail": "={{ $json.supplier_contact_email }}",
+        "subject": "={{ $json.type === 'rfp' ? 'Request for Proposal' : 'Request for Quotation' }} — PR {{ $json.pr_id }}",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.supplier_contact_name }},</p><p>We would like to invite <strong>{{ $json.supplier_name }}</strong> to submit a {{ $json.type === 'rfp' ? 'proposal' : 'quotation' }} for the following requirement.</p><hr><p>{{ $json.type === 'rfp' ? $json.rfp_document : $json.rfq_document }}</p><hr><p><strong>Submission Deadline:</strong> {{ $json.deadline }}</p><p>Please submit your {{ $json.type === 'rfp' ? 'proposal' : 'quotation' }} by replying to this email or uploading your response at the link below:</p><p><a href='{{ $json.response_webhook }}&supplier={{ $json.supplier_contact_email }}'>Submit Response</a></p><p>Should you have any questions, please do not hesitate to contact us.</p><p>Best regards,<br>Procurement Team</p>",
+        "options": {}
+      },
+      "id": "node-email-supplier",
+      "name": "SMTP: Send RFQ/RFP to Supplier",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 400],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log all outreach records\nconst items = $input.all();\nreturn items.map(item => ({\n  json: {\n    pr_id: item.json.pr_id,\n    supplier_email: item.json.supplier_contact_email,\n    supplier_name: item.json.supplier_name,\n    type: item.json.type,\n    deadline: item.json.deadline,\n    sent_at: item.json.sent_at,\n    status: 'sent'\n  }\n}));"
+      },
+      "id": "node-log-outreach",
+      "name": "Build Outreach Log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 400]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:8000/agent/outreach-confirmed",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify({ pr_id: $json.pr_id, outreach_log: $input.all().map(i => i.json) }) }}",
+        "options": {}
+      },
+      "id": "node-callback-outreach",
+      "name": "HTTP: Notify LangGraph — Outreach Complete",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1160, 400]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * 1-5" }]
+        }
+      },
+      "id": "node-reminder-cron",
+      "name": "Schedule: Daily 09:00 Mon–Fri Reminder Check",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 620]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Placeholder: in production, query your database for open RFQs past deadline\n// For MVP, this returns a hardcoded example of an overdue supplier\nreturn [{\n  json: {\n    pr_id: 'PR-EXAMPLE-001',\n    supplier_contact_email: 'supplier@example.com',\n    supplier_contact_name: 'Supplier Contact',\n    supplier_name: 'Example Supplier GmbH',\n    type: 'rfq',\n    deadline: '2026-05-10',\n    days_overdue: 5\n  }\n}];"
+      },
+      "id": "node-check-overdue",
+      "name": "Check for Overdue Supplier Responses",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 620]
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement@company.com",
+        "toEmail": "={{ $json.supplier_contact_email }}",
+        "subject": "REMINDER: {{ $json.type === 'rfp' ? 'RFP' : 'RFQ' }} Response Overdue — PR {{ $json.pr_id }}",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.supplier_contact_name }},</p><p>This is a reminder that your {{ $json.type === 'rfp' ? 'proposal' : 'quotation' }} for <strong>PR {{ $json.pr_id }}</strong> was due on <strong>{{ $json.deadline }}</strong> and is now <strong>{{ $json.days_overdue }} day(s) overdue</strong>.</p><p>Please submit your response as soon as possible or contact us if you need an extension.</p><p>Best regards,<br>Procurement Team</p>",
+        "options": {}
+      },
+      "id": "node-email-reminder",
+      "name": "SMTP: Send Overdue Reminder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 620],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook: Send RFQ/RFP": {
+      "main": [[{ "node": "Split into Individual Supplier Items", "type": "main", "index": 0 }]]
+    },
+    "Split into Individual Supplier Items": {
+      "main": [[{ "node": "SMTP: Send RFQ/RFP to Supplier", "type": "main", "index": 0 }]]
+    },
+    "SMTP: Send RFQ/RFP to Supplier": {
+      "main": [[{ "node": "Build Outreach Log", "type": "main", "index": 0 }]]
+    },
+    "Build Outreach Log": {
+      "main": [[{ "node": "HTTP: Notify LangGraph — Outreach Complete", "type": "main", "index": 0 }]]
+    },
+    "Schedule: Daily 09:00 Mon–Fri Reminder Check": {
+      "main": [[{ "node": "Check for Overdue Supplier Responses", "type": "main", "index": 0 }]]
+    },
+    "Check for Overdue Supplier Responses": {
+      "main": [[{ "node": "SMTP: Send Overdue Reminder", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Receives the CM-approved supplier shortlist and RFQ/RFP document from LangGraph, splits into individual items, sends a personalised SMTP email to each supplier, logs outreach, and notifies LangGraph when done. A separate scheduled branch sends overdue reminders daily at 09:00 on business days."
+  }
+}

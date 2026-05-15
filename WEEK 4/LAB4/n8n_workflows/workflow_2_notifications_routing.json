@@ -1,0 +1,149 @@
+{
+  "name": "Workflow 2 — Notifications & Approval Routing",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "routing-decision",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "node-webhook-routing",
+      "name": "Webhook: Routing Decision",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 400]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            { "outputKey": "auto_approve", "conditions": { "options": { "caseSensitive": false }, "conditions": [{ "leftValue": "={{ $json.tier }}", "rightValue": "auto_approve", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "cost_center", "conditions": { "options": { "caseSensitive": false }, "conditions": [{ "leftValue": "={{ $json.tier }}", "rightValue": "cost_center_approval", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "rfq", "conditions": { "options": { "caseSensitive": false }, "conditions": [{ "leftValue": "={{ $json.tier }}", "rightValue": "rfq", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "rfq_plus", "conditions": { "options": { "caseSensitive": false }, "conditions": [{ "leftValue": "={{ $json.tier }}", "rightValue": "rfq_plus", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "rfp", "conditions": { "options": { "caseSensitive": false }, "conditions": [{ "leftValue": "={{ $json.tier }}", "rightValue": "rfp", "operator": { "type": "string", "operation": "equals" } }] } }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-tier-switch",
+      "name": "Switch: Route by Tier",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [460, 400]
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.requester_email }}",
+        "subject": "Purchase Request {{ $json.pr_id }} — Auto-Approved",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.requester_name }},</p><p>Your purchase request <strong>{{ $json.pr_id }}</strong> for <strong>{{ $json.currency }} {{ $json.amount }}</strong> has been <strong>automatically approved</strong>.</p><p><strong>Description:</strong> {{ $json.description }}<br><strong>PO Number:</strong> {{ $json.po_number }}<br><strong>Category:</strong> {{ $json.category }}</p><p>The purchase order has been created in the ERP system. You will receive a separate confirmation once the PO is sent to the supplier.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "node-email-auto-approve",
+      "name": "SMTP: Auto-Approve Notification",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 160],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.cost_center_head_email }}",
+        "subject": "Approval Required: Purchase Request {{ $json.pr_id }} — {{ $json.currency }} {{ $json.amount }}",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.cost_center_head_name }},</p><p>A purchase request requires your approval.</p><table border='1' cellpadding='6' cellspacing='0'><tr><td><strong>PR ID</strong></td><td>{{ $json.pr_id }}</td></tr><tr><td><strong>Requester</strong></td><td>{{ $json.requester_name }}</td></tr><tr><td><strong>Amount</strong></td><td>{{ $json.currency }} {{ $json.amount }}</td></tr><tr><td><strong>Category</strong></td><td>{{ $json.category }}</td></tr><tr><td><strong>Description</strong></td><td>{{ $json.description }}</td></tr><tr><td><strong>Preferred Supplier</strong></td><td>{{ $json.preferred_supplier ?? 'Not specified' }}</td></tr><tr><td><strong>Supplier Compliance</strong></td><td>{{ $json.compliance_summary }}</td></tr></table><br><p><a href='http://localhost:5678/webhook/approval-response?pr_id={{ $json.pr_id }}&decision=approved&approver={{ $json.cost_center_head_email }}' style='background:#28a745;color:white;padding:10px 20px;text-decoration:none;border-radius:4px;'>Approve</a>&nbsp;&nbsp;<a href='http://localhost:5678/webhook/approval-response?pr_id={{ $json.pr_id }}&decision=rejected&approver={{ $json.cost_center_head_email }}' style='background:#dc3545;color:white;padding:10px 20px;text-decoration:none;border-radius:4px;'>Reject</a></p><p><em>If you do not respond within 48 hours, a reminder will be sent.</em></p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-cost-center",
+      "name": "SMTP: Cost Center Head Approval Request",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 320],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.category_manager_email }}",
+        "subject": "RFQ Initiation Required: PR {{ $json.pr_id }} — {{ $json.currency }} {{ $json.amount }}",
+        "emailType": "html",
+        "message": "<p>Dear Category Manager,</p><p>A purchase request in your category requires RFQ initiation.</p><table border='1' cellpadding='6' cellspacing='0'><tr><td><strong>PR ID</strong></td><td>{{ $json.pr_id }}</td></tr><tr><td><strong>Requester</strong></td><td>{{ $json.requester_name }}</td></tr><tr><td><strong>Amount</strong></td><td>{{ $json.currency }} {{ $json.amount }}</td></tr><tr><td><strong>Category</strong></td><td>{{ $json.category }}</td></tr><tr><td><strong>Description</strong></td><td>{{ $json.description }}</td></tr><tr><td><strong>Required by</strong></td><td>{{ $json.required_by_date ?? 'Not specified' }}</td></tr></table><br><h4>Supplier Compliance Report</h4><p>{{ $json.compliance_summary }}</p><h4>Suggested Supplier Shortlist</h4><p>{{ $json.supplier_shortlist }}</p><p>Please review and confirm the supplier shortlist, then the agent will send the RFQ emails automatically.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-rfq",
+      "name": "SMTP: Category Manager — RFQ",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 480],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.category_manager_email }}",
+        "subject": "RFQ+ Initiation Required: PR {{ $json.pr_id }} — {{ $json.currency }} {{ $json.amount }}",
+        "emailType": "html",
+        "message": "<p>Dear Category Manager,</p><p>A high-value purchase request requires a formal RFQ with a minimum of 3 supplier quotes.</p><table border='1' cellpadding='6' cellspacing='0'><tr><td><strong>PR ID</strong></td><td>{{ $json.pr_id }}</td></tr><tr><td><strong>Requester</strong></td><td>{{ $json.requester_name }}</td></tr><tr><td><strong>Amount</strong></td><td>{{ $json.currency }} {{ $json.amount }}</td></tr><tr><td><strong>Category</strong></td><td>{{ $json.category }}</td></tr><tr><td><strong>Description</strong></td><td>{{ $json.description }}</td></tr></table><br><h4>Supplier Compliance Report</h4><p>{{ $json.compliance_summary }}</p><h4>Suggested Supplier Shortlist (min. 3 required)</h4><p>{{ $json.supplier_shortlist }}</p><p>Please confirm or adjust the shortlist. The agent will generate the formal RFQ document and send to all suppliers.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-rfq-plus",
+      "name": "SMTP: Category Manager — RFQ+",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 640],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement-agent@company.com",
+        "toEmail": "={{ $json.requester_email }}",
+        "subject": "Business Case Required: Purchase Request {{ $json.pr_id }}",
+        "emailType": "html",
+        "message": "<p>Dear {{ $json.requester_name }},</p><p>Your purchase request <strong>{{ $json.pr_id }}</strong> for <strong>{{ $json.currency }} {{ $json.amount }}</strong> exceeds the RFP threshold and requires a formal business case before the sourcing process can begin.</p><p>The procurement agent will guide you through the business case questionnaire. Please reply to this email or access the intake form to get started.</p><p><strong>You will be asked about:</strong></p><ul><li>Business problem and expected value</li><li>User base and ownership</li><li>Contract value, duration, and renewal terms</li><li>Data security and privacy requirements</li><li>Integration and implementation scope</li><li>Cost of inaction (status quo risk)</li></ul><p>Once your business case is complete, it will be forwarded to the Category Manager to initiate the RFP process.</p><p>Best regards,<br>Procurement Agent</p>",
+        "options": {}
+      },
+      "id": "node-email-rfp-requester",
+      "name": "SMTP: Requester — Business Case Required",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [700, 800],
+      "credentials": {
+        "smtp": { "id": "smtp-credentials", "name": "SMTP Account" }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook: Routing Decision": {
+      "main": [[{ "node": "Switch: Route by Tier", "type": "main", "index": 0 }]]
+    },
+    "Switch: Route by Tier": {
+      "main": [
+        [{ "node": "SMTP: Auto-Approve Notification", "type": "main", "index": 0 }],
+        [{ "node": "SMTP: Cost Center Head Approval Request", "type": "main", "index": 0 }],
+        [{ "node": "SMTP: Category Manager — RFQ", "type": "main", "index": 0 }],
+        [{ "node": "SMTP: Category Manager — RFQ+", "type": "main", "index": 0 }],
+        [{ "node": "SMTP: Requester — Business Case Required", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Receives routing decisions from the LangGraph agent and sends the appropriate SMTP email: auto-approve confirmation, cost center head approval request (with approve/reject links), or category manager RFQ/RFP initiation notice."
+  }
+}
