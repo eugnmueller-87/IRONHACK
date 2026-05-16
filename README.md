@@ -7,6 +7,22 @@ Focus: autonomous agents, RAG pipelines, LangChain, LangGraph, n8n workflow auto
 
 ## Featured Projects
 
+### Hades — Supplier Due Diligence Agent
+**[github.com/eugnmueller-87/hades](https://github.com/eugnmueller-87/hades)** · FastAPI · LangGraph · Claude Sonnet 4.6 · Upstash Redis · Serper · Railway
+
+A production-deployed autonomous agent that runs full supplier due diligence in under 2 minutes. Part of the **SpendLens** procurement AI stack — Hades gates vendor onboarding by checking sanctions, company registry, LkSG/CSDDD compliance, ESG signals, and live Hermes market intelligence before a supplier is approved.
+
+**What it does:**
+- 6 parallel research nodes fan out from a LangGraph StateGraph: OFAC SDN + UN SC sanctions XML, NorthData registry, BAFA/NCP/NGO LkSG signals, ESG labour risk, newsapi.ai sentiment (last 90 days), and Serper web intelligence
+- Claude Sonnet 4.6 synthesises all signals into a weighted risk score (1–10) across 6 dimensions and generates a structured DD report with executive summary and required next steps
+- Recommendation output: `Approve` / `Conditional Approval` / `Block` — integrates directly into SpendLens vendor onboarding workflows
+- Hermes feedback loop: reads prior Hermes market intelligence pre-flight; registers every investigated supplier to the Hermes watchlist for ongoing monitoring post-report
+- Hard compliance rules enforced: sanctioned entity + priority hit → Block; LkSG red flag → compliance score ≥ 7
+
+**Live:** `https://hades-production-b86a.up.railway.app`
+
+---
+
 ### Autonomous Procurement Triage Agent
 **[WEEK 4 / LAB4](WEEK%204/LAB4/)** · LangGraph · LangChain · ChromaDB · n8n · Claude Sonnet 4.6 · SMTP
 
@@ -68,6 +84,13 @@ Currently in active development — Phase 1 (infrastructure + n8n automation) in
 
 ---
 
+### Week 5 — Production AI Agents
+| Project | What it covers |
+|---|---|
+| [Hades — Supplier DD Agent](https://github.com/eugnmueller-87/hades) | **FastAPI + LangGraph multi-node agent** — 6 parallel research pipelines, OFAC/UN SC sanctions, LkSG/CSDDD compliance, Claude Sonnet 4.6 synthesis + report generation, Hermes Redis integration, Railway deployment |
+
+---
+
 ### Week 4 — Autonomous Agents & n8n
 | Lab | What it covers |
 |---|---|
@@ -88,7 +111,8 @@ Currently in active development — Phase 1 (infrastructure + n8n automation) in
 | LangGraph | Week 3 LAB 4, Week 4 LAB1, Week 4 LAB4 |
 | RAG / ChromaDB / Upstash | Week 2, Week 3 LAB 3, Week 4 LAB4 |
 | n8n | Week 4 LAB2, LAB4, EXTRA 2, EXTRA 3 |
-| Claude (Anthropic) | Week 4 LAB4, EXTRA 2 |
+| Claude (Anthropic) | Week 4 LAB4, EXTRA 2, Week 5 Hades |
+| FastAPI | Week 5 Hades |
 | OpenAI | Week 2–4 |
 | Notion API | Week 4 EXTRA 2 |
 | MCP (Model Context Protocol) | Week 3 LAB 4 |
