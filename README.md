@@ -1,7 +1,7 @@
 # Eugen Mueller — AI Engineering Portfolio
 
-4-week intensive AI engineering bootcamp at Ironhack, plus independent full-stack projects.  
-Focus: autonomous agents, RAG pipelines, LangChain, LangGraph, n8n workflow automation, and real-world AI applications.
+6-week intensive AI engineering bootcamp at Ironhack, plus independent full-stack projects.  
+Focus: autonomous agents, RAG pipelines, LangChain, LangGraph, n8n workflow automation, statistical analysis, and real-world AI applications.
 
 ---
 
@@ -84,6 +84,15 @@ Currently in active development — Phase 1 (infrastructure + n8n automation) in
 
 ---
 
+### Week 6 — Statistical Analysis & Data-Driven Decision Making
+| Lab | What it covers |
+|---|---|
+| [LAB 9 — In God We Trust, Everyone Else Bring the Data](<Week 6/LAB 9/lab_statistical_analysis_eugen_mueller/>) | **Full statistical pipeline** — 90-day marketing channel performance dataset (7 channels), Welch t-tests, Fisher's exact test, Bonferroni + BH-FDR multiple comparisons correction, empirical power analysis (1,000 simulations), $500K budget allocation memo with Cohen's d effect sizes and bootstrap confidence intervals |
+
+![Power Analysis — Detecting CPA Differences](<Week 6/LAB 9/lab_statistical_analysis_eugen_mueller/outputs/power_analysis_screenshot.png>)
+
+---
+
 ### Week 5 — Production AI Agents
 | Project | What it covers |
 |---|---|
@@ -117,6 +126,8 @@ Currently in active development — Phase 1 (infrastructure + n8n automation) in
 | Notion API | Week 4 EXTRA 2 |
 | MCP (Model Context Protocol) | Week 3 LAB 4 |
 | Next.js / Supabase | Kita Connect |
+| pandas / scipy / numpy | Week 6 LAB 9 |
+| matplotlib / seaborn | Week 6 LAB 9 |
 
 ---
 

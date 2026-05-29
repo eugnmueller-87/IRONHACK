@@ -55,6 +55,12 @@ Run in order: `generate_dataset.py` → `data_exploration.ipynb` → `statistica
 **Channels:** Paid Search, Paid Social, Display, Email, Affiliate, SEO Organic, Video  
 **Metrics:** impressions, clicks, conversions, cost, revenue, CTR, conversion rate, CPA, ROAS  
 
+## Power Analysis Output
+
+![Power Analysis — Detecting CPA Differences](outputs/power_analysis_screenshot.png)
+
+The chart shows statistical power (y-axis) vs. days of data (x-axis) for 4 effect sizes. Any difference ≥10% is detectable with >99% power at 90 days. A 5% difference requires ~180 days.
+
 ## Key Findings (TLDR)
 
 - Email dominates: $0.77 CPA vs $52 for Display — 67x more efficient
