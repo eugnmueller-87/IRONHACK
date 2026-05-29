@@ -1,6 +1,6 @@
 # Eugen Mueller — AI Engineering Portfolio
 
-6-week intensive AI engineering bootcamp at Ironhack, plus independent full-stack projects.  
+9-weeks intensive AI engineering bootcamp at Ironhack, plus independent full-stack projects.  
 Focus: autonomous agents, RAG pipelines, LangChain, LangGraph, n8n workflow automation, statistical analysis, and real-world AI applications.
 
 ---
