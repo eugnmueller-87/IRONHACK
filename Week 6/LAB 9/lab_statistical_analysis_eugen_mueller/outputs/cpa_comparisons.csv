@@ -1,0 +1,16 @@
+channel_a,channel_b,mean_cpa_a,mean_cpa_b,difference,pct_difference,t_statistic,p_value,cohens_d,effect_size,significant_raw,significant_bonferroni,p_value_fdr,significant_fdr
+Paid_Search,Paid_Social,32.12,46.82,14.7,45.8,-18.474,8.163873993571117e-40,2.754,large,True,True,1.2245810990356676e-39,True
+Paid_Search,Display,32.12,52.54,20.42,63.6,-26.451,7.09784701632157e-58,3.943,large,True,True,1.5209672177831937e-57,True
+Paid_Search,Email,32.12,0.79,-31.34,-97.6,77.66,1.1623359405275041e-83,-11.577,large,True,True,8.71751955395628e-83,True
+Paid_Search,Affiliate,32.12,29.93,-2.2,-6.8,3.849,0.00016525012646710006,-0.574,medium,True,True,0.00017705370692903578,True
+Paid_Search,Video,32.12,45.63,13.51,42.0,-16.452,1.4562575664476172e-34,2.452,large,True,True,1.985805772428569e-34,True
+Paid_Social,Display,46.82,52.54,5.72,12.2,-6.015,1.0017581308061272e-08,0.897,large,True,True,1.155874766314762e-08,True
+Paid_Social,Email,46.82,0.79,-46.04,-98.3,67.102,4.881091030825241e-78,-10.003,large,True,True,1.8304091365594654e-77,True
+Paid_Social,Affiliate,46.82,29.93,-16.9,-36.1,21.225,3.3585328950865e-46,-3.164,large,True,True,6.297249178287188e-46,True
+Paid_Social,Video,46.82,45.63,-1.19,-2.5,1.205,0.22985931160741524,-0.18,negligible,False,False,0.22985931160741524,False
+Display,Email,52.54,0.79,-51.75,-98.5,78.622,4.562754566407116e-84,-11.72,large,True,True,6.844131849610674e-83,True
+Display,Affiliate,52.54,29.93,-22.62,-43.0,29.283,2.1460865936645288e-63,-4.365,large,True,True,5.365216484161322e-63,True
+Display,Video,52.54,45.63,-6.91,-13.2,7.112,2.7317514035693078e-11,-1.06,large,True,True,3.4146892544616344e-11,True
+Email,Affiliate,0.79,29.93,29.14,3702.6,-72.081,8.068111158586968e-81,10.745,large,True,True,4.034055579293484e-80,True
+Email,Video,0.79,45.63,44.84,5698.2,-62.702,1.8193886723666923e-75,9.347,large,True,True,5.458166017100077e-75,True
+Affiliate,Video,29.93,45.63,15.7,52.5,-19.12,6.172336367019649e-41,2.85,large,True,True,1.028722727836608e-40,True
