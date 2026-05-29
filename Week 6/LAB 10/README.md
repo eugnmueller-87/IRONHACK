@@ -1,5 +1,12 @@
 # LAB 10 — Defend Your Stack's Carbon Story
 
+![Week](https://img.shields.io/badge/Week-6-2E7D32?style=flat-square)
+![Lab](https://img.shields.io/badge/Lab-10-1B5E20?style=flat-square)
+![Path](https://img.shields.io/badge/Path-B%20Retrofit%20Audit-A5D6A7?style=flat-square&logoColor=white)
+![Pillars](https://img.shields.io/badge/GSF%20Pillars-Carbon%20%7C%20Energy%20%7C%20Hardware%20%7C%20Measurement-388E3C?style=flat-square)
+![Slides](https://img.shields.io/badge/Slides-12%20content%20%2B%20title-66BB6A?style=flat-square)
+![Artifact](https://img.shields.io/badge/Artifact-SpendLens-1B5E20?style=flat-square)
+
 **Ironhack AI Engineering Bootcamp | Week 6**  
 **Author:** Eugen Mueller  
 **Path:** B — Green Retrofit Audit of an existing artifact
