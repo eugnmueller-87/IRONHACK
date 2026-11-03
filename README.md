@@ -1,5 +1,15 @@
 # Eugen Mueller — AI Engineering Portfolio
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat&logo=langchain&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG-ChromaDB_%C2%B7_Upstash-FF6B35?style=flat)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat&logo=n8n&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-Anthropic-D97757?style=flat&logo=anthropic&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-Model_Context_Protocol-D97757?style=flat)
+![pandas](https://img.shields.io/badge/pandas_%C2%B7_scipy-150458?style=flat&logo=pandas&logoColor=white)
+
 9-weeks intensive AI engineering bootcamp at Ironhack, plus independent full-stack projects.  
 Focus: autonomous agents, RAG pipelines, LangChain, LangGraph, n8n workflow automation, statistical analysis, and real-world AI applications.
 
