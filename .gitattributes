@@ -1,0 +1,2 @@
+# ffmpeg source that came with the Week 1 audio lab: keep it out of the language stats
+WEEK[[:space:]]1/LAB5/LAB/ffmpeg-8.1/** linguist-vendored
