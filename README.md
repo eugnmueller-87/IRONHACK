@@ -29,7 +29,7 @@ A production-deployed autonomous agent that runs full supplier due diligence in 
 - Hermes feedback loop: reads prior Hermes market intelligence pre-flight; registers every investigated supplier to the Hermes watchlist for ongoing monitoring post-report
 - Hard compliance rules enforced: sanctioned entity + priority hit → Block; LkSG red flag → compliance score ≥ 7
 
-**Live:** `https://hades-production-b86a.up.railway.app`
+**Status:** deployment paused since November 2026
 
 ---
 
